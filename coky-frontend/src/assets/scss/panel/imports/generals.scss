@@ -1,0 +1,32 @@
+hr {
+  width: 1em;
+  height: fit-content;
+  padding-top: 1px;
+  border: none;
+  background-color: $gray;
+  margin: 0em 2em;
+}
+.unselectable {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+.slide {
+  // margin: 0px 1em;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.card{
+  background-color: white;
+  border-radius: $rounded;
+  padding: 1em 2em;
+  border:none;
+}

@@ -1,0 +1,70 @@
+.login.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: $light-back;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: $shadow-sm;
+
+    @media (max-width: 992px) {
+      width: 80vw;
+      align-items: center;
+    }
+    @media (max-width: 480px) {
+      width: 100vw;
+    }
+    h1 {
+      font-size: 1.5em;
+      @media (max-width: 992px) {
+        margin-bottom: 1em;
+      }
+    }
+    div {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+
+      //Media queries
+      @media (max-width: 1640px) {
+      }
+      @media (max-width: 1440px) {
+      }
+      @media (max-width: 1200px) {
+      }
+      @media (max-width: 992px) {
+        flex-direction: column;
+        align-items: center;
+      }
+      @media (max-width: 768px) {
+      }
+      @media (max-width: 600px) {
+      }
+      @media (max-width: 480px) {
+      }
+      @media (max-width: 360px) {
+      }
+      .password {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+    }
+    button{
+      width: min-content;
+    }
+    span {
+      font-size: 0.7em;
+      // margin-bottom: -1em;
+      a {
+        font-size: 1em;
+      }
+    }
+
+  }
+}

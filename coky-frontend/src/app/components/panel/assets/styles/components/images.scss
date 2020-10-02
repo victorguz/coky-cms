@@ -1,0 +1,11 @@
+img{
+    @extend .transition-opacity;
+
+    max-width: 100%;
+
+    &.img-circle{
+        object-fit: cover;
+        border-radius: 50%;
+        height: auto;
+    }
+}

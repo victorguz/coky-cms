@@ -1,0 +1,25 @@
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+  @media (max-width: 480px) {
+    height: 0px;
+  }
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* Track on hover*/
+::-webkit-scrollbar-track:hover {
+  background: transparent;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: $rounded;
+  background: rgb(220, 220, 220);
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(200, 200, 200);
+}
