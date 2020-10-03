@@ -7,8 +7,8 @@ import { ConfigService } from 'src/app/services/config.service';
 export const environment = {
   production: false,
   app_name:ConfigService.app_name,
-  panelRoute:ConfigService.panelRoute,
-  appRoute:ConfigService.appRoute,
+  panelRoute:ConfigService.adminRoute,
+  appRoute:ConfigService.workRoute,
 };
 
 /*

@@ -12,6 +12,7 @@ $black-font:#3D3D3D;
 //Colors for especific components
 $input-back: #f3f3f3;
 $input-back-hover: #f0f0f0;
+.coky {
 
 .bg-primary {
   background-color: $primary;
@@ -33,10 +34,14 @@ $input-back-hover: #f0f0f0;
 .bg-gray{
   background-color: $gray;
 }
+.bg-transparent{
+  background-color: transparent !important;
+}
 .text-white {
   color: $white;
 }
 
 .text-primary {
   color: $primary;
+}
 }

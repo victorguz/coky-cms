@@ -2,11 +2,6 @@
 
 
 @import "imports/variables.scss";
-@import "imports/inputs.scss";
-@import "imports/images.scss";
-@import "imports/scrollbar";
-@import "imports/buttons.scss";
-@import "imports/material-angular.scss";
 
 .coky {
   box-sizing: border-box;
@@ -14,26 +9,6 @@
   font-family: $paragraph-font;
   font-style: normal;
   font-weight: $krub-regular;
-  font-size: 21px;
-  //Media queries
-  @media (max-width: 1640px) {
-    font-size: 18px;
-  }
-  @media (max-width: 1440px) {
-    font-size: 16px;
-  }
-  @media (max-width: 1200px) {
-  }
-  @media (max-width: 992px) {
-  }
-  @media (max-width: 768px) {
-  }
-  @media (max-width: 600px) {
-  }
-  @media (max-width: 480px) {
-  }
-  @media (max-width: 360px) {
-  }
   h1,
   h2,
   h3,
@@ -43,6 +18,9 @@
     font-weight: $krub-semibold;
   }
 }
-
-@import "components/panel-login.component.scss";
+@import "imports/images.scss";
+@import "imports/scrollbar";
+@import "imports/forms.scss";
+@import "imports/material-angular.scss";
+@import "components/admin-login.component.scss";
 

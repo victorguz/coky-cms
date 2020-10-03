@@ -12,8 +12,8 @@ export class ConfigService {
   /**
    * About Routes
    */
-  public static panelRoute= '';
-  public static appRoute= 'app';
+  public static adminRoute= '';
+  public static workRoute= 'work';
 
   /**
    * About Databases

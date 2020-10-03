@@ -1,46 +1,33 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { environment } from 'src/environments/environment';
-import { AppHomeComponent } from './components/app/views/app-home/app-home.component';
-import { PanelHomeComponent } from './components/panel/views/panel-home/panel-home.component';
-import { PanelLoginComponent } from './components/panel/views/panel-login/panel-login.component';
+import { AdminConfigComponent } from './components/view/admin-config/admin-config.component';
+import { AdminDatabasesComponent } from './components/view/admin-databases/admin-databases.component';
+import { AdminHomeComponent } from './components/view/admin-home/admin-home.component';
+import { AdminLoginComponent } from './components/view/admin-login/admin-login.component';
+import { AdminTablesComponent } from './components/view/admin-tables/admin-tables.component';
 import { FunctionsService } from './services/functions.service';
 
-
 /**
- * Panel routes
- * All the routes starts with 'panel/'
+ * Admin routes
+ * All the routes starts with 'admin/'
  */
-const panelRoutes: Routes = [
-  { path: FunctionsService.getRoute("panel","home"), component: PanelHomeComponent ,data:{title:"Inicio Panel"}},
-  { path: FunctionsService.getRoute("panel",""), component: PanelLoginComponent,data:{title:"Login Panel"} },
+const ADMIN_ROUTES: Routes = [
+  { path: FunctionsService.getRoute('admin', 'home'), component: AdminHomeComponent,data: { title: 'Inicio' },},
+  {
+    path: FunctionsService.getRoute('admin', ''),
+    component: AdminLoginComponent,
+    data: { title: 'Login' },
+  },
+  { path: FunctionsService.getRoute('admin', 'config'), component: AdminConfigComponent,data: { title: 'Configuración' },},
+  { path: FunctionsService.getRoute('admin', 'tables'), component: AdminTablesComponent,data: { title: 'Tablas o Módulos' },},
+  { path: FunctionsService.getRoute('admin', 'databases'), component: AdminDatabasesComponent,data: { title: 'Bases de datos' },},
+
 ];
 
-/**
- * App routes
- * All the routes starts with '/'
- */
-const appRoutes: Routes = [
-  { path: FunctionsService.getRoute("app","home"), component: AppHomeComponent, data: { title: 'Inicio' } },
-];
-
-/**
- * All routes to export
- */
 let routes: Routes = [
 ];
 
-/**
- * Add the App Routes to main
- */
-appRoutes.forEach((route) => {
-  routes.push(route);
-});
-
-/**
- * Add the Panel Routes to main
- */
-panelRoutes.forEach((route) => {
+ADMIN_ROUTES.forEach(route => {
   routes.push(route);
 });
 

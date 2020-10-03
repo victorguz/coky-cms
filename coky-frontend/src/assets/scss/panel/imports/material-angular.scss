@@ -9,13 +9,7 @@
     color: black !important;
   }
 
-  .material-icons,
-  .material-icons-outlined {
-    display: flex;
-    padding: 0;
-    align-items: center;
-    justify-content: center;
-  }
+  
   .cdk-focused,
   .cdk-mouse-focused {
     border: none;
@@ -27,40 +21,35 @@
   .mat-flat-button {
     font-family: $paragraph-font;
     font-weight: $krub-medium;
-    height: 2.5em !important;
-    line-height: normal !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: $rounded;
-      min-width: fit-content;
-      span {
-      position: static;
+    height: 2.5rem !important;
+
+    span {
       display: flex;
-    align-items: center;
-    justify-content: center;
-      height: 2.5em !important;
+      align-items: center;
+      justify-content: center;
+      height: 2.5rem !important;
       line-height: normal !important;
-      font-size: 1em !important;
+      font-size: 1rem !important;
       background-color: transparent !important;
-      // min-width: fit-content;
     }
   }
 
+  .mat-icon-button {
+    // width: fit-content;
+    span {
+      background-color: transparent !important;
+    }
+  }
   .mat-dialog-container {
     border-radius: $rounded !important;
   }
-
-  .mat-button-toggle,
-  .mat-button-toggle-group,
-  .mat-button-toggle {
+  .mat-button-toggle-group{
+    border: none;
+  }
+  .mat-button-toggle{
     border: none !important;
-    box-shadow: none !important;
-    outline: none !important;
     div,
     span {
-      line-height: normal !important;
-      padding: 0px 10px !important;
       &:hover,
       &:active,
       &:focus {
@@ -82,17 +71,19 @@
   .mat-menu-content {
     width: fit-content;
     overflow: hidden;
-    .mat-menu-item {
+    .mat-menu-itrem {
       margin: 0px;
       border-radius: 0px;
       display: flex !important;
       align-items: center;
       flex-direction: row;
-      gap: 1em;
+      gap: 1rem;
     }
   }
-
-  .mat-primary {
-    background-color: $primary;
+  .mat-flat-button {
+    &.mat-primary {
+      background-color: $primary;
+      color: white;
+    }
   }
 }

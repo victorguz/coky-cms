@@ -1,0 +1,14 @@
+.coky {
+  &.layout {
+    .mat-drawer-container {
+      height: calc(100vh - 115.5px);
+      //Media queries
+      @media (max-width: 1640px) {
+        height: calc(100vh - 99px);
+      }
+      @media (max-width: 1440px) {
+        height: calc(100vh - 88px);
+      }
+    }
+  }
+}

@@ -1,1 +1,16 @@
-<router-outlet></router-outlet>
+<app-admin-navbar [drawer]="drawer"></app-admin-navbar>
+<div class="coky layout">
+
+    <mat-drawer-container class="content" [hasBackdrop]="'false'">
+
+        <mat-drawer #drawer [mode]="'side'" opened>
+            <app-admin-sidebar></app-admin-sidebar>
+        </mat-drawer>
+        
+        <mat-drawer-content>
+            <router-outlet></router-outlet>
+        </mat-drawer-content>
+
+    </mat-drawer-container>
+
+</div>
