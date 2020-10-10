@@ -1,15 +1,16 @@
 .coky {
-  div.mat-form-field-wrapper {
-    padding-bottom: 0 !important;
-  }
 
-  div.mat-form-field-infix {
-    padding: 0 !important;
-    border-top: 0 !important;
-    color: black !important;
-  }
-
+  // div.mat-form-field-wrapper {
+  //   padding-bottom: 0 !important;
   
+  // }
+
+  // div.mat-form-field-infix {
+  //   padding: 0 !important;
+  //   border-top: 0 !important;
+  //   color: black !important;
+  // }
+
   .cdk-focused,
   .cdk-mouse-focused {
     border: none;
@@ -86,4 +87,6 @@
       color: white;
     }
   }
+
+  
 }

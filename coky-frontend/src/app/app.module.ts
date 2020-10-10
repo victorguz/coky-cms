@@ -13,6 +13,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +30,7 @@ import { AdminSidebarComponent } from './components/layout/admin-sidebar/admin-s
 import { AdminConfigComponent } from './components/view/admin-config/admin-config.component';
 import { AdminTablesComponent } from './components/view/admin-tables/admin-tables.component';
 import { AdminDatabasesComponent } from './components/view/admin-databases/admin-databases.component';
+import { FormsModule } from '@angular/forms';
 
 /**
  * Use ng new c components/panel/[views][layout]/Panel[ComponentName] to create a component to panel
@@ -45,6 +51,7 @@ import { AdminDatabasesComponent } from './components/view/admin-databases/admin
   ],
   imports: [
     //Angular Modules
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -60,6 +67,10 @@ import { AdminDatabasesComponent } from './components/view/admin-databases/admin
     MatIconModule,
     MatSidenavModule,
     MatExpansionModule,
+    MatTabsModule,
+    MatTableModule,
+    MatSelectModule,
+    MatCheckboxModule,
   ],
   providers: [Title],
   bootstrap: [AppComponent],

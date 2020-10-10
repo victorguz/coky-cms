@@ -1,63 +1,8 @@
-$paragraph-font: "Krub";
-$brand-font: "Roboto Slab";
-
-//Some styles
-$rounded: 0.8em;
-$shadow-sm: 0px 2px 3px 0.08px
-  rgba(
-    $color: #e6e6e6,
-    $alpha: 0.5,
-  );
-$shadow-md: 0px 6px 6px 1.5px
-  rgba(
-    $color: #e6e6e6,
-    $alpha: 0.5,
-  );
-$shadow-lg: 0px 10px 30px 3px
-  rgba(
-    $color: #e6e6e6,
-    $alpha: 0.5,
-  );
-$shadow-top: 0px -10px 10px 5px rgba(
-    $color: #e6e6e6,
-    $alpha: 0.5,
-  );
-$shadow-bottom: 0px 10px 10px 5px
-  rgba(
-    $color: #e6e6e6,
-    $alpha: 0.5,
-  );
-$shadow-left: -10px 0px 10px 5px
-  rgba(
-    $color: #e6e6e6,
-    $alpha: 0.5,
-  );
-$shadow-right: 10px 0px 10px 5px
-  rgba(
-    $color: #e6e6e6,
-    $alpha: 0.5,
-  );
-$shadow-lg-dark: 0px 10px 30px 3px
-  rgba(
-    $color: #313131,
-    $alpha: 0.5,
-  );
-$white: white;
-$black: black;
-$light-back: #eff1f8;
-$light-back-hover: #f1f3fa;
-$primary-light: #5ca0ff;
-$primary: #207dfe;
-$primary-hover: #166fec;
-$gray: #9d9d9d;
-$gray-hover: #8d8d8d;
-$black-font: #3d3d3d;
-//Colors for especific components
-$input-back: #f3f3f3;
-$input-back-hover: #f0f0f0;
+@import "../../../../assets/scss/panel/imports/variables.scss";
 
 .sidebar {
   z-index: 9;
+  left: 0px;
   height: 100%;
     .content {
       display: flex;

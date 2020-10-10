@@ -1,6 +1,16 @@
 .coky {
   &.layout {
-    .mat-drawer-container {
+
+    .mat-drawer {
+      border: none;
+      box-shadow: 0px 2px 3px 0.08px
+      rgba(
+        $color: #e6e6e6,
+        $alpha: 0.5,
+      ); //$shadow-sm;
+    }
+    .mat-drawer-content {
+
       height: calc(100vh - 115.5px);
       //Media queries
       @media (max-width: 1640px) {

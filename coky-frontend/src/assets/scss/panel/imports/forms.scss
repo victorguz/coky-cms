@@ -19,10 +19,20 @@
     box-shadow: none;
     background-color: $input-back;
     // width: 100%;
-    line-height: 2.5rem !important;
+    height: 2.5rem;
     padding: 0rem 1rem;
     margin: 0.5rem;
-    font-size: 1rem !important;
+    font-size: 1rem;
+  }
+  textarea {
+    &.input-text {
+      padding: 0.5rem 1rem;
+      height: 4rem;
+      min-width: 100%;
+    }
+  }
+  .select {
+    @extend .input-text;
   }
   .button {
     @extend .input-text;
@@ -97,6 +107,39 @@
       width: auto;
       // margin-left: 5px;
       margin-right: 5px;
+    }
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    label {
+      font-weight: $krub-bold;
+      color: #424242;
+      margin-left: 0.7rem;
+    }
+    .input-text {
+      width: 100%;
+      margin: 0.5rem 0;
+    }
+  }
+  .fields-flow {
+    display: flex;
+    flex-direction: row;
+    flex-flow: nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    .field {
+      width: 100%;
+      ::ng-deep .mat-input-underline {
+        display: none;
+      }      
+    }
+    &.buttons-end {
+      justify-content: flex-end;
+      button {
+        max-width: fit-content !important;
+      }
     }
   }
 }

@@ -17,11 +17,7 @@
             Modulos
         </button>
         <div class="list">
-            <button mat-button [routerLink]="['/']" routerLinkActive="active"
-                [routerLinkActiveOptions]="{exact: true}">
-            <span class="material-icons-round icon">account_circle</span>
-            Usuarios
-        </button>
+            
             <button mat-button>Tareas</button>
             <button mat-button>Posts</button>
             <button mat-button>Cursos</button>
@@ -38,6 +34,14 @@
             <button mat-button>Constraints (Foreign keys, other constraints)</button>
             <button mat-button>Triggers</button>
         </div>
+        <button mat-button [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <span class="material-icons-round icon">account_circle</span>
+            Usuarios
+        </button>
+        <button mat-button [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <span class="material-icons-round icon">email</span>
+            Correos electronicos
+        </button>
     </div>
 
 </nav>
