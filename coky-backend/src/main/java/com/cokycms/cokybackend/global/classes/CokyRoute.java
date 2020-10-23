@@ -1,17 +1,25 @@
 package com.cokycms.cokybackend.global.classes;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class CokyRoute {
 
-    String routeName;
-    String route;
+    private String routeName;
+    private String route;
+    private List<CokyRole> roles;
 
-    private CokyRoute() {
+    public CokyRoute(String routeName, String route, CokyRole role) throws CokyException {
+        setRoute(route);
+        setRouteName(routeName);
+        addRole(role);
     }
 
-    public CokyRoute(String routeName, String route) {
+    public CokyRoute(String routeName, String route, List<CokyRole> roles) {
         try {
             setRoute(route);
             setRouteName(routeName);
+            setRoles(roles);
         } catch (CokyException e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
@@ -38,6 +46,27 @@ public class CokyRoute {
             throw new CokyException("No se puede generar una ruta sin url");
         }
         this.route = route;
+    }
+
+    public List<CokyRole> getRoles() {
+        if (this.roles == null) {
+            this.roles = Arrays.asList();
+        }
+        return this.roles;
+    }
+
+    public void setRoles(List<CokyRole> roles) throws CokyException {
+        if (roles == null || roles.isEmpty()) {
+            throw new CokyException("No se puede generar una ruta sin url");
+        }
+        this.roles = roles;
+    }
+
+    private void addRole(CokyRole role) throws CokyException {
+        if (role == null) {
+            throw new CokyException("No se puede añadir un rol nulo");
+        }
+        getRoles().add(role);
     }
 
     @Override
