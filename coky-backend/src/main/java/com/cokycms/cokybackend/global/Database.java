@@ -41,7 +41,7 @@ public class Database {
         if (_driver == null || _driver.isEmpty()) {
             throw new CokyException("Especifique el driver de la base de datos");
         }
-        driver = _driver;
+        // driver = _driver;
     }
 
     public void setProdConnection(String _host, String _db, String _user, String _pass) throws CokyException {
