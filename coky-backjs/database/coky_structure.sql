@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS `coky_users`;
+CREATE TABLE `coky_users`(
+  `id` INT PRIMARY KEY AUTO_INCREMENT,
+  `first_name` VARCHAR(50) NOT NULL,
+  `second_name` VARCHAR(50),
+  `first_lastname` VARCHAR(50) NOT NULL,
+  `second_lastname` VARCHAR(50),
+  `username` VARCHAR(50) NOT NULL,
+  `password` VARCHAR(50) NOT NULL,
+  `email` TEXT NOT NULL,
+  `data` TEXT DEFAULT NULL,
+  `role` INT NOT NULL DEFAULT 1,
+  `status` INT NOT NULL DEFAULT 1,
+  `created` DATETIME  NOT NULL DEFAULT CURRENT_TIMESTAMP,
+   `modified` DATETIME DEFAULT NULL 
+) ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_bin;

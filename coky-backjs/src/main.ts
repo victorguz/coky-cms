@@ -1,9 +1,8 @@
 import express, { Application } from "express";
-import { personRoutes } from "./core/persons/persons.service";
+import { usersService } from "./app/users/users.service";
 import morgan from "morgan";
 import cors from "cors";
-import { seq, conectar } from "./database";
-import { connect } from "http2";
+
 
 class Main {
 
@@ -21,9 +20,9 @@ class Main {
     }
 
     routes(): void {
-        this.app.use(personRoutes)
-        this.app.use(morgan("dev"))
+        this.app.use(usersService.startRoute, usersService.router)
         this.app.use(cors())
+        this.app.use(morgan("dev"))
         this.app.use(express.json())
         this.app.use(express.urlencoded({ extended: false }))
     }
@@ -31,7 +30,7 @@ class Main {
     start(): void {
         this.app.listen(this.app.get("port"), async () => {
             console.log("On port: " + this.app.get("port"))
-            conectar()
+
         })
     }
 }

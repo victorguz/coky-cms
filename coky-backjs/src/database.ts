@@ -1,30 +1,18 @@
-import { createConnection } from "net";
-import { Sequelize } from "sequelize-typescript";
 import keys from "./keys";
 
+const mariadb = require("mariadb");
 
-export const seq = new Sequelize(
-    keys.database.database,
-    keys.database.user,
-    keys.database.password,
-    {
-        host: keys.database.host,
-        port: keys.database.port,
-        dialect: "mariadb",
-        models: [`${__dirname}/persons/persons.model`,]
-        // dialectOptions:{}
-    },
-);
+const pool = mariadb.createPool(keys.db)
 
-export function conectar() {
-    seq.authenticate().then(async () => {
-        console.log("Sequelize Works!")
-        try {
-            await seq.sync({ force: true })
-        } catch (error) {
-            console.log("Sequelize Works With ERRORS: ", error)
-        }
-    }).catch((error) => {
-        console.log("Sequelize Error: ", error)
-    })
-}
+// async function getConnection() {
+//     try {
+//         const connection = await pool.getConnection();
+//         return connection;
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
+pool.getConnection();
+
+export default pool;
+// export default getConnection().then(connection =>{});
