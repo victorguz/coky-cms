@@ -12,7 +12,7 @@ export class User extends Model {
     public MAPPER: FieldMapper[] = [
         {
             name: "id",
-            type: "int(11)",
+            type: "int",
             null: false,
             key: "PRI",
             default: null,
@@ -21,7 +21,7 @@ export class User extends Model {
         },
         {
             name: "first_name",
-            type: "varchar(50)",
+            type: "varchar", length: 50,
             null: false,
             key: null,
             default: null,
@@ -29,7 +29,7 @@ export class User extends Model {
         },
         {
             name: "second_name",
-            type: "varchar(50)",
+            type: "varchar", length: 50,
             null: true,
             key: null,
             default: null,
@@ -37,7 +37,7 @@ export class User extends Model {
         },
         {
             name: "first_lastname",
-            type: "varchar(50)",
+            type: "varchar", length: 50,
             null: false,
             key: null,
             default: null,
@@ -45,7 +45,7 @@ export class User extends Model {
         },
         {
             name: "second_lastname",
-            type: "varchar(50)",
+            type: "varchar", length: 50,
             null: true,
             key: null,
             default: null,
@@ -53,7 +53,7 @@ export class User extends Model {
         },
         {
             name: "username",
-            type: "varchar(50)",
+            type: "varchar", length: 50,
             null: false,
             key: null,
             default: null,
@@ -61,7 +61,7 @@ export class User extends Model {
         },
         {
             name: "password",
-            type: "varchar(50)",
+            type: "varchar", length: 50,
             null: false,
             key: null,
             default: null,
@@ -85,7 +85,7 @@ export class User extends Model {
         },
         {
             name: "role",
-            type: "int(11)",
+            type: "int",
             null: false,
             key: null,
             default: "1",
@@ -93,7 +93,7 @@ export class User extends Model {
         },
         {
             name: "status",
-            type: "int(11)",
+            type: "int",
             null: false,
             key: null,
             default: "1",

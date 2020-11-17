@@ -1,3 +1,4 @@
+import { CokyError } from "./exceptions";
 import { Functions as func } from "./functions";
 
 export abstract class Model {
@@ -17,25 +18,33 @@ export abstract class Model {
 
     check(field_name: string, value: any): any {
         let new_value: any;
+
         this.MAPPER.forEach(element => {
-
             if (field_name == element.name) {
-                let check = func.checkSQLType(element.type, value);
 
-                console.log(check ? true : false)
-                // console.log(check)
-                if (check) {
-                    new_value = value;
-                    // } if (isNaN(check)) {
-                    // console.log("El campo '" + field_name + "' no es de tipo " + element.type);
-                    // new_value = check;
+                value = func.isNullNaNOrUndefined(value) ? null : value;//Chequear si el valor es null, NaN o undefined
+                let checkNull = element.null == false && value == null;//Chequear si NO está permitido el valor nulo y si el valor es nulo.
+
+                /**
+                 * Si no puede ser nulo y es null:true/error
+                 * Si no puede ser nulo y no es null: false/next
+                 * Si puede ser nulo:false/next
+                 */
+                if (checkNull) {
+                    throw new CokyError("NOT_NULL", "MAPPER", element);
                 } else {
-                    let isNumber = element.type.includes("number") || element.type.includes("int") || element.type.includes("double");
-                    new_value = isNumber ? -1 : null;
-                };
-
+                    //Chequear si value:any es del tipo correcto.
+                    let checkType = func.checkSQLType(element.type, value);
+                    if (checkType) {
+                        if (func.typeOf("string", value) && element.length != undefined && value.length > element.length) {
+                            throw new CokyError("MAX_LENGTH", "MAPPER", element);
+                        }
+                        new_value = value;
+                    } else {
+                        throw new CokyError("TYPE_ERROR", "MAPPER", element);
+                    }
+                }
             }
-
         });
         return new_value;
     }
@@ -49,12 +58,13 @@ export interface ModelEntity {
     table: String;
 }
 
-export interface FieldMapper {
-    name: string,
-    type: string,
-    null?: boolean,
-    key?: string | null,
-    default?: any,
+export class FieldMapper {
+    name!: string;
+    type!: string;
+    length?: number = 99999999
+    null?: boolean = true
+    key?: string | null
+    default?: any
     extra?: any
     check?: any
 }
