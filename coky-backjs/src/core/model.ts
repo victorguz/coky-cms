@@ -29,10 +29,9 @@ export abstract class Model {
      * @param value valor evaluado
      */
     check(field_name: string, value: any): any {
-        let new_value: any;
+        let new_value: any = value;
         this.MAPPER.forEach(element => {
             if (field_name == element.name) {
-
                 value = check.isNullUndefinedOrEmpty(value) ? null : value;//Chequear si el valor es null, NaN o undefined
                 let checkNull = element.null == false && value == null;//Chequear si NO está permitido el valor nulo y si el valor es nulo.
 
