@@ -1,6 +1,6 @@
-# Coky CMS es un backend ligero y funcional que puede ser utilizado para desarrollar tanto apis como aplicaciones web completas.
+# Coky CMS.
 
-Coky CMS hace fácil el desarrollo de API's dado que en su núcleo contiene todo lo necesario para que crear un servicio sea cuestión de unas cuantas líneas.
+*Es un backend ligero y funcional que puede ser utilizado para desarrollar tanto apis como aplicaciones web completas.* Coky CMS hace fácil el desarrollo de API's dado que en su núcleo contiene todo lo necesario para que crear un servicio sea cuestión de unas cuantas líneas.
 También es posible utilizar Coky para hacer una aplicación web completa (backend y frontend), solo tendría que elegir el marco de trabajo que desee, por ejemplo *headlebars* o cualquier otro.
 
 ## Qué tiene Coky CMS
