@@ -1,10 +1,11 @@
-import { Router, Request, Response } from "express";
-import { Service } from "../../core/service";
+import { Service } from "../../../core/service";
 import { usersController } from "./users.controller";
 import { User } from "./users.model";
 
-class UsersService extends Service<User, number>{
+class UsersService extends Service<User>{
+
     public startRoute: string = "/users"
+
     getRoutes(): void {
         super.getRoutes()
     }

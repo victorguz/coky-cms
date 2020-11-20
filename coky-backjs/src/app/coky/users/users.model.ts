@@ -1,4 +1,4 @@
-import { FieldMapper, Model, ModelEntity } from "../../core/model";
+import { FieldMapper, Model, ModelEntity } from "../../../core/model";
 
 
 export class User extends Model {
@@ -6,98 +6,81 @@ export class User extends Model {
     public static ENTITY: ModelEntity = {
         name: "User",
         plural_name: "Users",
-        table: "coky_users"
+        table: "coky_users",
+        model: new User()
     };
 
     public MAPPER: FieldMapper[] = [
         {
             name: "id",
             type: "int",
-            null: false,
-            key: "PRI",
-            default: null,
+            key: "primary",
             extra: "auto_increment",
-            check: "int",
         },
         {
             name: "first_name",
             type: "varchar", length: 50,
             null: false,
-            key: null,
-            default: null,
-            extra: null,
         },
         {
             name: "second_name",
             type: "varchar", length: 50,
             null: true,
-            key: null,
-            default: null,
-            extra: null,
         },
         {
             name: "first_lastname",
             type: "varchar", length: 50,
             null: false,
-            key: null,
-            default: null,
-            extra: null,
         },
         {
             name: "second_lastname",
             type: "varchar", length: 50,
             null: true,
-            key: null,
-            default: null,
-            extra: null,
         },
         {
             name: "username",
             type: "varchar", length: 50,
             null: false,
-            key: null,
-            default: null,
-            extra: null,
         },
         {
             name: "password",
             type: "varchar", length: 50,
             null: false,
-            key: null,
-            default: null,
-            extra: null,
+            check: "password",
         },
         {
             name: "email",
             type: "text",
             null: false,
-            key: null,
-            default: null,
-            extra: null,
+            check: "email",
         },
         {
             name: "data",
             type: "text",
             null: true,
-            key: null,
-            default: null,
-            extra: null,
+            check: "json",
         },
         {
             name: "role",
             type: "int",
             null: false,
-            key: null,
             default: "1",
-            extra: null,
         },
         {
             name: "status",
             type: "int",
             null: false,
-            key: null,
             default: "1",
-            extra: null,
+        },
+        {
+            name: "created",
+            type: "datetime",
+            null: true,
+        },
+        {
+            name: "modified",
+            type: "datetime",
+            null: true,
         }
     ];
 
@@ -121,7 +104,6 @@ export class User extends Model {
             if (Object.prototype.hasOwnProperty.call(json, key)) {
                 const value = json[key];
                 this.setKeyValue(key, value);
-                console.log(key, this.getKeyValue(key))
             }
         }
     }
@@ -204,21 +186,22 @@ export class User extends Model {
         }
     }
     get(): any {
-        return {
-            id: this.id,
-            first_name: this.first_name,
-            second_name: this.second_name,
-            first_lastname: this.first_lastname,
-            second_lastname: this.second_lastname,
-            username: this.username,
-            password: this.password,
-            email: this.email,
-            data: this.data,
-            role: this.role,
-            status: this.status,
-            created: this.created,
-            modified: this.modified
+        const user = {
+            id: this.check("id", this.id),
+            first_name: this.check("first_name", this.first_name),
+            second_name: this.check("second_name", this.second_name),
+            first_lastname: this.check("first_lastname", this.first_lastname),
+            second_lastname: this.check("second_lastname", this.second_lastname),
+            username: this.check("username", this.username),
+            password: this.check("password", this.password),
+            email: this.check("email", this.email),
+            data: this.check("data", this.data),
+            role: this.check("role", this.role),
+            status: this.check("status", this.status),
+            created: this.check("created", this.created),
+            modified: this.check("modified", this.modified)
         };
+        return user;
     }
 
 }

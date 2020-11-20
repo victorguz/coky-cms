@@ -1,5 +1,5 @@
 import express, { Application } from "express";
-import { usersService } from "./app/users/users.service";
+import { usersService } from "./app/coky/users/users.service";
 import morgan from "morgan";
 import cors from "cors";
 
@@ -29,7 +29,6 @@ class Main {
     start(): void {
         this.app.listen(this.app.get("port"), async () => {
             console.log("On port: " + this.app.get("port"))
-
         })
     }
 }
