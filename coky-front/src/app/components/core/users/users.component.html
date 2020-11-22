@@ -1,0 +1,29 @@
+<div class="container">
+  <p>Hola works!</p>
+  <table datatable class="row-border hover">
+    <thead>
+      <tr>
+        <ng-container *ngFor="let column of columns">
+          <th>{{column}}</th>
+        </ng-container>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data">
+        <td>{{ item.id }}</td>
+        <td>{{ item.firstname }}</td>
+        <td>{{ item.secondname }}</td>
+        <td>{{ item.first_lastname }}</td>
+        <td>{{ item.second_lastname }}</td>
+        <td>{{ item.username }}</td>
+        <td>{{ item.password }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.data }}</td>
+        <td>{{ item.status }}</td>
+        <td>{{ item.role }}</td>
+        <td>{{ item.created }}</td>
+        <td>{{ item.modified }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

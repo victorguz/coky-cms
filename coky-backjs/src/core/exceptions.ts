@@ -10,6 +10,10 @@ export class CokyError extends Error {
         { name: "NOT_ALLOWED", message: "El campo 'field_name' no hace match con el tipo 'check_name'." },
     ]
 
+    CONTROLLER = [
+        { name: "BODY_ERROR", message: "El cuerpo de la petición no tiene los parámetros necesarios." },
+        { name: "FIELDS_VALUES_LENGTH", message: "La longitud de los campos debe ser igual que la de los valores." },
+    ]
     constructor(name: string, type: string, element: any = null) {
         super();
         this.message = this.getMessage(name, type, element);

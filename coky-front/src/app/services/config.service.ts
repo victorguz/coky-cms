@@ -1,0 +1,22 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class ConfigService {
+  /**
+   * About App
+   */
+  public static app_name = 'Coky';
+
+  /**
+   * About Routes
+   */
+  public static adminRoute = '';
+  public static clientRoute = 'work';
+
+  /**
+   * About Databases
+   */
+  constructor() { }
+}

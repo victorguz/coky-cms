@@ -21,7 +21,7 @@ export abstract class Controller<T> {
     }
 
     /**
-     * Devuelve todos los registros de la tabla ${this.entity.table} teniendo en cuenta el limit y offset
+     * Devuelve todos los campos de los registros de la tabla ${this.entity.table} teniendo en cuenta el limit y offset
      * @param req request 
      * @param res response
      */
@@ -32,11 +32,10 @@ export abstract class Controller<T> {
             LIMIT ${limit ? limit : 100}  OFFSET ${offset ? offset : 0} `;
             const result = await pool.query(query);
             res.send(result)
-        } catch (error) {
-            console.log(error)
+        } catch (err) {
+            res.json({ error: err, message: err.message });
         }
     }
-
 
     /**
      * Devuelve todos los registros de ${this.entity.table} que coinciden con la columna y el valor dado, utilizando limit? y offset?.
@@ -53,8 +52,8 @@ export abstract class Controller<T> {
 
             const result = await pool.query(query);
             res.json(result)
-        } catch (error) {
-            console.log(error)
+        } catch (err) {
+            res.json({ error: err, message: err.message });
         }
     }
 
@@ -78,8 +77,8 @@ export abstract class Controller<T> {
             const result = await pool.query(query);
 
             res.json(result)
-        } catch (error) {
-            console.log(error)
+        } catch (err) {
+            res.json({ error: err, message: err.message });
         }
     }
 
@@ -111,8 +110,8 @@ export abstract class Controller<T> {
 
             const result = await pool.query(query);
             res.json(result)
-        } catch (error) {
-            console.log(error)
+        } catch (err) {
+            res.json({ error: err, message: err.message });
         }
     }
 
@@ -123,14 +122,21 @@ export abstract class Controller<T> {
      */
     public async create(req: Request, res: Response): Promise<void> {
         try {
-            // await pool.query("INSERT INTO coky_users (first_name, second_name, first_lastname, second_lastname, username, password, email, data, role, status) VALUES (?)", [req.body])
-            // await pool.query("INSERT INTO coky_users VALUES (?)", [req.body])
-            // console.log(req.params)
-            this.entity.model.set(req.body);
-            console.log(this.entity.model.get())
-            res.json({ userr: this.entity.model.get(), body: req.body })
-        } catch (error) {
-            console.log(error)
+            let { fields, values } = req.body;
+            if (!fields && !values) {
+                throw new CokyError("BODY_ERROR", "CONTROLLER");
+            }
+            if (fields.length != values.length) {
+                throw new CokyError("FIELDS_VALUES_LENGTH", "CONTROLLER")
+            }
+
+            let query = "INSERT INTO " + this.entity.table + " ( " + fields + " ) VALUES (?)";
+            await pool.query(query, [values]);
+
+            // console.log(req.body.entity);
+            res.json(req.body);
+        } catch (err) {
+            res.json({ error: err, message: err.message });
         }
     }
     /**
@@ -141,13 +147,36 @@ export abstract class Controller<T> {
     public async update(req: Request, res: Response): Promise<void> {
         try {
             const { id } = req.params;
-            await pool.query("UPDATE coky_users SET ");
+            let { fields, values } = req.body;
+            let query = "UPDATE " + this.entity.table + " SET "
+            let where = " WHERE "
+            if (!fields && !values) {
+                throw new CokyError("BODY_ERROR", "CONTROLLER");
+            }
+            if (fields.length != values.length) {
+                throw new CokyError("FIELDS_VALUES_LENGTH", "CONTROLLER")
+            }
+            for (let i = 0; i < fields.length; i++) {
+                let field = fields[i];
+                let value = values[i];
+                if (check.isType("string", value)) {
+                    value = "'" + value + "'";
+                }
+                if (field != "id") {
+                    query += field + " = " + value + ", ";
+                } else {
+                    where += field + " = " + value + " LIMIT 1 ";
+                }
+            }
+            query += where;
+            await pool.query(query, [fields]);
+
             res.json({
                 message: "El usuario ha sido actualizado.",
                 id: id
             })
-        } catch (error) {
-            console.log(error)
+        } catch (err) {
+            res.json({ error: err, message: err.message });
         }
     }
 
@@ -164,8 +193,8 @@ export abstract class Controller<T> {
                 message: "El usuario ha sido eliminado.",
                 id: id
             })
-        } catch (error) {
-            console.log(error)
+        } catch (err) {
+            res.json({ error: err, message: err.message });
         }
     }
 
@@ -178,8 +207,8 @@ export abstract class Controller<T> {
         try {
             const result = await pool.query("DESCRIBE coky_users");
             res.json(result)
-        } catch (error) {
-            console.log(error)
+        } catch (err) {
+            res.json({ error: err, message: err.message });
         }
     }
 
