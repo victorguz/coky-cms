@@ -45,37 +45,31 @@ export abstract class Controller<T> {
      */
     public async by(req: Request, res: Response) {
         try {
-            const { column, value } = req.params;
-
-            let query = `SELECT * FROM ${this.entity.table} 
-            WHERE ${column ? column : "id"} = ${value ? value : "null"} ORDER BY id DESC`
-
-            const result = await pool.query(query);
-            res.json(result)
-        } catch (err) {
-            res.json({ error: err, message: err.message });
-        }
-    }
-
-    /**
-     * Devuelve un solo registro de ${this.entity.table} que coincide con la columna y el valor dado
-     * @param req request 
-     * @param res response
-     */
-    public async oneBy(req: Request, res: Response) {
-        try {
-            const { column, value } = req.params;
-            if (column && !check.isType("string", column)) {
-                throw new CokyError("TYPE_ERROR", "CONTOLLER", { method: "orderby", field: "column" });
+            let { column, value, limit, offset } = req.params;
+            if (!check.isNullUndefinedOrEmpty(column) && Number.isInteger(column)) {
+                res.json({ message: "column is not string" })
+                // throw new CokyError("TYPE_ERROR", "CONTOLLER", { method: "by", field: "column" });
             }
-            if (value && check.isNullUndefinedOrEmpty(value)) {
-                throw new CokyError("TYPE_ERROR", "CONTOLLER", { method: "orderby", field: "value" });
+            if (!check.isNullUndefinedOrEmpty(limit) && !Number(limit) && !Number.isInteger(limit)) {
+                res.json({ message: "limit is not int" })
+                // throw new CokyError("TYPE_ERROR", "CONTOLLER", { method: "by", field: "limit" });
+            }
+            if (!check.isNullUndefinedOrEmpty(offset) && !Number(offset) && !Number.isInteger(offset)) {
+                res.json({ message: "offset is not int" })
+                // throw new CokyError("TYPE_ERROR", "CONTOLLER", { method: "by", field: "offset" });
+            }
+            if (!check.isNullUndefinedOrEmpty(value) && !Number.isInteger(value) && !Number(value)) {
+                res.json({ message: "value is not number" })
+                value = "'" + value + "'";
             }
 
             let query = `SELECT * FROM ${this.entity.table} 
-            WHERE ${column ? column : "id"} = ${value ? value : "null"} ORDER BY id DESC LIMIT 1`
-            const result = await pool.query(query);
-
+            WHERE ${column ? column : "id"} = ${value ? value : "null"} 
+            ORDER BY id DESC LIMIT ${limit ? limit : 100} OFFSET  ${offset ? offset : 0}`;
+            let result = await pool.query(query);
+            if (Number(limit) == 1 && result.length >= 1) {
+                result = result[0];
+            }
             res.json(result)
         } catch (err) {
             res.json({ error: err, message: err.message });
@@ -159,15 +153,19 @@ export abstract class Controller<T> {
             for (let i = 0; i < fields.length; i++) {
                 let field = fields[i];
                 let value = values[i];
-                if (check.isType("string", value)) {
+
+                if (!check.isType("number", value)) {
                     value = "'" + value + "'";
                 }
+
                 if (field != "id") {
                     query += field + " = " + value + ", ";
                 } else {
                     where += field + " = " + value + " LIMIT 1 ";
                 }
+
             }
+
             query += where;
             await pool.query(query, [fields]);
 

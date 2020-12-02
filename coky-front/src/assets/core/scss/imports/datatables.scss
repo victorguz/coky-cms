@@ -1,0 +1,30 @@
+.coky {
+  table {
+    border-radius: $rounded;
+    border: $border;
+
+    thead,
+    tfoot {
+      tr {
+        th {
+          border: $border;
+          border-width: 0px 1px 0px 0;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        @extend .transitions05;
+
+        td {
+          border: $border;
+        }
+
+        &:hover {
+          box-shadow: $shadow-sm !important;
+        }
+      }
+    }
+  }
+}

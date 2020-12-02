@@ -1,0 +1,39 @@
+.rounded {
+  border-radius: $rounded;
+}
+
+.border {
+  border: $border;
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+}
+
+.form-control {
+  border-radius: $rounded;
+}
+
+.btn {
+  @extend .transitions02;
+  border: none;
+  box-shadow: $shadow-sm !important;
+  // box-shadow: none !important;
+
+  &:active,
+  &:focus,
+  &:hover {
+    box-shadow: $shadow-sm !important;
+  }
+}
+
+.modal-content {
+  border: $border;
+  border-radius: $rounded;
+
+  .modal-header {}
+
+  .modal-body {}
+
+  .modal-footer {}
+}

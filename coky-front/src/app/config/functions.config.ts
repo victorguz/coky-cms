@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ConfigService as conf } from './config.service';
+import { FieldMapper } from '../core/model';
+import { ConfigService as conf } from './config.config';
 
 @Injectable({
   providedIn: 'root',
@@ -30,5 +31,25 @@ export class FunctionsService {
 
   public static getClientRoute(route: string) {
     this.getRoute("client", route)
+  }
+
+  public static createInput(title: string, placeholder: string = "", type: string = "text", variableName?: string) {
+    return `
+
+
+        <div class="form-group col-6">
+          <label>${title}</label>
+          <input type="text" class="form-control" placeholder="${placeholder}" ${variableName ? `[(ngModel)]="${variableName}"` : ""}>
+        </div>
+    `;
+  }
+
+  public static createBootstrapForm(mapper: FieldMapper[], variableName) {
+    let html = "";
+    mapper.forEach(field => {
+      let name = field.name.replace("_", " ");
+      html += FunctionsService.createInput(name, name, "text", variableName + "." + field.name)
+    });
+    return html;
   }
 }

@@ -49,6 +49,7 @@ export abstract class Service<T> {
     by() {
         this.router.get("/by/:value", async (req, res) => { this.controller.by(req, res); });
         this.router.get("/by/:column/:value", async (req, res) => { this.controller.by(req, res); });
+        this.router.get("/by/:column/:value/:limit", async (req, res) => { this.controller.by(req, res); });
         this.router.get("/by/:column/:value/:limit/:offset", async (req, res) => { this.controller.by(req, res); });
     }
 
@@ -57,6 +58,7 @@ export abstract class Service<T> {
      */
     orderby() {
         this.router.get("/orderby/:column/:order", async (req, res) => { this.controller.orderby(req, res); });
+        this.router.get("/orderby/:column/:order/:limit", async (req, res) => { this.controller.orderby(req, res); });
         this.router.get("/orderby/:column/:order/:limit/:offset", async (req, res) => { this.controller.orderby(req, res); });
     }
 
