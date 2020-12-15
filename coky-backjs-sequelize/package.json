@@ -1,0 +1,33 @@
+{
+  "name": "coky-backjs-sequelize",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon build/main.js",
+    "start": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mariadb": "^2.5.1",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.3.5",
+    "sequelize-typescript": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.33",
+    "@types/cors": "^2.8.8",
+    "@types/express": "^4.17.8",
+    "@types/morgan": "^1.9.2",
+    "@types/node": "^14.14.13",
+    "@types/validator": "^13.1.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6"
+  }
+}
