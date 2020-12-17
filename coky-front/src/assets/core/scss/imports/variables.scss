@@ -1,9 +1,10 @@
 //colors
-$back:#fbfbfe;
+$back:#EDF1F6;
 $blue:#1092EE;
+$border-color:#eff3f5;
 //sizes
 $rounded:4px;
-$border:1px solid #eff3f5;
+$border:1px solid $border-color;
 //effects
 $shadow-xs:0 1px 1px 0 rgba(0, 0, 0, .1);
 $shadow-sm:0 2px 4px rgba(174, 190, 205, .3);

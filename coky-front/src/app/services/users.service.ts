@@ -22,12 +22,21 @@ export class UsersService {
 
   }
   /**
+   * El método "getOne" utiliza el metodo by para obtener un solo registro
+   * 
+   */
+  async getOne(value: any, column: string = "id") {
+    let result = await this.by(value, column, 1, 0);
+    return result.length > 0 ? result[0] : null;
+  }
+
+  /**
    * El método "By" devuelve los registros que coinciden con 
    * la columna y el valor dado. También se puede definir un limit y offset
    * 
    */
-  async by(value: string, column: string = "id", limit: number = 100, offset: number = 0) {
-    value = Checks.isNullUndefinedOrEmpty(value) ? "-1" : value;
+  async by(value: any, column: string = "id", limit: number = 100, offset: number = 0) {
+    return await this.service.by(value, column, limit, offset);
   }
 
   /**

@@ -16,6 +16,8 @@ export interface UserI {
     modified?: Date;
 }
 export class User extends Model {
+
+
     entity: UserI;
 
     public MAPPER: FieldMapper[] = [
@@ -95,7 +97,7 @@ export class User extends Model {
 
 
 
-    set(json: any): void {
+    set(json: UserI): void {
         for (const key in json) {
             if (Object.prototype.hasOwnProperty.call(json, key)) {
                 const value = json[key];
@@ -186,3 +188,6 @@ export class User extends Model {
     }
 
 }
+
+
+

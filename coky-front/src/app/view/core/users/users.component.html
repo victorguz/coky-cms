@@ -1,0 +1,95 @@
+<div class="coky">
+  <div class="container">
+
+    <div *ngIf='id==0'>
+      <datatable *ngIf="users.length" [data]="users" [columns]="columns" [perPage]="10" [detailsRoute]="detailsRoute">
+      </datatable>
+    </div>
+
+    <ng-container *ngIf="id!=0">
+      <div *ngIf='detailsUser && detailsUser.id' class="card">
+        <div class="card-body">
+          <h4>Detalles del usuario</h4>
+
+          <div class="d-flex align-items-center">
+            <strong class="mr-1">Nombre:</strong>
+            <p class="m-0">{{detailsUser.first_name | titlecase}} {{detailsUser.second_name | titlecase}}
+              {{detailsUser.first_lastname | titlecase}} {{detailsUser.second_lastname | titlecase}}</p>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <strong class="mr-1">Nombre de usuario:</strong>
+            <p class="m-0">{{detailsUser.username | titlecase}}</p>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <strong class="mr-1">Email:</strong>
+            <a href="mailto:{{detailsUser.email}}">{{detailsUser.email}}</a>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <strong class="mr-1">Rol:</strong>
+            <p class="m-0">{{get("role",detailsUser.role) | titlecase}}</p>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <strong class="mr-1">Estado:</strong>
+            <p class="m-0">{{get("status",detailsUser.status) | titlecase}}</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="heading">
+        <hr>
+
+        <button class="btn btn-danger" data-toggle="collapse" href="#collapseDelete" role="button" aria-expanded="false"
+          aria-controls="collapseDelete">Eliminar</button>
+
+        <button class="btn btn-primary" data-toggle="collapse" href="#collapseEdit" role="button" aria-expanded="false"
+          aria-controls="collapseEdit">Editar</button>
+
+        <hr>
+      </div>
+
+      <!-- <div *ngIf='method=="details"&&selectedUser.role==1'> -->
+      <div *ngIf='editUser && editUser.id' class="card collapse" id="collapseEdit">
+
+        <div class="card-body">
+          <h4>Edición del usuario</h4>
+
+          <div class="form-group">
+            <strong for="exampleInputEmail1">Email address</strong>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              placeholder="Enter email">
+          </div>
+
+          <div class="form-group">
+            <strong for="exampleInputPassword1">Password</strong>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+
+        </div>
+
+      </div>
+
+      <div *ngIf='editUser && editUser.id' class="card collapse" id="collapseDelete">
+
+        <div class="card-body text-center d-flex flex-column align-items-center">
+          <h4>¿Realmente deseas eliminar este registro?</h4>
+          <p>Este proceso no se puede deshacer.</p>
+
+          <div class="d-flex">
+            <button class="btn btn-secondary mr-2">Eliminar</button>
+            <button class="btn btn-primary">Cancelar</button>
+          </div>
+
+        </div>
+
+      </div>
+    </ng-container>
+  </div>
+</div>

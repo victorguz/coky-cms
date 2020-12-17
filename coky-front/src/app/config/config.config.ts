@@ -12,7 +12,7 @@ export class ConfigService {
   /**
    * About Routes
    */
-  public static adminRoute = '';
+  public static adminRoute = 'admin';
   public static clientRoute = 'work';
 
   /**

@@ -1,10 +1,14 @@
 .coky {
+
+
   table {
     border-radius: $rounded;
     border: $border;
+    background-color: white;
 
     thead,
     tfoot {
+
       tr {
         th {
           border: $border;

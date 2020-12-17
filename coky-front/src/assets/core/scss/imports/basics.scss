@@ -1,0 +1,48 @@
+.coky {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  box-sizing: border-box;
+  background-color: $back;
+  margin: 0;
+  padding: 0;
+
+  .heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    word-wrap: none;
+    white-space: nowrap;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    span,
+    strong,
+    b {
+      margin: 0;
+      padding: 0;
+    }
+
+    &.vertical {
+      flex-direction: column;
+
+      hr {
+        height: 100px;
+        width: 3px;
+      }
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      width: 100%;
+      background-color: rgb(223, 223, 223);
+      border-radius: 100px !important;
+    }
+  }
+}

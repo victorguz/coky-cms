@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import pool from "../config/database"
-import { CokyError } from "./exceptions";
 import { Checks as check } from "./checks";
+import { CokyErrors } from "./errors";
 import { ModelEntity } from "./model";
 
 /**
@@ -33,7 +33,12 @@ export abstract class Controller<T> {
             const result = await pool.query(query);
             res.send(result)
         } catch (err) {
-            res.json({ error: err, message: err.message });
+            if (err.message.includes("SQL")) {
+                let message = CokyErrors.getMessage(err.message, "MYSQL")
+                res.status(500).json({ error: err, message: message });
+            } else {
+                res.status(500).json({ error: err, message: err.message });
+            }
         }
     }
 
@@ -48,15 +53,15 @@ export abstract class Controller<T> {
             let { column, value, limit, offset } = req.params;
             if (!check.isNullUndefinedOrEmpty(column) && Number.isInteger(column)) {
                 res.json({ message: "column is not string" })
-                // throw new CokyError("TYPE_ERROR", "CONTOLLER", { method: "by", field: "column" });
+                // throw new Error("TYPE_ERROR", "CONTOLLER", { method: "by", field: "column" });
             }
             if (!check.isNullUndefinedOrEmpty(limit) && !Number(limit) && !Number.isInteger(limit)) {
                 res.json({ message: "limit is not int" })
-                // throw new CokyError("TYPE_ERROR", "CONTOLLER", { method: "by", field: "limit" });
+                // throw new Error("TYPE_ERROR", "CONTOLLER", { method: "by", field: "limit" });
             }
             if (!check.isNullUndefinedOrEmpty(offset) && !Number(offset) && !Number.isInteger(offset)) {
                 res.json({ message: "offset is not int" })
-                // throw new CokyError("TYPE_ERROR", "CONTOLLER", { method: "by", field: "offset" });
+                // throw new Error("TYPE_ERROR", "CONTOLLER", { method: "by", field: "offset" });
             }
             if (!check.isNullUndefinedOrEmpty(value) && !Number.isInteger(value) && !Number(value)) {
                 res.json({ message: "value is not number" })
@@ -72,7 +77,12 @@ export abstract class Controller<T> {
             }
             res.json(result)
         } catch (err) {
-            res.json({ error: err, message: err.message });
+            if (err.message.includes("SQL")) {
+                let message = CokyErrors.getMessage(err.message, "MYSQL")
+                res.status(500).json({ error: err, message: message });
+            } else {
+                res.status(500).json({ error: err, message: err.message });
+            }
         }
     }
 
@@ -86,16 +96,16 @@ export abstract class Controller<T> {
         try {
             const { column, order, limit, offset } = req.params;
             if (column && !check.isType("string", column)) {
-                throw new CokyError("TYPE_ERROR", "CONTOLLER", { method: "orderby", field: "column" });
+                throw new Error(CokyErrors.getMessage("TYPE_ERROR", "CONTOLLER", { method: "orderby", field: "column" }));
             }
             if (order && !check.isType("string", order)) {
-                throw new CokyError("TYPE_ERROR", "CONTOLLER", { method: "orderby", field: "order" });
+                throw new Error(CokyErrors.getMessage("TYPE_ERROR", "CONTOLLER", { method: "orderby", field: "order" }));
             }
             if (limit && !check.isType("int", limit)) {
-                throw new CokyError("TYPE_ERROR", "CONTOLLER", { method: "orderby", field: "limit" });
+                throw new Error(CokyErrors.getMessage("TYPE_ERROR", "CONTOLLER", { method: "orderby", field: "limit" }));
             }
             if (offset && !check.isType("int", offset)) {
-                throw new CokyError("TYPE_ERROR", "CONTOLLER", { method: "orderby", field: "offset" });
+                throw new Error(CokyErrors.getMessage("TYPE_ERROR", "CONTOLLER", { method: "orderby", field: "offset" }));
             }
 
             let query = `SELECT * FROM ${this.entity.table} 
@@ -105,7 +115,12 @@ export abstract class Controller<T> {
             const result = await pool.query(query);
             res.json(result)
         } catch (err) {
-            res.json({ error: err, message: err.message });
+            if (err.message.includes("SQL")) {
+                let message = CokyErrors.getMessage(err.message, "MYSQL")
+                res.status(500).json({ error: err, message: message });
+            } else {
+                res.status(500).json({ error: err, message: err.message });
+            }
         }
     }
 
@@ -118,19 +133,26 @@ export abstract class Controller<T> {
         try {
             let { fields, values } = req.body;
             if (!fields && !values) {
-                throw new CokyError("BODY_ERROR", "CONTROLLER");
+                throw new Error(CokyErrors.getMessage("BODY_ERROR", "CONTROLLER"));
             }
             if (fields.length != values.length) {
-                throw new CokyError("FIELDS_VALUES_LENGTH", "CONTROLLER")
+                throw new Error(CokyErrors.getMessage("FIELDS_VALUES_LENGTH", "CONTROLLER"));
             }
 
             let query = "INSERT INTO " + this.entity.table + " ( " + fields + " ) VALUES (?)";
-            await pool.query(query, [values]);
+            let result = await pool.query(query, [values]);
 
-            // console.log(req.body.entity);
-            res.json(req.body);
+            res.json({
+                message: "El registro ha sido creado.",
+                res: result
+            });
         } catch (err) {
-            res.json({ error: err, message: err.message });
+            if (err.message.includes("SQL")) {
+                let message = CokyErrors.getMessage(err.message, "MYSQL")
+                res.status(500).json({ error: err, message: message });
+            } else {
+                res.status(500).json({ error: err, message: err.message });
+            }
         }
     }
     /**
@@ -142,39 +164,40 @@ export abstract class Controller<T> {
         try {
             const { id } = req.params;
             let { fields, values } = req.body;
-            let query = "UPDATE " + this.entity.table + " SET "
-            let where = " WHERE "
+            let query = `UPDATE ${this.entity.table} SET `
+            let where = ` WHERE id = ${id}`;
             if (!fields && !values) {
-                throw new CokyError("BODY_ERROR", "CONTROLLER");
+                throw new Error(CokyErrors.getMessage("BODY_ERROR", "CONTROLLER"));
             }
             if (fields.length != values.length) {
-                throw new CokyError("FIELDS_VALUES_LENGTH", "CONTROLLER")
+                throw new Error(CokyErrors.getMessage("FIELDS_VALUES_LENGTH", "CONTROLLER"));
             }
+
             for (let i = 0; i < fields.length; i++) {
                 let field = fields[i];
                 let value = values[i];
-
                 if (!check.isType("number", value)) {
-                    value = "'" + value + "'";
+                    value = `'${value}'`;
                 }
-
                 if (field != "id") {
-                    query += field + " = " + value + ", ";
-                } else {
-                    where += field + " = " + value + " LIMIT 1 ";
+                    query += `${field} = ${value} ${i < (fields.length - 1) ? "," : ""} `;
                 }
-
             }
 
-            query += where;
-            await pool.query(query, [fields]);
+            query += where + " LIMIT 1 ";
+            let result = await pool.query(query, [values]);
 
             res.json({
-                message: "El usuario ha sido actualizado.",
-                id: id
+                message: "El registro ha sido actualizado.",
+                res: result, id: id
             })
         } catch (err) {
-            res.json({ error: err, message: err.message });
+            if (err.message.includes("SQL")) {
+                let message = CokyErrors.getMessage(err.message, "MYSQL")
+                res.status(500).json({ error: err, message: message });
+            } else {
+                res.status(500).json({ error: err, message: err.message });
+            }
         }
     }
 
@@ -186,13 +209,18 @@ export abstract class Controller<T> {
     public async delete(req: Request, res: Response): Promise<void> {
         try {
             const { id } = req.params;
-            await pool.query("DELETE FROM coky_users WHERE id = ?", [id]);
+            let result = await pool.query(`DELETE FROM coky_users WHERE id = ${id} LIMIT 1`);
             res.json({
-                message: "El usuario ha sido eliminado.",
-                id: id
+                message: "El registro ha sido eliminado.",
+                res: result, id: id
             })
         } catch (err) {
-            res.json({ error: err, message: err.message });
+            if (err.message.includes("SQL")) {
+                let message = CokyErrors.getMessage(err.message, "MYSQL")
+                res.status(500).json({ error: err, message: message });
+            } else {
+                res.status(500).json({ error: err, message: err.message });
+            }
         }
     }
 
@@ -206,7 +234,12 @@ export abstract class Controller<T> {
             const result = await pool.query("DESCRIBE coky_users");
             res.json(result)
         } catch (err) {
-            res.json({ error: err, message: err.message });
+            if (err.message.includes("SQL")) {
+                let message = CokyErrors.getMessage(err.message, "MYSQL")
+                res.status(500).json({ error: err, message: message });
+            } else {
+                res.status(500).json({ error: err, message: err.message });
+            }
         }
     }
 
