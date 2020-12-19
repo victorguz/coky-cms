@@ -1,12 +1,29 @@
-.sidebar {
+@import "../../../../../assets/core/scss/imports/variables.scss";
 
+.sidebar {
   .container {
+    max-height: calc(100vh - 56px);
     background-color: white;
-    position: sticky;
-    max-width: 300px;
-    height: 100vw;
-    // padding: 0;
+    box-shadow: $shadow-sm;
+    min-width: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100vh;
     margin: 0;
+
+    .button-list {
+      display: flex;
+      flex-direction: column;
+
+      a {
+        color: black;
+
+        &:active,
+        &.active {
+          color: blue;
+        }
+      }
+    }
 
     .logo {
       img {

@@ -1,11 +1,15 @@
 .coky {
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
   position: relative;
   box-sizing: border-box;
   background-color: $back;
   margin: 0;
   padding: 0;
+
+  div {
+    z-index: 1;
+  }
 
   .heading {
     display: flex;

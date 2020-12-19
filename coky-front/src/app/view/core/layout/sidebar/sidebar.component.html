@@ -1,7 +1,19 @@
-<div class="coky sidebar">
+<div class="sidebar">
   <div class="container">
-    <a class="logo" href="#">
-      <img src="https://assets.stickpng.com/images/58ac4d880aaa10546adf2711.png" alt="brand-logo">
-    </a>
+
+
+    <div class="button-list d-flex flex-column">
+      <a [routerLink]="['/admin']" routerLinkActive="active">Home</a>
+      <a [routerLink]="['/admin/users']" routerLinkActive="active">Usuarios</a>
+      <a [routerLink]="['/login']" routerLinkActive="active">Usuarios</a>
+      <a [routerLink]="['/register']" routerLinkActive="active">Usuarios</a>
+    </div>
+
+
+    <!-- <div class="logo">
+      <a href="#">
+        <img src="https://assets.stickpng.com/images/58ac4d880aaa10546adf2711.png" alt="brand-logo">
+      </a>
+    </div> -->
   </div>
 </div>

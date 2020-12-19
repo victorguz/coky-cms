@@ -1,12 +1,17 @@
-<div class="coky">
+<div class="users">
   <div class="container">
 
-    <div *ngIf='id==0'>
+    <div *ngIf='id==0' class="list">
+      <div class="btn-group">
+        <button class="btn btn-success">Registrar usuario</button>
+        <button class="btn btn-secondary">Importar usuarios</button>
+      </div>
+
       <datatable *ngIf="users.length" [data]="users" [columns]="columns" [perPage]="10" [detailsRoute]="detailsRoute">
       </datatable>
     </div>
 
-    <ng-container *ngIf="id!=0">
+    <div *ngIf="id!=0" class="details">
       <div *ngIf='detailsUser && detailsUser.id' class="card">
         <div class="card-body">
           <h4>Detalles del usuario</h4>
@@ -90,6 +95,6 @@
         </div>
 
       </div>
-    </ng-container>
+    </div>
   </div>
 </div>

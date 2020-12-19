@@ -1,7 +1,31 @@
 @import "../../../../assets/core/scss/imports/variables.scss";
 
-.card {
-  box-shadow: $shadow-sm;
-  border: none;
-  margin: 1rem 0;
+.users {
+
+  .container {
+    width: 100vw;
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 1rem;
+
+      .btn-group {
+        width: fit-content;
+      }
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+
+  .card {
+    box-shadow: $shadow-sm;
+    border: none;
+    margin: 1rem 0;
+  }
 }
