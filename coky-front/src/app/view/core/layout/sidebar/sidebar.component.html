@@ -2,11 +2,14 @@
   <div class="container">
 
 
+
     <div class="button-list d-flex flex-column">
-      <a [routerLink]="['/admin']" routerLinkActive="active">Home</a>
-      <a [routerLink]="['/admin/users']" routerLinkActive="active">Usuarios</a>
-      <a [routerLink]="['/login']" routerLinkActive="active">Usuarios</a>
-      <a [routerLink]="['/register']" routerLinkActive="active">Usuarios</a>
+      <ng-container *ngFor="let route of routes">
+        <a routerLink="/{{route.route}}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <ion-icon name="{{route.icon}}-{{tipeOfIcons}}"></ion-icon>
+          {{route.title|titlecase}}
+        </a>
+      </ng-container>
     </div>
 
 

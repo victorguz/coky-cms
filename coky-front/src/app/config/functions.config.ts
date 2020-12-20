@@ -40,5 +40,20 @@ export class FunctionsService {
     return cad;
   }
 
+  public static orderJsonList(lista: any[], by: string) {
+    let aux;
+    // Algoritmo de burbuja
+    for (let k = 1; k < lista.length; k++) {
+      for (let i = 0; i < (lista.length - k); i++) {
+        if (lista[i][by] > lista[i + 1][by]) {
+          aux = lista[i];
+          lista[i] = lista[i + 1];
+          lista[i + 1] = aux;
+        }
+      }
+    }
+    return lista;
+  }
+
 
 }

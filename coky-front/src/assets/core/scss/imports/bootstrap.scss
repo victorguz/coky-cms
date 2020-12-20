@@ -28,7 +28,9 @@
   @extend .transitions02;
   border: none;
   box-shadow: $shadow-sm !important;
-  // box-shadow: none !important;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 
   &:active,
   &:focus,

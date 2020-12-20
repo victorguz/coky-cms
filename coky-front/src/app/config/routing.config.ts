@@ -10,12 +10,44 @@ const routes: Routes = [
    * Admin Routes
    */
   //Home
-  { path: func.generateRoute('admin', '/'), component: HomeComponent },
+  {
+    path: func.generateRoute('admin', '/'), component: HomeComponent,
+    data: {
+      roles: ["all"],
+      title: "home",
+      sidebar: {
+        icon: "home",
+        position: 1,
+      }
+    }
+  },
   //Users
-  { path: func.generateRoute('admin', '/users'), component: UsersComponent, data: { roles: ["all"] } },
-  { path: func.generateRoute('admin', '/users/details/:id'), component: UsersComponent, data: { roles: ["admin"] } },
+  {
+    path: func.generateRoute('admin', '/users'), component: UsersComponent,
+    data: {
+      roles: ["all"],
+      title: "Users",
+      sidebar: {
+        icon: "people",
+        position: 2,
+      }
+    }
+  },
+  {
+    path: func.generateRoute('admin', '/users/details/:id'), component: UsersComponent,
+    data: {
+      roles: ["admin"],
+      title: "User details"
+    }
+  },
   //Default
-  { path: '**', component: NotFoundComponent },
+  {
+    path: '**', component: NotFoundComponent,
+    data: {
+      roles: ["all"],
+      title: "404"
+    }
+  }
 ];
 
 @NgModule({

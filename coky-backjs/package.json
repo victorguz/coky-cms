@@ -5,8 +5,8 @@
   "main": "main.js",
   "scripts": {
     "build": "tsc",
-    "dev": "nodemon build/main.js",
-    "start": "tsc -w",
+    "dev": "tsc -w",
+    "start": "nodemon build/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

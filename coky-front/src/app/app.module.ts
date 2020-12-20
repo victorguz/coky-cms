@@ -14,6 +14,7 @@ import { HomeComponent } from './view/core/home/home.component';
 import { NotFoundComponent } from './view/core/not-found/not-found.component';
 import { NavbarComponent } from './view/core/layout/navbar/navbar.component';
 import { SidebarComponent } from './view/core/layout/sidebar/sidebar.component';
+import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { SidebarComponent } from './view/core/layout/sidebar/sidebar.component';
     DataTablesModule,
     HttpClientModule,
     FormsModule,
+    IonicModule.forRoot(),
   ],
   providers: [
     UsersService
