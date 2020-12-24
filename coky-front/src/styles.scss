@@ -6,6 +6,10 @@
 * {
   font-size: 16px;
   box-sizing: border-box;
+
+  @media (min-width:1600px) {
+    font-size: 20px;
+  }
 }
 
 body {

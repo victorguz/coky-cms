@@ -1,0 +1,55 @@
+<div class="coky">
+  <div class="login">
+    <div class="images">
+      <div class="logo superior">LOGO</div>
+      <div class="logo inferior">MARCA</div>
+      <div class="list">
+        <img src="assets/core/images/pensioners.jpg" alt="login-background">
+      </div>
+      <div class="carousel-dots">
+        <a class="dot"></a>
+        <a class="dot active"></a>
+        <a class="dot"></a>
+        <a class="dot"></a>
+      </div>
+      <div class="logo copy">
+        <span>© Nombre plataforma 2020</span>
+        <a class="developed-by" href="https://github.com/victorguz">Developed and designed by @Victorguz</a>
+      </div>
+    </div>
+    <div class="form">
+      <div class="content-1">
+        <h4>Ingreso nombre plataforma</h4>
+        <p class="text-danger">{{alert}}</p>
+        <div class="form-two">
+          <input type="text" class="form-control" placeholder="Primer nombre" (keyup)="user.first_name=first_name.value"
+            (keyup.enter)="register()" #first_name>
+          <input type="password" class="form-control" placeholder="Segundo nombre"
+            (keyup)="user.second_name=second_name.value" (keyup.enter)="register()" #second_name>
+        </div>
+
+        <div class="form-two">
+          <input type="text" class="form-control" placeholder="Primer apellido"
+            (keyup)="user.first_lastname=first_lastname.value" (keyup.enter)="register()" #first_lastname>
+          <input type="password" class="form-control" placeholder="Segundo apellido"
+            (keyup)="user.second_lastname=second_lastname.value" (keyup.enter)="register()" #second_lastname>
+        </div>
+
+        <div class="form-one">
+          <input type="text" class="form-control" placeholder="Email" (keyup)="user.email=email.value"
+            (keyup.enter)="register()" #email>
+          <input type="text" class="form-control" placeholder="Nombre de usuario" (keyup)="user.username=username.value"
+            (keyup.enter)="register()" #username>
+          <input type="password" class="form-control" placeholder="Contraseña" (keyup)="user.password=password.value"
+            (keyup.enter)="register()" #password>
+          <input type="password" class="form-control" placeholder="Repetir la contraseña"
+            (keyup)="rePassword=repass.value" (keyup.enter)="register()" #repass>
+        </div>
+
+        <button class="btn btn-primary btn-center" (click)="register()">Registrarse</button>
+        <a (click)="go('admin','/users/login')">¿Ya tienes una cuenta?
+          Ingresa</a>
+      </div>
+    </div>
+  </div>
+</div>

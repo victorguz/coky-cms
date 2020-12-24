@@ -10,7 +10,7 @@ import { ModelEntity } from "./model";
 export abstract class Controller<T> {
 
     public entity!: ModelEntity;
-
+    public pool = pool;
     /**
      * Devuelve la página inicial, puede ser usada para renderizar html..
      * @param req request 
@@ -30,8 +30,13 @@ export abstract class Controller<T> {
             let { limit, offset } = req.params;
             let query = `SELECT * FROM ${this.entity.table} ORDER BY id DESC 
             LIMIT ${limit ? limit : 100}  OFFSET ${offset ? offset : 0} `;
-            const result = await pool.query(query);
-            res.send(result)
+            const result = await this.pool.query(query);
+            const status = result && result.length ? 200 : 404;
+            res.status(status).json({
+                result: result,
+                success: result ? true : false,
+                message: `OK`,
+            })
         } catch (err) {
             if (err.message.includes("SQL")) {
                 let message = CokyErrors.getMessage(err.message, "MYSQL")
@@ -62,6 +67,7 @@ export abstract class Controller<T> {
             if (!check.isNullUndefinedOrEmpty(offset) && !Number(offset) && !Number.isInteger(offset)) {
                 res.json({ message: "offset is not int" })
                 // throw new Error("TYPE_ERROR", "CONTOLLER", { method: "by", field: "offset" });
+
             }
             if (!check.isNullUndefinedOrEmpty(value) && !Number.isInteger(value) && !Number(value)) {
                 res.json({ message: "value is not number" })
@@ -71,11 +77,16 @@ export abstract class Controller<T> {
             let query = `SELECT * FROM ${this.entity.table} 
             WHERE ${column ? column : "id"} = ${value ? value : "null"} 
             ORDER BY id DESC LIMIT ${limit ? limit : 100} OFFSET  ${offset ? offset : 0}`;
-            let result = await pool.query(query);
+            let result = await this.pool.query(query);
             if (Number(limit) == 1 && result.length >= 1) {
                 result = result[0];
             }
-            res.json(result)
+            const status = result && result.length ? 200 : 404;
+            res.status(status).json({
+                result: result,
+                success: result ? true : false,
+                message: `OK`,
+            })
         } catch (err) {
             if (err.message.includes("SQL")) {
                 let message = CokyErrors.getMessage(err.message, "MYSQL")
@@ -112,8 +123,13 @@ export abstract class Controller<T> {
              ORDER BY ${column ? column : "id"} ${order ? order : "desc"} 
              LIMIT ${limit ? limit : 100}  OFFSET ${offset ? offset : 0} `;
 
-            const result = await pool.query(query);
-            res.json(result)
+            const result = await this.pool.query(query);
+            const status = result && result.length ? 200 : 404;
+            res.status(status).json({
+                result: result,
+                success: result ? true : false,
+                message: `OK`,
+            })
         } catch (err) {
             if (err.message.includes("SQL")) {
                 let message = CokyErrors.getMessage(err.message, "MYSQL")
@@ -140,11 +156,13 @@ export abstract class Controller<T> {
             }
 
             let query = "INSERT INTO " + this.entity.table + " ( " + fields + " ) VALUES (?)";
-            let result = await pool.query(query, [values]);
+            let result = await this.pool.query(query, [values]);
 
-            res.json({
-                message: "El registro ha sido creado.",
-                res: result
+            const status = result && result.length ? 200 : 404;
+            res.status(status).json({
+                result: result,
+                success: result ? true : false,
+                message: `'${this.entity.name}' creado.`,
             });
         } catch (err) {
             if (err.message.includes("SQL")) {
@@ -185,11 +203,13 @@ export abstract class Controller<T> {
             }
 
             query += where + " LIMIT 1 ";
-            let result = await pool.query(query, [values]);
+            let result = await this.pool.query(query, [values]);
 
-            res.json({
-                message: "El registro ha sido actualizado.",
-                res: result, id: id
+            const status = result && result.length ? 200 : 404;
+            res.status(status).json({
+                result: result,
+                success: result ? true : false,
+                message: `'${this.entity.name}' actualizado.`,
             })
         } catch (err) {
             if (err.message.includes("SQL")) {
@@ -209,10 +229,12 @@ export abstract class Controller<T> {
     public async delete(req: Request, res: Response): Promise<void> {
         try {
             const { id } = req.params;
-            let result = await pool.query(`DELETE FROM coky_users WHERE id = ${id} LIMIT 1`);
-            res.json({
-                message: "El registro ha sido eliminado.",
-                res: result, id: id
+            let result = await this.pool.query(`DELETE FROM coky_users WHERE id = ${id} LIMIT 1`);
+            const status = result && result.length ? 200 : 404;
+            res.status(status).json({
+                result: result,
+                success: result ? true : false,
+                message: `'${this.entity.name}' eliminado.`,
             })
         } catch (err) {
             if (err.message.includes("SQL")) {
@@ -231,8 +253,9 @@ export abstract class Controller<T> {
      */
     public async describe(req: Request, res: Response) {
         try {
-            const result = await pool.query("DESCRIBE coky_users");
-            res.json(result)
+            const result = await this.pool.query("DESCRIBE coky_users");
+            const status = result && result.length ? 200 : 404;
+            res.status(status).json(result)
         } catch (err) {
             if (err.message.includes("SQL")) {
                 let message = CokyErrors.getMessage(err.message, "MYSQL")

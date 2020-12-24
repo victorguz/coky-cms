@@ -49,6 +49,7 @@ export class UsersService {
    * El método "create" añade una instancia de la entidad a la base de datos
    */
   async create(entity: UserI) {
+    return await this.service.create(entity);
   }
 
   /**
@@ -66,5 +67,12 @@ export class UsersService {
    * El método "describe" describirá los campos de la entidad de la base de datos
    */
   async describe() {
+  }
+
+  /**
+   * El método "login" enviará una confirmación si el usuario existe y es el correcto
+   */
+  async login(username: string, password: string) {
+    return await this.service.withUrl("login", { username: username, password: password });
   }
 }

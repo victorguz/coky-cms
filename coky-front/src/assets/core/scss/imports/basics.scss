@@ -11,6 +11,47 @@
     z-index: 1;
   }
 
+  .content {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    min-height: calc(100vh - 56px);
+    max-height: calc(100vh - 56px);
+    margin: 0;
+    padding: 0;
+
+    .sub {
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: 100%;
+
+
+    }
+  }
+
+  .developed-by {
+    font-size: 10px;
+    color: gray;
+  }
+
+  a {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  strong,
+  b {
+    margin: 0;
+    padding: 0;
+  }
+
   .heading {
     display: flex;
     align-items: center;
@@ -18,19 +59,7 @@
     word-wrap: none;
     white-space: nowrap;
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    span,
-    strong,
-    b {
-      margin: 0;
-      padding: 0;
-    }
+
 
     &.vertical {
       flex-direction: column;

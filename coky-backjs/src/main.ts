@@ -2,7 +2,7 @@ import express, { Application } from "express";
 import { usersService } from "./app/coky/users/users.service";
 import morgan from "morgan";
 import cors from "cors";
-
+import dotenv from "dotenv";
 class Main {
 
     public app: Application;
@@ -16,6 +16,7 @@ class Main {
 
     config(): void {
         this.app.set("port", process.env.PORT || 8080)
+        dotenv.config();
     }
 
     routes(): void {

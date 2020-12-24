@@ -67,4 +67,7 @@ export class Service<T> {
     return this.http.get(`${this.API_URL}/${this.ENTITY_NAME}/describe`).toPromise();
   }
 
+  withUrl(url: string, data) {
+    return this.http.post(`${this.API_URL}/${this.ENTITY_NAME}/${url}`,data).toPromise();
+  }
 }

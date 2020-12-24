@@ -8,6 +8,7 @@ class UsersService extends Service<User>{
 
     getRoutes(): void {
         super.getRoutes()
+        this.router.post("/login", async (req, res) => { usersController.login(req, res); });
     }
 
 }

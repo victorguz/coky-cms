@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from '../view/core/home/home.component';
 import { NotFoundComponent } from '../view/core/not-found/not-found.component';
-import { UsersComponent } from '../view/core/users/users.component';
+import { UsersComponent } from '../view/core/users/admin/users.component';
+import { LoginComponent } from '../view/core/users/login/login.component';
+import { RegisterComponent } from '../view/core/users/register/register.component';
 import { FunctionsService as func } from './functions.config';
 
 const routes: Routes = [
@@ -11,7 +13,7 @@ const routes: Routes = [
    */
   //Home
   {
-    path: func.generateRoute('admin', '/'), component: HomeComponent,
+    path: func.generateRoute('admin', ''), component: HomeComponent,
     data: {
       roles: ["all"],
       title: "home",
@@ -31,7 +33,7 @@ const routes: Routes = [
         icon: "people",
         position: 2,
       }
-    }
+    },
   },
   {
     path: func.generateRoute('admin', '/users/details/:id'), component: UsersComponent,
@@ -39,6 +41,20 @@ const routes: Routes = [
       roles: ["admin"],
       title: "User details"
     }
+  },
+  {
+    path: func.generateRoute('admin', '/users/login'), component: LoginComponent,
+    data: {
+      roles: ["all"],
+      title: "Login",
+    },
+  },
+  {
+    path: func.generateRoute('admin', '/users/register'), component: RegisterComponent,
+    data: {
+      roles: ["all"],
+      title: "Registrarse",
+    },
   },
   //Default
   {

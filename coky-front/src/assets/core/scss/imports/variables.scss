@@ -3,9 +3,11 @@ $vh:calc(100vh - 56px);
 $back:#EDF1F6;
 $blue:#1092EE;
 $border-color:#eff3f5;
+$shadow-color:rgba(174, 190, 205, .3);
 //sizes
 $rounded:4px;
 $border:1px solid $border-color;
 //effects
-$shadow-xs:0 1px 1px 0 rgba(0, 0, 0, .1);
-$shadow-sm:0 2px 4px rgba(174, 190, 205, .3);
+$shadow-xs:1px 1px 2px 0px rgba(0, 0, 0, .1);
+$shadow-sm:3px 3px 4px 0px rgba(174, 190, 205, .3);
+$shadow-md:3px 3px 8px 1px rgba(174, 190, 205, .3);

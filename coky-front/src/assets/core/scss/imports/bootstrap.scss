@@ -27,15 +27,30 @@
 .btn {
   @extend .transitions02;
   border: none;
-  box-shadow: $shadow-sm !important;
+  box-shadow: none;
   display: flex;
   gap: 1rem;
   align-items: center;
+  outline: none;
+  word-wrap: none;
+  white-space: nowrap;
 
   &:active,
   &:focus,
   &:hover {
-    box-shadow: $shadow-sm !important;
+    box-shadow: $shadow-sm;
+  }
+}
+
+.form-control {
+  border: $border;
+  box-shadow: none;
+
+  &:active,
+  &:focus,
+  &:hover {
+    // border: $border;
+    box-shadow: none;
   }
 }
 

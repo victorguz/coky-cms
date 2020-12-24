@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { FieldMapper } from '../core/model';
 import { ConfigService as conf } from './config.config';
+import { Constantes } from './constants.config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FunctionsService {
 
-  constructor(private appTitle: Title) { }
+  constructor(private appTitle: Title, private router: Router) { }
 
   public setTitle(c_title: string) {
     this.appTitle.setTitle(conf.app_name + ' - ' + c_title);
@@ -27,7 +29,7 @@ export class FunctionsService {
     if (route && route.substring(0, 1) != "/" && pre != "") {
       route = "/" + route;
     }
-    console.log(pre + route)
+    // console.log(pre + route)
     return pre + route;
   }
 
@@ -54,6 +56,4 @@ export class FunctionsService {
     }
     return lista;
   }
-
-
 }

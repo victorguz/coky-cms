@@ -1,34 +1,103 @@
 .coky {
 
 
-  table {
-    border-radius: $rounded;
-    border: $border;
-    background-color: white;
+  .dt-bootstrap4 {
+    // width: 100% !important;
 
-    thead,
-    tfoot {
+    // .row .col-sm-12 {
+    //   width: 100% !important;
+    // }
+    .form-control {
+      border: $border;
+      box-shadow: $shadow-xs;
 
-      tr {
-        th {
-          border: $border;
-          border-width: 0px 1px 0px 0;
+      &:active,
+      &:focus,
+      &:hover {
+        box-shadow: $shadow-sm;
+        border: $border;
+      }
+    }
+
+    .dataTables_length,
+    .dataTables_info {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .dataTables_filter,
+    .dataTables_paginate {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      @media (max-width:992px) {
+        justify-content: flex-start;
+      }
+    }
+
+    table {
+      border-radius: $rounded;
+      border: $border;
+      background-color: white;
+      min-height: 50vh;
+      width: 100% !important;
+
+      thead,
+      tfoot,
+      tbody {
+
+        tr {
+          th {
+            border: $border;
+            border-width: 0px 1px 0px 0;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          @extend .transitions05;
+
+          td {
+            border: $border;
+          }
+
+          &:hover {
+            box-shadow: $shadow-sm !important;
+          }
         }
       }
     }
 
-    tbody {
-      tr {
-        @extend .transitions05;
+    .pagination {
+      li {
 
-        td {
-          border: $border;
+        &.active a,
+        &.active span,
+        &:active a,
+        &:active span,
+        &:focus a,
+        &:focus span,
+        &:hover a,
+        &:hover span {
+          background-color: --primary;
+          box-shadow: $shadow-sm;
         }
 
-        &:hover {
-          box-shadow: $shadow-sm !important;
+        a,
+        span {
+          border: none;
+          border-radius: $rounded;
+          margin: 0px 5px;
+          outline: none !important;
+
+
         }
       }
+
+
     }
   }
 }

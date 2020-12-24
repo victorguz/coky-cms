@@ -1,20 +1,6 @@
 import { FieldMapper, Model } from "../core/model";
 
-export interface UserI {
-    id?: number;
-    first_name?: string;
-    second_name?: string;
-    first_lastname?: string;
-    second_lastname?: string;
-    username?: string;
-    password?: string;
-    email?: string;
-    data?: any;
-    role?: number;
-    status?: number;
-    created?: Date;
-    modified?: Date;
-}
+
 export class User extends Model {
 
 
@@ -190,4 +176,19 @@ export class User extends Model {
 }
 
 
+export interface UserI {
+    id?: number;
+    first_name?: string;
+    second_name?: string;
+    first_lastname?: string;
+    second_lastname?: string;
+    username?: string;
+    password?: string;
+    email?: string;
+    data?: any;
+    role?: number;
+    status?: number;
+    created?: Date;
+    modified?: Date;
+}
 

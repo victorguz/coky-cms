@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Constantes } from 'src/app/config/constants.config';
 import { FunctionsService } from 'src/app/config/functions.config';
 
 @Component({
@@ -7,14 +8,17 @@ import { FunctionsService } from 'src/app/config/functions.config';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
 
   tipeOfIcons = "outline"
 
   routes: SidebarRoute[] = []
-
+  
   constructor(private router: Router) {
     this.setRoutes();
+  }
+
+  ngOnInit(): void {
   }
 
 
@@ -28,7 +32,7 @@ export class SidebarComponent {
   private setRoutes() {
     this.router.config.forEach(element => {
       try {
-        if (element.data && element.data.sidebar ) {
+        if (element.data && element.data.sidebar) {
           this.routes.push({
             route: element.path,
             title: element.data.title ? element.data.title : element.path,
@@ -43,10 +47,14 @@ export class SidebarComponent {
     this.addRoutes()
     this.routes = FunctionsService.orderJsonList(this.routes, "position")
   }
+
+
 }
+
 interface SidebarRoute {
   route: string
   title: string
   icon: string
   position: number
 }
+

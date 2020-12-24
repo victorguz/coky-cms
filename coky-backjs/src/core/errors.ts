@@ -31,7 +31,7 @@ export class CokyErrors {
             case "MYSQL": return this.getSQLMessage(name);
         }
         arr.forEach(item => {
-            if (item.name == name) {
+            if (item.name.includes(name)) {
                 message = this.setExtraData(item.message, type, element);
             }
         });

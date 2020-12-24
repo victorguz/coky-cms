@@ -22,7 +22,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "aot": false,
             "assets": [
               "src/favicon.ico",
               "src/assets",
@@ -72,17 +72,16 @@
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/datatables.net/js/jquery.dataTables.js",
-              "node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js"
+              "node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js",
+              "node_modules/datatables.net-responsive/js/dataTables.responsive.min.js"
             ]
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -90,8 +89,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [
-                {
+              "budgets": [{
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
@@ -157,13 +155,15 @@
                 "input": "node_modules/@ionic/angular/css/flex-utils.css"
               }, {
                 "input": "src/theme/variables.css"
-              }
+              },
+              "node_modules/datatables.net-responsive-dt/css/responsive.dataTables.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/datatables.net/js/jquery.dataTables.js"
+              "node_modules/datatables.net/js/jquery.dataTables.js",
+              "node_modules/datatables.net-responsive/js/dataTables.responsive.js"
             ]
           }
         },

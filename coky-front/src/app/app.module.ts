@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfigRoutingModule } from './config/routing.config';
 
 import { DataTablesModule } from 'angular-datatables';
 
 import { AppComponent } from './view/app.component';
-import { UsersComponent } from './view/core/users/users.component';
+import { UsersComponent } from './view/core/users/admin/users.component';
 import { UsersService } from './services/users.service';
 import { DatatableComponent } from './view/core/imports/datatable/datatable.component';
 import { HomeComponent } from './view/core/home/home.component';
@@ -15,6 +15,7 @@ import { NotFoundComponent } from './view/core/not-found/not-found.component';
 import { NavbarComponent } from './view/core/layout/navbar/navbar.component';
 import { SidebarComponent } from './view/core/layout/sidebar/sidebar.component';
 import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -29,10 +30,12 @@ import { IonicModule } from '@ionic/angular';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     ConfigRoutingModule,
     DataTablesModule,
     HttpClientModule,
-    FormsModule,
     IonicModule.forRoot(),
   ],
   providers: [
