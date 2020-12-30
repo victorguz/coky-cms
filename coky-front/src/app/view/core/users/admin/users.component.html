@@ -19,7 +19,8 @@
              </button>
            </div>
 
-           <datatable *ngIf="allLoaded" [data]="users" [columns]="columns" [perPage]="10" [detailsRoute]="detailsRoute">
+           <datatable *ngIf="users.length" [data]="users" [columns]="columns" [perPage]="10"
+             [detailsRoute]="detailsRoute">
            </datatable>
          </div>
 

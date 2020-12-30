@@ -15,14 +15,22 @@ export class Service<T> {
 
   constructor(private http: HttpClient) { }
 
-
-
   /**
    * Obtiene todos los campos en un rango
    */
   all(limit: number = 100, offset: number = 0) {
-    return this.http.get<T[]>(`${this.API_URL}/${this.ENTITY_NAME}/all/${limit}/${offset}`).toPromise();
+    return this.http.get<any>(`${this.API_URL}/${this.ENTITY_NAME}/all/${limit}/${offset}`).toPromise();
   }
+
+  /**
+   * El método "By" devuelve los registros que coinciden con 
+   * la columna y el valor dado. También se puede definir un limit y offset
+   * 
+   */
+  oneby(value: string, column: string = "id") {
+    return this.http.get<any>(`${this.API_URL}/${this.ENTITY_NAME}/by/${column}/${value}/1/0`).toPromise();
+  }
+
   /**
    * El método "By" devuelve los registros que coinciden con 
    * la columna y el valor dado. También se puede definir un limit y offset
@@ -30,14 +38,14 @@ export class Service<T> {
    */
   by(value: string, column: string = "id", limit: number = 100, offset: number = 0) {
     value = Checks.isNullUndefinedOrEmpty(value) ? "-1" : value;
-    return this.http.get<T[]>(`${this.API_URL}/${this.ENTITY_NAME}/by/${value}`).toPromise();
+    return this.http.get<any>(`${this.API_URL}/${this.ENTITY_NAME}/by/${column}/${value}/${limit}/${offset}`).toPromise();
   }
 
   /**
    * El método "orderby" devuelve todos los registros, ordenados por columna y dirección (asc, desc). También se puede definir un limit y un offset
    */
   orderby(column: string = "id", order: string = "desc", limit: number = 100, offset: number = 0) {
-    return this.http.get<T[]>(`${this.API_URL}/${this.ENTITY_NAME}/orderby/${column}/${limit}/${offset}`).toPromise();
+    return this.http.get<any>(`${this.API_URL}/${this.ENTITY_NAME}/orderby/${column}/${order}/${limit}/${offset}`).toPromise();
   }
 
   /**
@@ -60,6 +68,7 @@ export class Service<T> {
   delete(id: number) {
     return this.http.delete(`${this.API_URL}/${this.ENTITY_NAME}/delete/${id}`).toPromise();
   }
+
   /**
    * El método "describe" describirá los campos de la entidad de la base de datos
    */
@@ -68,6 +77,6 @@ export class Service<T> {
   }
 
   withUrl(url: string, data) {
-    return this.http.post(`${this.API_URL}/${this.ENTITY_NAME}/${url}`,data).toPromise();
+    return this.http.post(`${this.API_URL}/${this.ENTITY_NAME}/${url}`, data).toPromise();
   }
 }

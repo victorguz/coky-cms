@@ -44,9 +44,9 @@ class UsersController extends Controller<User> {
                         success: result2 == null ? false : true,
                         message: result2 ? "OK" : "La contraseña es incorrecta"
                     }
-                    if (result2) {
-                        headers = jwt.sign({ _id: result2 }, process.env.COKY_JWT_SECRET_KEY || "WACHUWACHU_hola");
-                    }
+                    // if (result2) {
+                    //     headers = jwt.sign({ _id: result2 }, process.env.COKY_JWT_SECRET_KEY || "WACHUWACHU_hola");
+                    // }
                 }
                 res.header("auth-token", jwt.sign({ _id: result2 }, process.env.COKY_JWT_SECRET_KEY || "WACHUWACHU_hola")).json(response)
             } else {
@@ -59,6 +59,35 @@ class UsersController extends Controller<User> {
                     {
                         error: err, message: message
                     });
+            } else {
+                res.status(500).json({ error: err, message: err.message });
+            }
+        }
+    }
+
+    /**
+     * Devuelve todos los registros de la tabla ${this.entity.table} 
+     * en el orden dado por columna y orientación teniendo en cuenta el limit y offset
+     * @param req request 
+     * @param res response
+     */
+    public async orderby(req: Request, res: Response) {
+        try {
+            const { column, order, limit, offset } = req.params;
+
+            let query = `SELECT id, first_name, second_name, 
+            first_lastname, second_lastname, status, role, username, email
+            FROM ${this.entity.table} ORDER BY ${column ? column : "id"}
+            ${order ? order : "desc"} LIMIT ${limit ? limit : 100}
+            OFFSET ${offset ? offset : 0}`;
+
+            const result = await this.pool.query(query);
+            const status = result ? 200 : 404;
+            res.status(status).json(result)
+        } catch (err) {
+            if (err.message.includes("SQL")) {
+                let message = CokyErrors.getMessage(err.message, "MYSQL")
+                res.status(500).json({ error: err, message: message });
             } else {
                 res.status(500).json({ error: err, message: err.message });
             }

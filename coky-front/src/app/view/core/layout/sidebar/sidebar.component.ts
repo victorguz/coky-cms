@@ -13,7 +13,7 @@ export class SidebarComponent implements OnInit {
   tipeOfIcons = "outline"
 
   routes: SidebarRoute[] = []
-  
+
   constructor(private router: Router) {
     this.setRoutes();
   }
@@ -24,7 +24,7 @@ export class SidebarComponent implements OnInit {
 
   private addRoutes() {
     this.routes.push({ route: "/admin/users/login", title: "login", icon: "log-in", position: 3 })
-    this.routes.push({ route: "/admin/users/new", title: "registrarse", icon: "person-add", position: 4 })
+    this.routes.push({ route: "/admin/users/register", title: "registrarse", icon: "person-add", position: 4 })
     this.routes.push({ route: "/admin/users/end", title: "cerrar sesión", icon: "log-out", position: 5 })
   }
 

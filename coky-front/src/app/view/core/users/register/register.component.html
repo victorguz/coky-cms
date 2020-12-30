@@ -24,14 +24,14 @@
         <div class="form-two">
           <input type="text" class="form-control" placeholder="Primer nombre" (keyup)="user.first_name=first_name.value"
             (keyup.enter)="register()" #first_name>
-          <input type="password" class="form-control" placeholder="Segundo nombre"
+          <input type="text" class="form-control" placeholder="Segundo nombre"
             (keyup)="user.second_name=second_name.value" (keyup.enter)="register()" #second_name>
         </div>
 
         <div class="form-two">
           <input type="text" class="form-control" placeholder="Primer apellido"
             (keyup)="user.first_lastname=first_lastname.value" (keyup.enter)="register()" #first_lastname>
-          <input type="password" class="form-control" placeholder="Segundo apellido"
+          <input type="text" class="form-control" placeholder="Segundo apellido"
             (keyup)="user.second_lastname=second_lastname.value" (keyup.enter)="register()" #second_lastname>
         </div>
 

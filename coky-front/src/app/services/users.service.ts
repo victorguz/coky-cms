@@ -19,15 +19,13 @@ export class UsersService {
    */
   async all(limit: number = 100, offset: number = 0) {
     return await this.service.all(limit, offset);
-
   }
   /**
    * El método "getOne" utiliza el metodo by para obtener un solo registro
    * 
    */
   async getOne(value: any, column: string = "id") {
-    let result = await this.by(value, column, 1, 0);
-    return result.length > 0 ? result[0] : null;
+    return await this.service.oneby(value, column);
   }
 
   /**
@@ -43,6 +41,7 @@ export class UsersService {
    * El método "orderby" devuelve todos los registros, ordenados por columna y dirección (asc, desc). También se puede definir un limit y un offset
    */
   async orderby(column: string = "id", order: string = "desc", limit: number = 100, offset: number = 0) {
+    return await this.service.orderby(column, order, limit, offset);
   }
 
   /**

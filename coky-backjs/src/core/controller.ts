@@ -31,12 +31,8 @@ export abstract class Controller<T> {
             let query = `SELECT * FROM ${this.entity.table} ORDER BY id DESC 
             LIMIT ${limit ? limit : 100}  OFFSET ${offset ? offset : 0} `;
             const result = await this.pool.query(query);
-            const status = result && result.length ? 200 : 404;
-            res.status(status).json({
-                result: result,
-                success: result ? true : false,
-                message: `OK`,
-            })
+            const status = result ? 200 : 404;
+            res.status(status).json(result)
         } catch (err) {
             if (err.message.includes("SQL")) {
                 let message = CokyErrors.getMessage(err.message, "MYSQL")
@@ -56,37 +52,16 @@ export abstract class Controller<T> {
     public async by(req: Request, res: Response) {
         try {
             let { column, value, limit, offset } = req.params;
-            if (!check.isNullUndefinedOrEmpty(column) && Number.isInteger(column)) {
-                res.json({ message: "column is not string" })
-                // throw new Error("TYPE_ERROR", "CONTOLLER", { method: "by", field: "column" });
-            }
-            if (!check.isNullUndefinedOrEmpty(limit) && !Number(limit) && !Number.isInteger(limit)) {
-                res.json({ message: "limit is not int" })
-                // throw new Error("TYPE_ERROR", "CONTOLLER", { method: "by", field: "limit" });
-            }
-            if (!check.isNullUndefinedOrEmpty(offset) && !Number(offset) && !Number.isInteger(offset)) {
-                res.json({ message: "offset is not int" })
-                // throw new Error("TYPE_ERROR", "CONTOLLER", { method: "by", field: "offset" });
-
-            }
-            if (!check.isNullUndefinedOrEmpty(value) && !Number.isInteger(value) && !Number(value)) {
-                res.json({ message: "value is not number" })
-                value = "'" + value + "'";
-            }
 
             let query = `SELECT * FROM ${this.entity.table} 
-            WHERE ${column ? column : "id"} = ${value ? value : "null"} 
+            WHERE ${column ? column : "id"} = ${value ? Number(value) ? value : `'${value}'` : "null"} 
             ORDER BY id DESC LIMIT ${limit ? limit : 100} OFFSET  ${offset ? offset : 0}`;
             let result = await this.pool.query(query);
             if (Number(limit) == 1 && result.length >= 1) {
                 result = result[0];
             }
-            const status = result && result.length ? 200 : 404;
-            res.status(status).json({
-                result: result,
-                success: result ? true : false,
-                message: `OK`,
-            })
+            const status = result ? 200 : 404;
+            res.status(status).json(result)
         } catch (err) {
             if (err.message.includes("SQL")) {
                 let message = CokyErrors.getMessage(err.message, "MYSQL")
@@ -106,30 +81,14 @@ export abstract class Controller<T> {
     public async orderby(req: Request, res: Response) {
         try {
             const { column, order, limit, offset } = req.params;
-            if (column && !check.isType("string", column)) {
-                throw new Error(CokyErrors.getMessage("TYPE_ERROR", "CONTOLLER", { method: "orderby", field: "column" }));
-            }
-            if (order && !check.isType("string", order)) {
-                throw new Error(CokyErrors.getMessage("TYPE_ERROR", "CONTOLLER", { method: "orderby", field: "order" }));
-            }
-            if (limit && !check.isType("int", limit)) {
-                throw new Error(CokyErrors.getMessage("TYPE_ERROR", "CONTOLLER", { method: "orderby", field: "limit" }));
-            }
-            if (offset && !check.isType("int", offset)) {
-                throw new Error(CokyErrors.getMessage("TYPE_ERROR", "CONTOLLER", { method: "orderby", field: "offset" }));
-            }
 
             let query = `SELECT * FROM ${this.entity.table} 
              ORDER BY ${column ? column : "id"} ${order ? order : "desc"} 
-             LIMIT ${limit ? limit : 100}  OFFSET ${offset ? offset : 0} `;
+             LIMIT ${limit ? limit : 100}  OFFSET ${offset ? offset : 0}`;
 
             const result = await this.pool.query(query);
-            const status = result && result.length ? 200 : 404;
-            res.status(status).json({
-                result: result,
-                success: result ? true : false,
-                message: `OK`,
-            })
+            const status = result ? 200 : 404;
+            res.status(status).json(result)
         } catch (err) {
             if (err.message.includes("SQL")) {
                 let message = CokyErrors.getMessage(err.message, "MYSQL")
@@ -147,19 +106,22 @@ export abstract class Controller<T> {
      */
     public async create(req: Request, res: Response): Promise<void> {
         try {
-            let { fields, values } = req.body;
-            if (!fields && !values) {
-                throw new Error(CokyErrors.getMessage("BODY_ERROR", "CONTROLLER"));
-            }
-            if (fields.length != values.length) {
-                throw new Error(CokyErrors.getMessage("FIELDS_VALUES_LENGTH", "CONTROLLER"));
+            let fields = []
+            let values: any[] = [];
+
+            for (const field in req.body) {
+                if (Object.prototype.hasOwnProperty.call(req.body, field)) {
+                    const value = req.body[field];
+                    fields.push(field);
+                    values.push(value);
+                }
             }
 
             let query = "INSERT INTO " + this.entity.table + " ( " + fields + " ) VALUES (?)";
+
             let result = await this.pool.query(query, [values]);
 
-            const status = result && result.length ? 200 : 404;
-            res.status(status).json({
+            res.status(200).json({
                 result: result,
                 success: result ? true : false,
                 message: `'${this.entity.name}' creado.`,

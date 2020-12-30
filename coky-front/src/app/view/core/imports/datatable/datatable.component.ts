@@ -34,7 +34,7 @@ export class DatatableComponent implements OnInit {
       pagingType: 'simple_numbers',
       pageLength: this.perPage,
       lengthMenu: [5, 10, 20, 50, 100],
-      order: [0, "desc"],
+      order: [0, "asc"],
       rowCallback: (row: Node, data: any[] | Object, index: number) => {
         row.addEventListener("click", e => {
           this.router.navigate([this.detailsRoute, "details", data["id"]])

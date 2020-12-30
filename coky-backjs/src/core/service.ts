@@ -37,8 +37,6 @@ export abstract class Service<T> {
      * Obtiene todos los campos en un rango
      */
     all() {
-        this.router.get("/all/", async (req, res) => { this.controller.all(req, res); });
-        this.router.get("/all/:limit/", async (req, res) => { this.controller.all(req, res); });
         this.router.get("/all/:limit/:offset", async (req, res) => { this.controller.all(req, res); });
     }
     /**
@@ -47,9 +45,6 @@ export abstract class Service<T> {
      * 
      */
     by() {
-        this.router.get("/by/:value", async (req, res) => { this.controller.by(req, res); });
-        this.router.get("/by/:column/:value", async (req, res) => { this.controller.by(req, res); });
-        this.router.get("/by/:column/:value/:limit", async (req, res) => { this.controller.by(req, res); });
         this.router.get("/by/:column/:value/:limit/:offset", async (req, res) => { this.controller.by(req, res); });
     }
 
@@ -57,8 +52,6 @@ export abstract class Service<T> {
      * El método "orderby" devuelve todos los registros, ordenados por columna y dirección (asc, desc). También se puede definir un limit y un offset
      */
     orderby() {
-        this.router.get("/orderby/:column/:order", async (req, res) => { this.controller.orderby(req, res); });
-        this.router.get("/orderby/:column/:order/:limit", async (req, res) => { this.controller.orderby(req, res); });
         this.router.get("/orderby/:column/:order/:limit/:offset", async (req, res) => { this.controller.orderby(req, res); });
     }
 

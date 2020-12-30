@@ -52,7 +52,6 @@ export class UsersComponent implements OnInit {
   users: UserI[] = [];
   detailsUser: UserI;
   editUser: UserI;
-  allLoaded: boolean = false;
   //Route Params:
   method: string = "";
   id: number = 0;
@@ -73,8 +72,8 @@ export class UsersComponent implements OnInit {
 
   async loadAll() {
     try {
-      this.users = await this.usersService.all(50);
-      this.allLoaded = true;
+      let result = await this.usersService.orderby("id", "desc", 50, 0);
+      this.users = result.result;
     } catch (error) {
       console.log(error)
     }
@@ -83,6 +82,7 @@ export class UsersComponent implements OnInit {
     try {
       this.detailsUser = await this.usersService.getOne(this.id);
       this.editUser = this.detailsUser;
+      console.log(this.editUser)
     } catch (error) {
       console.log(error)
     }
