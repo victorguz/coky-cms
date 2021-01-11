@@ -4,9 +4,21 @@ import { CokyErrors } from "../../../core/errors";
 import { ModelEntity } from "../../../core/model";
 import { User } from "./users.model";
 import jwt from "jsonwebtoken";
+import path from "path";
 
 class UsersController extends Controller<User> {
     public entity: ModelEntity = User.ENTITY;
+
+
+    /**
+    * Devuelve la página inicial, puede ser usada para renderizar html..
+    * @param req request 
+    * @param res response
+    */
+    index(req: Request, res: Response) {
+        console.log(path.normalize("built-in/login"))
+        res.render(path.normalize("built-in/login"));
+    }
 
     /**
      * Permite confirmar si el usuario con las credenciales recibidas existe y es correcto

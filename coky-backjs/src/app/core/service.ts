@@ -17,7 +17,7 @@ export abstract class Service<T> {
      * Obtiene las rutas (los métodos son para hacerlo ver mas ordenado)
      */
     getRoutes(): void {
-        this.index()
+        this.views()
         this.all()
         this.by()
         this.orderby()
@@ -30,7 +30,7 @@ export abstract class Service<T> {
     /**
      * Métodos iniciales, que probablemente se usarían para renderizar html
      */
-    index() {
+    views() {
         this.router.get("/", async (req, res) => { this.controller.index(req, res,); });
     }
     /**

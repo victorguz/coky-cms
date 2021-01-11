@@ -17,7 +17,7 @@ export abstract class Controller<T> {
      * @param res response
      */
     index(req: Request, res: Response) {
-        res.send("Index")
+        res.render("index")
     }
 
     /**
