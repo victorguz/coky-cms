@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from '../view/core/home/home.component';
+import { CarouselComponent } from '../view/core/imports/carousel/carousel.component';
 import { NotFoundComponent } from '../view/core/not-found/not-found.component';
 import { UsersComponent } from '../view/core/users/admin/users.component';
 import { LoginComponent } from '../view/core/users/login/login.component';
@@ -51,6 +52,14 @@ const routes: Routes = [
   },
   {
     path: func.generateRoute('admin', '/users/register'), component: RegisterComponent,
+    data: {
+      roles: ["all"],
+      title: "Registrarse",
+    },
+  },
+  //dev
+  {
+    path: func.generateRoute('admin', '/carousel'), component: CarouselComponent,
     data: {
       roles: ["all"],
       title: "Registrarse",

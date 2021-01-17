@@ -33,8 +33,6 @@
               }
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css",
               "src/styles.scss",
               {
                 "input": "node_modules/@ionic/angular/css/normalize.css"
@@ -70,9 +68,7 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/datatables.net/js/jquery.dataTables.js",
-              "node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js",
               "node_modules/datatables.net-responsive/js/dataTables.responsive.min.js"
             ]
           },
@@ -132,7 +128,6 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/datatables.net-dt/css/jquery.dataTables.css",
               "src/styles.scss",
               {
@@ -161,7 +156,6 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/datatables.net/js/jquery.dataTables.js",
               "node_modules/datatables.net-responsive/js/dataTables.responsive.js"
             ]

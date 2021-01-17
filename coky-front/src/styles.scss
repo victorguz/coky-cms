@@ -18,4 +18,22 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
+
+  a {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  strong,
+  b {
+    margin: 0;
+    padding: 0;
+  }
 }

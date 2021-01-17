@@ -7,6 +7,7 @@ import { Controller } from "./controller";
 export abstract class Service<T> {
 
     public startRoute?: string;
+    public ignoreDefaultRoutes: boolean = false;
 
     public router: Router = Router();
 
@@ -17,14 +18,16 @@ export abstract class Service<T> {
      * Obtiene las rutas (los métodos son para hacerlo ver mas ordenado)
      */
     getRoutes(): void {
-        this.views()
-        this.all()
-        this.by()
-        this.orderby()
-        this.create()
-        this.update()
-        this.delete()
-        this.describe()
+        if (!this.ignoreDefaultRoutes) {
+            this.views()
+            this.all()
+            this.by()
+            this.orderby()
+            this.create()
+            this.update()
+            this.delete()
+            this.describe()
+        }
     }
 
     /**
@@ -33,11 +36,12 @@ export abstract class Service<T> {
     views() {
         this.router.get("/", async (req, res) => { this.controller.index(req, res,); });
     }
+
     /**
-     * Obtiene todos los campos en un rango
+     * El método "all" devuelve todos los registros, ordenados por columna y dirección (asc, desc). También se puede definir un limit y un offset
      */
     all() {
-        this.router.get("/all/:limit/:offset", async (req, res) => { this.controller.all(req, res); });
+        this.router.get("/all/:limit/:offset/:column/:order", async (req, res) => { this.controller.all(req, res); });
     }
     /**
      * El método "By" devuelve los registros que coinciden con 
@@ -48,11 +52,8 @@ export abstract class Service<T> {
         this.router.get("/by/:column/:value/:limit/:offset", async (req, res) => { this.controller.by(req, res); });
     }
 
-    /**
-     * El método "orderby" devuelve todos los registros, ordenados por columna y dirección (asc, desc). También se puede definir un limit y un offset
-     */
+
     orderby() {
-        this.router.get("/orderby/:column/:order/:limit/:offset", async (req, res) => { this.controller.orderby(req, res); });
     }
 
     /**

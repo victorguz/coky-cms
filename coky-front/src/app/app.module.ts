@@ -16,6 +16,7 @@ import { NavbarComponent } from './view/core/layout/navbar/navbar.component';
 import { SidebarComponent } from './view/core/layout/sidebar/sidebar.component';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
+import { CarouselComponent } from './view/core/imports/carousel/carousel.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { CommonModule } from '@angular/common';
     HomeComponent,
     NotFoundComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,7 @@ import { CommonModule } from '@angular/common';
     DataTablesModule,
     HttpClientModule,
     IonicModule.forRoot(),
-  ],
+  ], exports: [CarouselComponent],
   providers: [
     UsersService
   ],

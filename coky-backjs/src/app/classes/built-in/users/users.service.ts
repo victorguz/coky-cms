@@ -5,6 +5,7 @@ import { User } from "./users.model";
 class UsersService extends Service<User>{
 
     public startRoute: string = "/users"
+    public ignoreDefaultRoutes: boolean = false;
 
     getRoutes(): void {
         super.getRoutes()

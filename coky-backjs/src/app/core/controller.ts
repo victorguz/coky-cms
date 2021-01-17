@@ -21,15 +21,19 @@ export abstract class Controller<T> {
     }
 
     /**
-     * Devuelve todos los campos de los registros de la tabla ${this.entity.table} teniendo en cuenta el limit y offset
-     * @param req request 
-     * @param res response
-     */
+         * Devuelve todos los registros de la tabla ${this.entity.table} 
+         * en el orden dado por columna y orientación teniendo en cuenta el limit y offset
+         * @param req request 
+         * @param res response
+         */
     public async all(req: Request, res: Response) {
         try {
-            let { limit, offset } = req.params;
-            let query = `SELECT * FROM ${this.entity.table} ORDER BY id DESC 
-            LIMIT ${limit ? limit : 100}  OFFSET ${offset ? offset : 0} `;
+            const { column, order, limit, offset } = req.params;
+
+            let query = `SELECT * FROM ${this.entity.table} 
+             ORDER BY ${column ? column : "id"} ${order ? order : "desc"} 
+             LIMIT ${limit ? limit : 100}  OFFSET ${offset ? offset : 0}`;
+
             const result = await this.pool.query(query);
             const status = result ? 200 : 404;
             res.status(status).json(result)
@@ -72,32 +76,7 @@ export abstract class Controller<T> {
         }
     }
 
-    /**
-     * Devuelve todos los registros de la tabla ${this.entity.table} 
-     * en el orden dado por columna y orientación teniendo en cuenta el limit y offset
-     * @param req request 
-     * @param res response
-     */
-    public async orderby(req: Request, res: Response) {
-        try {
-            const { column, order, limit, offset } = req.params;
 
-            let query = `SELECT * FROM ${this.entity.table} 
-             ORDER BY ${column ? column : "id"} ${order ? order : "desc"} 
-             LIMIT ${limit ? limit : 100}  OFFSET ${offset ? offset : 0}`;
-
-            const result = await this.pool.query(query);
-            const status = result ? 200 : 404;
-            res.status(status).json(result)
-        } catch (err) {
-            if (err.message.includes("SQL")) {
-                let message = CokyErrors.getMessage(err.message, "MYSQL")
-                res.status(500).json({ error: err, message: message });
-            } else {
-                res.status(500).json({ error: err, message: err.message });
-            }
-        }
-    }
 
     /**
      * Añade un registro a la tabla ${this.entity.table} 

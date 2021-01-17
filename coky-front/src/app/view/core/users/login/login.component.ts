@@ -14,6 +14,10 @@ export class LoginComponent implements OnInit {
   username: string = "";
   password: string = "";
   alert: string = "";
+
+  carouselImages = [
+    'assets/core/images/pensioners.jpg',
+  ]
   constructor(private usersService: UsersService, private router: Router) {
   }
 

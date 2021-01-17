@@ -1,35 +1,19 @@
-<div class="coky">
-  <div class="login">
-    <div class="images">
-      <div class="logo superior">LOGO</div>
-      <div class="logo inferior">MARCA</div>
-      <div class="list">
-        <img src="assets/core/images/pensioners.jpg" alt="login-background">
-      </div>
-      <div class="carousel-dots">
-        <a class="dot"></a>
-        <a class="dot active"></a>
-        <a class="dot"></a>
-        <a class="dot"></a>
-      </div>
-      <div class="logo copy">
-        <span>© Nombre plataforma 2020</span>
-        <a class="developed-by" href="https://github.com/victorguz">Developed and designed by @Victorguz</a>
-      </div>
-    </div>
-    <div class="form">
-      <div class="content-1">
-        <h4>Ingreso nombre plataforma</h4>
-        <p class="text-danger">{{alert}}</p>
-        <input type="text" class="form-control" placeholder="Nombre de usuario" (keyup)="username=user.value"
-          (keyup.enter)="login()" #user>
-        <input type="password" class="form-control" placeholder="Contraseña" (keyup)="password=pass.value"
-          (keyup.enter)="login()" #pass>
-        <button class="btn btn-primary btn-center" (click)="login()">Ingresar</button>
-        <a (click)="go('admin','/users/register')">¿Aún no tienes una cuenta?
-          Registrate</a>
-        <a (click)="go('admin','/users/register')">¿Olvidaste tu contraseña?</a>
-      </div>
+<div class="coky login">
+
+  <carousel></carousel>
+
+  <div class="ui form">
+    <div class="content-1">
+      <h4>Ingreso nombre plataforma</h4>
+      <p class="text-danger">{{alert}}</p>
+      <input type="text" class="form-control" placeholder="Nombre de usuario" [(ngModel)]="username"
+        (keyup.enter)="login()" #user>
+      <input type="password" class="form-control" placeholder="Contraseña" [(ngModel)]="password"
+        (keyup.enter)="login()" #pass>
+      <button class="ui fluid button violet" (click)="login()">Ingresar</button>
+      <a (click)="go('admin','/users/register')">¿Aún no tienes una cuenta?<br>Registrate</a>
+      <a (click)="go('admin','/users/forgot')">¿Olvidaste tu contraseña?</a>
     </div>
   </div>
+
 </div>

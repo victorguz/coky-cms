@@ -2,8 +2,8 @@ export default {
     db: {
         host: "localhost",
         port: 3306,
-        user: "root",
-        password: "",
+        user: "admin_general",
+        password: "123456",
         database: "my-project"
     }
 }
