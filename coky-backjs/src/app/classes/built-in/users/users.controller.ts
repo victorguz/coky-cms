@@ -20,6 +20,70 @@ class UsersController extends Controller<User> {
         res.render(path.normalize("built-in/login"));
     }
 
+
+    /**
+     * Añade un registro a la tabla ${this.entity.table} 
+     * @param req request 
+     * @param res response
+     */
+    public async create(req: Request, res: Response): Promise<void> {
+        try {
+            let query = "INSERT INTO " + this.entity.table + " SET (?)";
+
+            let result = await this.pool.query(query, [req.body]);
+
+            res.status(200).json({
+                result: result,
+                success: result ? true : false,
+                message: `'${this.entity.name}' creado.`,
+            });
+        } catch (err) {
+            if (err.message.includes("SQL")) {
+                let message = CokyErrors.getMessage(err.message, "MYSQL")
+                res.status(500).json({ error: err, message: message });
+            } else {
+                res.status(500).json({ error: err, message: err.message });
+            }
+        }
+    }
+    /**
+         * Añade un registro a la tabla ${this.entity.table} 
+         * @param req request 
+         * @param res response
+         */
+    // public async create(req: Request, res: Response): Promise<void> {
+    //     try {
+    //         let fields = []
+    //         let values: any[] = [];
+
+    //         for (const field in req.body) {
+    //             if (Object.prototype.hasOwnProperty.call(req.body, field)) {
+    //                 const value = req.body[field];
+    //                 fields.push(field);
+    //                 values.push(value);
+    //             }
+    //         }
+
+    //         let query = "INSERT INTO " + this.entity.table + " ( " + fields + " ) VALUES (?)";
+
+    //         let result = await this.pool.query(query, [values]);
+
+    //         res.status(200).json({
+    //             result: result,
+    //             success: result ? true : false,
+    //             message: `'${this.entity.name}' creado.`,
+    //         });
+    //     } catch (err) {
+    //         if (err.message.includes("SQL")) {
+    //             let message = CokyErrors.getMessage(err.message, "MYSQL")
+    //             res.status(500).json({ error: err, message: message });
+    //         } else {
+    //             res.status(500).json({ error: err, message: err.message });
+    //         }
+    //     }
+    // }
+
+
     /**
      * Permite confirmar si el usuario con las credenciales recibidas existe y es correcto
      * @param req request 
@@ -60,7 +124,8 @@ class UsersController extends Controller<User> {
                     //     headers = jwt.sign({ _id: result2 }, process.env.COKY_JWT_SECRET_KEY || "WACHUWACHU_hola");
                     // }
                 }
-                res.header("auth-token", jwt.sign({ _id: result2 }, process.env.COKY_JWT_SECRET_KEY || "WACHUWACHU_hola")).json(response)
+                const token = jwt.sign({ _id: result2 }, process.env.COKY_JWT_SECRET_KEY || "WACHUWACHU_hola");
+                res.header("auth", token).json(response)
             } else {
                 throw new Error(CokyErrors.getMessage("NOT_EMPTY", "CONTOLLER", { method: "login", field: "username and password" }))
             }
@@ -83,7 +148,7 @@ class UsersController extends Controller<User> {
      * @param req request 
      * @param res response
      */
-    public async orderby(req: Request, res: Response) {
+    public async all(req: Request, res: Response) {
         try {
             const { column, order, limit, offset } = req.params;
 

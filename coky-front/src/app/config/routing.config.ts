@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from '../view/core/home/home.component';
-import { CarouselComponent } from '../view/core/imports/carousel/carousel.component';
-import { NotFoundComponent } from '../view/core/not-found/not-found.component';
-import { UsersComponent } from '../view/core/users/admin/users.component';
-import { LoginComponent } from '../view/core/users/login/login.component';
-import { RegisterComponent } from '../view/core/users/register/register.component';
+import { HomeComponent } from '../view/admin/home/home.component';
+import { CarouselComponent } from '../view/admin/imports/carousel/carousel.component';
+import { NotFoundComponent } from '../view/admin/not-found/not-found.component';
+import { UsersComponent } from '../view/admin/users/admin/users.component';
+import { LoginComponent } from '../view/admin/users/login/login.component';
+import { RegisterComponent } from '../view/admin/users/register/register.component';
 import { FunctionsService as func } from './functions.config';
 
 const routes: Routes = [
@@ -14,7 +14,7 @@ const routes: Routes = [
    */
   //Home
   {
-    path: func.generateRoute('admin', ''), component: HomeComponent,
+    path: 'admin', component: HomeComponent,
     data: {
       roles: ["all"],
       title: "home",
@@ -26,7 +26,7 @@ const routes: Routes = [
   },
   //Users
   {
-    path: func.generateRoute('admin', '/users'), component: UsersComponent,
+    path: 'admin/users', component: UsersComponent,
     data: {
       roles: ["all"],
       title: "Users",
@@ -37,21 +37,21 @@ const routes: Routes = [
     },
   },
   {
-    path: func.generateRoute('admin', '/users/details/:id'), component: UsersComponent,
+    path: 'admin/users/details/:id', component: UsersComponent,
     data: {
       roles: ["admin"],
       title: "User details"
     }
   },
   {
-    path: func.generateRoute('admin', '/users/login'), component: LoginComponent,
+    path: 'admin/users/login', component: LoginComponent,
     data: {
       roles: ["all"],
       title: "Login",
     },
   },
   {
-    path: func.generateRoute('admin', '/users/register'), component: RegisterComponent,
+    path: 'admin/users/register', component: RegisterComponent,
     data: {
       roles: ["all"],
       title: "Registrarse",
@@ -59,7 +59,7 @@ const routes: Routes = [
   },
   //dev
   {
-    path: func.generateRoute('admin', '/carousel'), component: CarouselComponent,
+    path: 'admin/carousel', component: CarouselComponent,
     data: {
       roles: ["all"],
       title: "Registrarse",

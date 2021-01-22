@@ -33,6 +33,7 @@
               }
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss",
               {
                 "input": "node_modules/@ionic/angular/css/normalize.css"
@@ -66,10 +67,7 @@
               }
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/@popperjs/core/dist/umd/popper.min.js",
-              "node_modules/datatables.net/js/jquery.dataTables.js",
-              "node_modules/datatables.net-responsive/js/dataTables.responsive.min.js"
+              "node_modules/jquery/dist/jquery.min.js"
             ]
           },
           "configurations": {
@@ -128,9 +126,8 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/datatables.net-dt/css/jquery.dataTables.css",
-              "src/styles.scss",
-              {
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss", {
                 "input": "node_modules/@ionic/angular/css/normalize.css"
               }, {
                 "input": "node_modules/@ionic/angular/css/structure.css"
@@ -148,16 +145,13 @@
                 "input": "node_modules/@ionic/angular/css/text-transformation.css"
               }, {
                 "input": "node_modules/@ionic/angular/css/flex-utils.css"
-              }, {
-                "input": "src/theme/variables.css"
               },
-              "node_modules/datatables.net-responsive-dt/css/responsive.dataTables.css"
+              {
+                "input": "src/theme/variables.css"
+              }
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/@popperjs/core/dist/umd/popper.min.js",
-              "node_modules/datatables.net/js/jquery.dataTables.js",
-              "node_modules/datatables.net-responsive/js/dataTables.responsive.js"
+              "node_modules/jquery/dist/jquery.min.js"
             ]
           }
         },

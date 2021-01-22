@@ -1,11 +1,12 @@
 /**
 * Please, use this scss only for imports. Take care the order of each one.
 */
-@import "assets/core/scss/core.scss";
+@import "assets/built-in/scss/core.scss";
 
 * {
   font-size: 16px;
   box-sizing: border-box;
+  outline: none;
 
   @media (min-width:1600px) {
     font-size: 20px;
@@ -21,6 +22,7 @@ body {
 
   a {
     cursor: pointer;
+    text-decoration: none;
   }
 
   h1,
@@ -36,4 +38,14 @@ body {
     margin: 0;
     padding: 0;
   }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

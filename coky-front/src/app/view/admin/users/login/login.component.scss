@@ -1,0 +1,63 @@
+@import "../../../../../assets/built-in/scss/imports/variables.scss";
+@import "../../../../../assets/built-in/scss/imports/classes.scss";
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+  width: 100vw;
+
+  a {
+    text-align: center;
+    text-decoration: none;
+  }
+
+
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 40%;
+    padding: 1rem 6rem;
+
+    @media (max-width:992px) {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0;
+      width: 80vw;
+      height: fit-content;
+      gap: 30px;
+    }
+
+
+
+    .content-1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      height: fit-content !important;
+      gap: 1rem;
+
+      @media (max-width:992px) {
+        padding: 2rem;
+        border-radius: $rounded;
+        box-shadow: $shadow-sm;
+        background-color: white;
+      }
+
+    }
+
+
+
+  }
+}

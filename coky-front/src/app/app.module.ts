@@ -4,31 +4,42 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfigRoutingModule } from './config/routing.config';
 
-import { DataTablesModule } from 'angular-datatables';
+
+//material
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppComponent } from './view/app.component';
-import { UsersComponent } from './view/core/users/admin/users.component';
+import { UsersComponent } from './view/admin/users/admin/users.component';
 import { UsersService } from './services/users.service';
-import { DatatableComponent } from './view/core/imports/datatable/datatable.component';
-import { HomeComponent } from './view/core/home/home.component';
-import { NotFoundComponent } from './view/core/not-found/not-found.component';
-import { NavbarComponent } from './view/core/layout/navbar/navbar.component';
-import { SidebarComponent } from './view/core/layout/sidebar/sidebar.component';
+import { HomeComponent } from './view/admin/home/home.component';
+import { NotFoundComponent } from './view/admin/not-found/not-found.component';
+import { NavbarComponent } from './view/admin/layout/navbar/navbar.component';
+import { SidebarComponent } from './view/admin/layout/sidebar/sidebar.component';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
-import { CarouselComponent } from './view/core/imports/carousel/carousel.component';
+import { CarouselComponent } from './view/admin/imports/carousel/carousel.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './view/admin/layout/footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
-    DatatableComponent,
     HomeComponent,
     NotFoundComponent,
     NavbarComponent,
     SidebarComponent,
-    CarouselComponent
+    CarouselComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,9 +47,19 @@ import { CarouselComponent } from './view/core/imports/carousel/carousel.compone
     FormsModule,
     ReactiveFormsModule,
     ConfigRoutingModule,
-    DataTablesModule,
     HttpClientModule,
     IonicModule.forRoot(),
+    BrowserAnimationsModule,
+    //material
+    MatSidenavModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatMenuModule,
+    MatIconModule,
+    MatTableModule,
+    MatTabsModule,
+    MatDialogModule,
+    MatPaginatorModule,
   ], exports: [CarouselComponent],
   providers: [
     UsersService

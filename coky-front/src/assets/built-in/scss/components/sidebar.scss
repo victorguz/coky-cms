@@ -1,0 +1,18 @@
+.sidebar-container {
+  width: 100vw;
+  height: calc(100vh - 56px);
+  margin: 0;
+  margin-top: 56px;
+  border: none;
+
+  mat-drawer {
+    width: 240px;
+    box-shadow: $shadow-sm;
+    border: none;
+    overflow-x: hidden;
+  }
+
+  mat-drawer-content {
+    overflow: auto;
+  }
+}
