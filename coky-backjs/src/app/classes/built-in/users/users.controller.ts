@@ -16,31 +16,45 @@ class UsersController extends Controller<User> {
     * @param res response
     */
     index(req: Request, res: Response) {
-        console.log(path.normalize("built-in/login"))
-        res.render(path.normalize("built-in/login"));
+        res.send("Index");
     }
 
 
     /**
-     * Añade un registro a la tabla ${this.entity.table} 
+     * Añade un registro a la tabla usuarios
      * @param req request 
      * @param res response
      */
     public async create(req: Request, res: Response): Promise<void> {
         try {
-            let query = "INSERT INTO " + this.entity.table + " SET (?)";
+            const { first_name, second_name, first_lastname, second_lastname,
+                email, username, password, role, status } = req.body;
 
-            let result = await this.pool.query(query, [req.body]);
+            const query = `INSERT INTO  ${this.entity.table}
+                 SET first_name='${first_name.trim()}', second_name='${second_name.trim()}',
+                 first_lastname='${first_lastname.trim()}', second_lastname='${second_lastname.trim()}', 
+                 username='${username.trim()}', password='${password}', role=${role}, 
+                 status=${status}, email='${email.trim()}'`;
+
+            const result = await this.pool.query(query);
 
             res.status(200).json({
                 result: result,
                 success: result ? true : false,
                 message: `'${this.entity.name}' creado.`,
             });
+
         } catch (err) {
             if (err.message.includes("SQL")) {
                 let message = CokyErrors.getMessage(err.message, "MYSQL")
-                res.status(500).json({ error: err, message: message });
+                if (message.includes("Duplicate")) {
+                    if (message.includes("username")) {
+                        message = "Este nombre de usuario ya está siendo utilizado";
+                    } else if (message.includes("email")) {
+                        message = "Este correo ya está siendo utilizado";
+                    }
+                }
+                res.status(200).json({ error: err, message: message });
             } else {
                 res.status(500).json({ error: err, message: err.message });
             }

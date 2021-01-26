@@ -10,7 +10,7 @@ class UsersService extends Service<User>{
     getRoutes(): void {
         super.getRoutes()
         this.router.post("/login", async (req, res) => { usersController.login(req, res); });
-        this.router.get("/orderby/:column/:order/:limit/:offset", async (req, res) => { usersController.orderby(req, res); });
+        // this.router.get("/all/:limit/:offset/:column/:order", async (req, res) => { usersController.all(req, res); });
     }
 
 }

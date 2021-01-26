@@ -1,0 +1,129 @@
+.btn-primary {
+  background-color: $primary-color;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: $secondary-color;
+  color: white;
+}
+
+.btn-alert {
+  background-color: $alert-color;
+  color: white;
+}
+
+.btn-success {
+  background-color: $success-color;
+  color: white;
+}
+
+.btn-danger {
+  background-color: $danger-color;
+  color: white;
+}
+
+.btn-dark {
+  background-color: $dark-color;
+  color: white;
+}
+
+.btn-gray {
+  background-color: $gray-color;
+  color: white;
+}
+
+.text-primary {
+  color: $primary-color;
+}
+
+.text-secondary {
+  color: $secondary-color;
+}
+
+.text-alert {
+  color: $alert-color;
+}
+
+.text-success {
+  color: $success-color;
+}
+
+.text-danger {
+  color: $danger-color;
+}
+
+.text-dark {
+  color: $dark-color;
+}
+
+.text-gray {
+  color: $gray-color;
+}
+
+
+.mat-flat-button {
+  border-radius: $rounded !important;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 1rem;
+  border: $border;
+  border-radius: $rounded;
+  background-color: white;
+}
+
+
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+
+  @media (max-width:768px) {
+    flex-flow: wrap;
+  }
+
+  div,
+  input,
+  button {
+    width: 100%;
+  }
+
+}
+
+.flex-between {
+  @extend .flex;
+  justify-content: space-between;
+}
+
+.flex-one {
+  @extend .flex;
+  flex-flow: wrap;
+
+  div,
+  input,
+  button {
+    width: 100%;
+  }
+
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  label {
+    font-weight: 500;
+    text-align: left;
+    font-size: 0.8rem;
+  }
+
+}
