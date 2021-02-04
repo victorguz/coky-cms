@@ -1,0 +1,31 @@
+<div class="coky">
+    <div class="login">
+        <app-admin-carousel-brand class="carousel-container" [images]="images"></app-admin-carousel-brand>
+
+        <div class="container">
+
+            <div class="form card">
+                <h4>Ingreso nombre plataforma</h4>
+                <p class="text-danger">{{alert}}</p>
+                <div class="flex-one">
+                    <div class="field">
+                        <label>Nombre de usuario</label>
+                        <input type="text" placeholder="Nombre de usuario">
+                    </div>
+                    <div class="field">
+                        <label>Contraseña</label>
+                        <input type="password" placeholder="Contraseña">
+                    </div>
+                </div>
+
+
+                <button mat-flat-button class="btn-primary">Ingresar</button>
+
+                <a [routerLink]="['/admin/users/register']">¿Aún no tienes una cuenta? — Registrate</a>
+                <a [routerLink]="['/admin/users/forgot']">¿Olvidaste tu contraseña?</a>
+
+            </div>
+
+        </div>
+    </div>
+</div>

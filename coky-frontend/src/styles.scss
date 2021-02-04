@@ -2,15 +2,16 @@
 * Please, use this scss only for imports. Take care the order of each one.
 */
 @import "assets/built-in/scss/core.scss";
+@import "assets/public/scss/core.scss";
 
 * {
   @extend .transition-fast;
-  font-size: 16px;
+  font-size: 20px;
   box-sizing: border-box;
   outline: none;
 
   @media (min-width:1600px) {
-    font-size: 20px;
+    font-size: 25px;
   }
 }
 
@@ -24,6 +25,15 @@ body {
   a {
     cursor: pointer;
     text-decoration: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
   }
 
   h1,

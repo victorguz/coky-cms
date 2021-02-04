@@ -1,0 +1,16 @@
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+
+  width: 100%;
+
+  .text-content {
+    color: white;
+  }
+
+  .images-content {
+    width: 400px;
+  }
+}

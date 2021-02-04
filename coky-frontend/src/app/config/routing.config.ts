@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from '../view/admin/home/home.component';
-import { NotFoundComponent } from '../view/admin/not-found/not-found.component';
-import { UsersComponent } from '../view/admin/users/admin/users.component';
-import { LoginComponent } from '../view/admin/users/login/login.component';
-import { RegisterComponent } from '../view/admin/users/register/register.component';
+import { AdminHomeComponent } from '../view/admin/admin-home/admin-home.component';
+import { AdminNotFoundComponent } from '../view/admin/admin-not-found/admin-not-found.component';
+import { AdminLoginComponent } from '../view/admin/users/admin-login/admin-login.component';
+import { AdminRegisterComponent } from '../view/admin/users/admin-register/admin-register.component';
+import { AdminUsersComponent } from '../view/admin/users/admin-users/admin-users.component';
+import { PublicHomeComponent } from '../view/public/public-home/public-home.component';
 import { FunctionsService as func } from './functions.config';
 
 const routes: Routes = [
@@ -13,7 +14,7 @@ const routes: Routes = [
    */
   //Home
   {
-    path: 'admin', component: HomeComponent,
+    path: "admin", component: AdminHomeComponent,
     data: {
       roles: ["all"],
       title: "home",
@@ -25,7 +26,7 @@ const routes: Routes = [
   },
   //Users
   {
-    path: 'admin/users', component: UsersComponent,
+    path: 'admin/users', component: AdminUsersComponent,
     data: {
       roles: ["all"],
       title: "Users",
@@ -36,37 +37,55 @@ const routes: Routes = [
     },
   },
   {
-    path: 'admin/users/details/:id', component: UsersComponent,
+    path: 'admin/users/details/:id', component: AdminUsersComponent,
     data: {
       roles: ["admin"],
       title: "User details"
     }
   },
   {
-    path: 'admin/users/login', component: LoginComponent,
+    path: 'admin/users/login', component: AdminLoginComponent,
     data: {
       roles: ["all"],
       title: "Login",
     },
   },
   {
-    path: 'admin/users/register', component: RegisterComponent,
+    path: 'admin/users/register', component: AdminRegisterComponent,
     data: {
       roles: ["all"],
       title: "Registrarse",
     },
   },
+
+
+
+
+  /**
+     * Public Routes
+     */
+  //Home
+  {
+    path: '', component: PublicHomeComponent,
+    data: {
+      roles: ["all"],
+      title: "home",
+      sidebar: {
+        icon: "home",
+        position: 1,
+      }
+    }
+  },
+
+
+
+
+
   //dev
-  // {
-  //   path: 'admin/carousel', component: CarouselComponent,
-  //   data: {
-  //     roles: ["all"],
-  //     title: "Registrarse",
-  //   },
-  // },
+
   //Default
   {
-    path: '**', component: NotFoundComponent,
+    path: '**', component: AdminNotFoundComponent,
     data: {
       roles: ["all"],
       title: "404"

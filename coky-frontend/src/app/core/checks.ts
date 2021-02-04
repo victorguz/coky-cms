@@ -92,8 +92,16 @@ export module Checks {
      * Los caracteres especiales mencionados no pueden estar consecutivamente.
      * @param value cadena a evaluar
      */
-    export function isEmail(value: string): boolean {
-        let regex = /^[a-zA-Z0-9]+(?:[\.|\-|\_][a-zA-Z]+)+@[a-zA-Z]+(?:\.[a-zA-Z]+)+$/;
+    export function isEmail(value: string, domains = []): boolean {
+        let validDomains = "@[a-zA-Z]+(?:\.[a-zA-Z]+)+"; //all domains without numbers
+        if (domains && domains.length) {
+            validDomains = "@(";
+            domains.forEach(domain => {
+                validDomains += `(${domain})|`;//only the especified domains
+            });
+            validDomains += "){1}"
+        }
+        const regex = new RegExp("^[a-zA-Z0-9]+(?:[\.|\-|\_][a-zA-Z]+)?" + validDomains + "$");
         if (value.match(regex) != null) {
             return true;
         }
