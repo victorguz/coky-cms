@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-public-services',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./public-services.component.scss']
 })
 export class PublicServicesComponent implements OnInit {
+
+  @Input()
+  home = false;
 
   constructor() { }
 

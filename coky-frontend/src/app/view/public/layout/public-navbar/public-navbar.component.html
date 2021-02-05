@@ -1,32 +1,25 @@
 <div class="navbar">
     <div class="content content-1" #container1>
-        <a class="link brand">MTS</a>
-        <a class="link">Home</a>
-        <div class="dispose" #content1>
-            <a class="link">Services</a>
-            <a class="link">Prices</a>
-            <a class="link">About</a>
+        <a class="link brand" [routerLink]="['/']">MTS</a>
+        <a class="link" [routerLink]="['/']" routerLinkActive="active">Home</a>
+        <a class="link" [routerLink]="['/services']" routerLinkActive="active">Services</a>
+        <a class="link" [routerLink]="['/prices']" routerLinkActive="active">Prices</a>
+        <a class="link" [routerLink]="['/about']" routerLinkActive="active">About</a>
+        <div class="not-dispose">
+            <a class="link" [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
+        </div>
+        <div class="not-dispose">
+            <button mat-flat-button class="link btn-primary" [routerLink]="['/users/login']"
+                routerLinkActive="active">Sign
+                in</button>
         </div>
     </div>
     <div class="content content-2">
-
-        <div class="not-dispose">
-            <button mat-flat-button mat-icon-button class="btn-primary">
-                <ion-icon name="person-circle-outline" size="large"></ion-icon>
-            </button>
-        </div>
-
         <div class="dispose">
-            <button mat-flat-button class="link btn-primary padding">Sign in</button>
-        </div>
-        <a class="link">Contact</a>
-        <div class="not-dispose">
-            <button mat-icon-button class="text-white"
-                (click)="show();content1.style.display=onShow;container1.style='flex-flow:wrap;'">
-                <span class="material-icons">
-                    more_vert
-                </span>
-            </button>
+            <a class="link" [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
+            <button mat-flat-button class="link btn-primary" [routerLink]="['/users/login']"
+                routerLinkActive="active">Sign
+                in</button>
         </div>
     </div>
 </div>

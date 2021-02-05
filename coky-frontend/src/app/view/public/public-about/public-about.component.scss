@@ -1,16 +1,136 @@
+@import "../../../../assets/public/scss/imports/variables.scss";
+
 .home {
   display: flex;
+  align-items: center;
   flex-direction: row;
   justify-content: space-between;
   border-radius: 30px;
-  padding: 4rem;
+  padding: 8rem 10rem;
+
+  @media (max-width:1280px) {
+    flex-flow: wrap;
+  }
+
+  @media (max-width:768px) {
+    padding: 6rem;
+  }
+
+  @media (max-width:480px) {
+    padding: 4rem;
+  }
 
   .text-content {
     text-align: right;
     align-items: flex-end;
-    justify-content: space-between;
+    color: $dark-color-public;
+    gap: 8rem;
+
     width: 50%;
-    height: 100%;
-    // color: red;
+
+    @media (max-width:1440px) {
+      gap: 6rem;
+    }
+
+    @media (max-width:1280px) {
+      margin-top: -30rem;
+      width: 100%;
+      gap: 5rem;
+    }
+
+    @media (max-width:992px) {
+      margin-top: -25rem;
+      gap: 4rem;
+    }
+
+    @media (max-width:768px) {
+      margin-top: 0;
+    }
+
+    @media (max-width:600px) {
+      text-align: center;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .title {
+      font-size: 9rem;
+
+      @media (max-width:1700px) {
+        font-size: 8rem;
+      }
+
+      @media (max-width:1480px) {
+        font-size: 7rem;
+      }
+
+      @media (max-width:992px) {
+        font-size: 6rem;
+      }
+
+      @media (max-width:768px) {
+        font-size: 5rem;
+        margin-top: -15rem;
+        margin-bottom: 5rem;
+      }
+
+      @media (max-width:635px) {
+        font-size: 5rem;
+        margin: 0;
+      }
+
+      @media (max-width:480px) {
+        font-size: 4rem;
+      }
+    }
+
+    p {
+      font-size: 2.5rem;
+
+      @media (max-width:1280px) {
+        max-width: 80%;
+      }
+
+      @media (max-width:768px) {
+        font-size: 2.2rem;
+        max-width: none;
+      }
+
+      @media (max-width:480px) {
+        font-size: 2rem;
+      }
+    }
+
+    button {
+      font-size: 3rem;
+
+      @media (max-width:768px) {
+        font-size: 2.5rem;
+      }
+
+      @media (max-width:480px) {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .images-content {
+
+    .cleaning {
+      margin-left: 4rem;
+
+      @media (max-width:768px) {
+        width: 90%;
+      }
+
+    }
+
+    .painting {
+      margin-top: -10rem;
+
+      @media (max-width:768px) {
+        height: 70%;
+      }
+    }
   }
 }

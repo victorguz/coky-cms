@@ -1,4 +1,5 @@
 .coky-public {
+
   .btn-primary {
     background-color: $primary-color-public;
     color: white;
@@ -74,9 +75,9 @@
   .card {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 2rem;
 
-    padding: 1rem;
+    padding: 6rem;
     border: $border;
     border-radius: $rounded;
     background-color: white;
@@ -131,6 +132,14 @@
       font-size: 0.8rem;
     }
 
+  }
+
+  .buttons {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
   }
 
   .noselection {

@@ -1,0 +1,67 @@
+@import "../../../../../assets/public/scss/imports/variables.scss";
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 3rem;
+  margin-top: 5rem;
+
+  background-color: black;
+  color: white;
+
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   width: 100%;
+
+  .content {
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    gap: 1rem;
+
+    p {
+      font-size: 2.5rem;
+    }
+
+    span {
+      font-size: 1.5rem;
+    }
+
+    .link {
+      font-weight: $montserrat-medium;
+      color: white;
+      font-size: 2rem;
+
+      &.underlined {
+        text-decoration: underline;
+      }
+
+      &.brand {
+        font-size: 4rem;
+        font-weight: $montserrat-black;
+        margin-right: 2rem;
+
+        @media (max-width:992px) {
+          //   font-size: 6rem;
+        }
+      }
+    }
+  }
+
+  .content-1,
+  .content-2 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-flow: wrap;
+
+
+  }
+
+}

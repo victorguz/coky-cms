@@ -1,1 +1,44 @@
-<p>public-prices works!</p>
+<ng-container *ngIf="home">
+    <div class="home">
+        <div class="title">Prepaid assett <br> preservation coverage.</div>
+        <div class="content">
+            <div class="images-content">
+                <img src="../../../../assets/public/images/prices/prices-building.svg" alt="prices-building">
+                <div class="buttons">
+                    <button mat-flat-button class="btn-primary" [routerLink]="['/prices']">Go to prices</button>
+                    <button mat-flat-button class="btn-primary" [routerLink]="['/contact']">Contact</button>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="item">
+                    <div class="title">Basic</div>
+                    <p>Basic maintenance services, easy to carry out. Highly competitive in the actual maintenance
+                        service
+                        market.</p>
+                    <button mat-flat-button class="btn-primary no-padding">See more</button>
+                </div>
+                <div class="item right">
+                    <div class="title">Premium</div>
+                    <p>Basic maintenance services, easy to carry out. Highly competitive in the actual maintenance
+                        service
+                        market.</p>
+                    <button mat-flat-button class="btn-primary no-padding">See more</button>
+                </div>
+                <div class="item">
+                    <div class="title">Standard</div>
+                    <p>Basic maintenance services, easy to carry out. Highly competitive in the actual maintenance
+                        service
+                        market.</p>
+                    <button mat-flat-button class="btn-primary no-padding">See more</button>
+                </div>
+                <div class="item right">
+                    <div class="title">Ultra</div>
+                    <p>Basic maintenance services, easy to carry out. Highly competitive in the actual maintenance
+                        service
+                        market.</p>
+                    <button mat-flat-button class="btn-primary no-padding">See more</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-public-prices',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./public-prices.component.scss']
 })
 export class PublicPricesComponent implements OnInit {
+
+  @Input()
+  home = false;
 
   constructor() { }
 

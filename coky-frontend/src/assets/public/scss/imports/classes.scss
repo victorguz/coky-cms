@@ -24,23 +24,23 @@
   }
 
   .font-1 {
-    font-size: 1.5rem;
-  }
-
-  .font-2 {
     font-size: 2rem;
   }
 
-  .font-3 {
+  .font-2 {
     font-size: 3rem;
   }
 
-  .font-4 {
+  .font-3 {
     font-size: 4rem;
   }
 
-  .font-5 {
+  .font-4 {
     font-size: 5rem;
+  }
+
+  .font-5 {
+    font-size: 6rem;
   }
 
   .text-left {
@@ -55,10 +55,16 @@
     text-align: center;
   }
 
+  .title {
+    font-size: 2em;
+    font-weight: $montserrat-bold;
+  }
+
   .text-content {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
+    font-size: 3rem;
   }
 
   .images-content {
