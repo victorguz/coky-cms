@@ -9,18 +9,18 @@
 
   width: 100vw;
   height: fit-content;
-  padding: 2rem 9rem;
+  padding: 5rem 9rem;
 
   @media (max-width:1440px) {
-    padding: 2rem 7rem;
+    padding: 3rem 7rem;
   }
 
   @media (max-width:992px) {
-    padding: 2rem;
+    padding: 3rem 5rem;
   }
 
   @media (max-width:768px) {
-    padding: 1.5rem;
+    padding: 2rem;
     gap: 1rem;
   }
 
@@ -51,51 +51,20 @@
       font-size: 3.5rem;
 
       @media (max-width:1440px) {
-        font-size: 3rem;
+        font-size: 1.8rem;
       }
 
       @media (max-width:1200px) {
-        font-size: 2.5rem;
-      }
-
-      @media (max-width:992px) {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
       }
 
       @media (max-width:768px) {
-        font-size: 2rem;
+        font-size: 1.6rem;
       }
 
 
       &.brand {
-        font-size: 9rem;
-        font-weight: $montserrat-black;
-        margin-right: 5rem;
-
-        @media (max-width:1440px) {
-          font-size: 8rem;
-          margin-right: 4.5rem;
-        }
-
-        @media (max-width:1200px) {
-          font-size: 7rem;
-          margin-right: 4rem;
-        }
-
-        @media (max-width:992px) {
-          font-size: 6rem;
-          margin-right: 3.5rem;
-        }
-
-        @media (max-width:768px) {
-          font-size: 5rem;
-          margin-right: 2rem;
-        }
-
-        @media (max-width:480px) {
-          font-size: 5rem;
-          margin-right: .5rem;
-        }
+        width: 200px;
       }
     }
   }

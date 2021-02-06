@@ -7,6 +7,7 @@
   gap: 5rem;
   color: white;
 
+
   .title {
     text-align: center;
     font-size: 7rem;
@@ -94,6 +95,7 @@
       justify-content: center;
       column-gap: 5rem;
       row-gap: 10rem;
+      padding: 1rem;
 
       @media (max-width:1480px) {
         grid-template-columns: 37rem 37rem;
