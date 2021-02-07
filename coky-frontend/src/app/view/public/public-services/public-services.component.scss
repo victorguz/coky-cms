@@ -8,8 +8,6 @@
   color: white;
   text-align: center;
 
-
-
   .title {
     font-size: 15rem;
 
@@ -58,18 +56,6 @@
     }
   }
 
-  button {
-    font-size: 3rem;
-
-    @media (max-width:768px) {
-      font-size: 2.5rem;
-    }
-
-    @media (max-width:480px) {
-      font-size: 2rem;
-    }
-  }
-
   .grid {
     display: flex;
     flex-direction: row;
@@ -82,28 +68,30 @@
     margin: 10rem 0;
 
     @media (max-width:1700px) {
-      gap: 13rem;
-    }
-
-    @media (max-width:1400px) {
-      gap: 11rem;
-    }
-
-    @media (max-width:992px) {
       gap: 9rem;
     }
 
+    @media (max-width:1400px) {
+      gap: 8rem;
+    }
+
+    @media (max-width:992px) {
+      margin: 8rem 0;
+      gap: 7rem;
+    }
+
     @media (max-width:768px) {
+      margin: 7rem 0;
       gap: 4rem;
     }
 
     @media (max-width:480px) {
-      // gap: 0rem;
+      margin: 4rem 0;
+      gap: 2.5rem;
     }
 
     @media (max-width:400px) {
-      // row-gap: 5rem;
-      // column-gap: 0;
+      margin: 3rem 0;
     }
 
     .item {
@@ -119,15 +107,34 @@
         width: 25rem;
         height: 24rem;
 
-        
-        @media (max-width:768px) {
+        @media (max-width:1700px) {
+          width: 22rem;
+          height: 21rem;
+        }
+
+        @media (max-width:1440px) {
+          width: 19rem;
+          height: 18rem;
+        }
+
+        @media (max-width:1200px) {
           width: 17rem;
           height: 16rem;
         }
 
-        @media (max-width:480px) {
+        @media (max-width:992px) {
           width: 15rem;
           height: 14rem;
+        }
+
+        @media (max-width:768px) {
+          width: 13rem;
+          height: 12rem;
+        }
+
+        @media (max-width:480px) {
+          width: 12rem;
+          height: 10rem;
         }
 
         img {
@@ -153,8 +160,12 @@
       span {
         font-size: 2.5rem;
 
-        @media (max-width:992px) {
+        @media (max-width:1440px) {
           font-size: 2rem;
+        }
+
+        @media (max-width:768px) {
+          font-size: 1.6rem;
         }
       }
     }
