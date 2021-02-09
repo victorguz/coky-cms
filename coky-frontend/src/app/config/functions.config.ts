@@ -1,3 +1,4 @@
+import { TitleCasePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -13,7 +14,7 @@ export class FunctionsService {
   constructor(private appTitle: Title, private router: Router) { }
 
   public setTitle(c_title: string) {
-    this.appTitle.setTitle(conf.app_name + ' - ' + c_title);
+    this.appTitle.setTitle(FunctionsService.capitalize(c_title) + ' - ' + conf.app_name);
   }
   /**
    * Generate the type route

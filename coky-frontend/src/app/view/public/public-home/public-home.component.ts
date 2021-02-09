@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { FunctionsService } from 'src/app/config/functions.config';
 
 @Component({
   selector: 'app-public-home',
@@ -7,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublicHomeComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private func: FunctionsService, activatedRoute: ActivatedRoute) {
+    func.setTitle(activatedRoute.snapshot.data.title)
+    // console.log(activatedRoute.snapshot.data.roles)
+  }
   ngOnInit() {
   }
 

@@ -75,12 +75,14 @@
   .card {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
 
     padding: 6rem;
     border: $border;
     border-radius: $rounded;
     background-color: white;
+
+    box-shadow: $shadow-md;
   }
 
 
@@ -158,4 +160,9 @@
                                   supported by Chrome, Edge, Opera and Firefox */
   }
 
+  .hover {
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
 }

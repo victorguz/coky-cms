@@ -7,7 +7,7 @@ export class ConfigService {
   /**
    * About App
    */
-  public static app_name = 'Coky';
+  public static app_name = 'MTS Services';
 
   /**
    * About Routes

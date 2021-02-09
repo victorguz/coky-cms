@@ -5,7 +5,11 @@ import { AdminNotFoundComponent } from '../view/admin/admin-not-found/admin-not-
 import { AdminLoginComponent } from '../view/admin/users/admin-login/admin-login.component';
 import { AdminRegisterComponent } from '../view/admin/users/admin-register/admin-register.component';
 import { AdminUsersComponent } from '../view/admin/users/admin-users/admin-users.component';
+import { PublicAboutComponent } from '../view/public/public-about/public-about.component';
+import { PublicContactComponent } from '../view/public/public-contact/public-contact.component';
 import { PublicHomeComponent } from '../view/public/public-home/public-home.component';
+import { PublicPricesComponent } from '../view/public/public-prices/public-prices.component';
+import { PublicServicesComponent } from '../view/public/public-services/public-services.component';
 import { FunctionsService as func } from './functions.config';
 
 const routes: Routes = [
@@ -44,7 +48,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'admin/users/login', component: AdminLoginComponent,
+    path: 'users/login', component: AdminLoginComponent,
     data: {
       roles: ["all"],
       title: "Login",
@@ -64,7 +68,6 @@ const routes: Routes = [
   /**
      * Public Routes
      */
-  //Home
   {
     path: '', component: PublicHomeComponent,
     data: {
@@ -76,7 +79,50 @@ const routes: Routes = [
       }
     }
   },
-
+  {
+    path: 'services', component: PublicServicesComponent,
+    data: {
+      roles: ["all"],
+      title: "services",
+      sidebar: {
+        icon: "home",
+        position: 1,
+      }
+    }
+  },
+  {
+    path: 'prices', component: PublicPricesComponent,
+    data: {
+      roles: ["all"],
+      title: "prices",
+      sidebar: {
+        icon: "home",
+        position: 1,
+      }
+    }
+  },
+  {
+    path: 'about', component: PublicAboutComponent,
+    data: {
+      roles: ["all"],
+      title: "prices",
+      sidebar: {
+        icon: "home",
+        position: 1,
+      }
+    }
+  },
+  {
+    path: 'contact', component: PublicContactComponent,
+    data: {
+      roles: ["all"],
+      title: "prices",
+      sidebar: {
+        icon: "home",
+        position: 1,
+      }
+    }
+  },
 
 
 
