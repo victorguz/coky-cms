@@ -1,38 +1,67 @@
 .coky-public {
 
+  button,
+  .btn,
+  .button,
+  [class^='btn'],
+  a[mat-button],
+  a[mat-flat-button],
+  a[mat-menu-item] {
+    &.btn-primary {
+      background-color: $primary-color-public;
+    }
+
+    &.btn-secondary {
+      background-color: $secondary-color-public;
+    }
+
+    &.btn-alert {
+      background-color: $alert-color-public;
+    }
+
+    &.btn-success {
+      background-color: $success-color-public;
+    }
+
+    &.btn-danger {
+      background-color: $danger-color-public;
+    }
+
+    &.btn-dark {
+      background-color: $dark-color-public;
+    }
+
+    &.btn-gray {
+      background-color: $gray-color-public;
+    }
+  }
+
   .btn-primary {
     background-color: $primary-color-public;
-    color: white;
   }
 
   .btn-secondary {
     background-color: $secondary-color-public;
-    color: white;
   }
 
   .btn-alert {
     background-color: $alert-color-public;
-    color: white;
   }
 
   .btn-success {
     background-color: $success-color-public;
-    color: white;
   }
 
   .btn-danger {
     background-color: $danger-color-public;
-    color: white;
   }
 
   .btn-dark {
     background-color: $dark-color-public;
-    color: white;
   }
 
   .btn-gray {
     background-color: $gray-color-public;
-    color: white;
   }
 
   .text-white {

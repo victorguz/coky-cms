@@ -1,21 +1,15 @@
 @import "../../../../../assets/public/scss/imports/variables.scss";
 
-footer {
+.footer {
   display: flex;
   flex-direction: column;
   align-items: center;
 
   padding: 3rem;
-  margin-top: 5rem;
 
   background-color: black;
   color: white;
-  gap: 1rem;
-
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  width: 100vw;
 
   .content {
     display: flex;
@@ -23,8 +17,6 @@ footer {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-
-    gap: 1rem;
 
     @media (max-width:768px) {
       flex-direction: column;
@@ -66,12 +58,16 @@ footer {
     .divisor {
       display: flex;
       align-items: center;
-      gap: 1rem;
 
       @media (max-width:768px) {
         width: 100%;
         justify-content: center;
       }
+
+      a {
+        margin: 0.5rem;
+      }
+
     }
   }
 
@@ -79,7 +75,6 @@ footer {
   .content-2 {
     display: flex;
     align-items: center;
-    gap: 1rem;
     flex-flow: wrap;
 
     @media (max-width:768px) {

@@ -33,6 +33,10 @@ body {
     font-weight: 700;
   }
 
+  strong {
+    font-weight: 600;
+  }
+
   h1,
   h2,
   h3,
@@ -46,7 +50,8 @@ body {
   b {
     margin: 0;
     padding: 0;
-    font-size: 20px;
+    font-size: 1em;
+    line-height: 1em;
   }
 
 

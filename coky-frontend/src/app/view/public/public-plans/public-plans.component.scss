@@ -4,9 +4,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5rem;
   color: white;
 
+  >* {
+    margin: 2.5rem;
+  }
 
   .title {
     text-align: center;
@@ -36,11 +38,18 @@
   .content {
     display: flex;
     align-items: center;
-    gap: 5rem;
+
+    >* {
+      margin: 2.5rem;
+    }
 
     @media (max-width:992px) {
-      gap: 4rem;
       flex-direction: column-reverse;
+
+      >* {
+        margin: 2rem;
+      }
+
     }
 
     .images-content {
@@ -48,8 +57,11 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 3rem;
       width: 53rem;
+
+      >* {
+        margin: 1.5rem;
+      }
 
       @media (max-width:1480px) {
         width: 30rem;
@@ -78,9 +90,11 @@
       grid-template-columns: 42rem 42rem;
       align-items: flex-start;
       justify-content: center;
-      column-gap: 5rem;
-      row-gap: 10rem;
       padding: 1rem;
+
+      >* {
+        margin: 5rem 2.5rem;
+      }
 
       @media (max-width:1480px) {
         grid-template-columns: 37rem 37rem;
@@ -97,24 +111,30 @@
       @media (max-width:768px) {
         display: flex;
         flex-direction: column;
-        row-gap: 5rem;
+
+        >* {
+          margin: 2.5rem;
+        }
       }
 
       .item {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 3rem;
         height: 100%;
         justify-content: space-between;
         text-align: left;
 
-        @media (max-width:1440px) {
-          gap: 2rem;
-        }
+        >* {
+          margin: 1.5rem;
 
-        @media (max-width:480px) {
-          gap: 1rem;
+          @media (max-width:1440px) {
+            margin: 1rem;
+          }
+
+          @media (max-width:480px) {
+            margin: .5rem;
+          }
         }
 
         &.right {
@@ -174,8 +194,6 @@
 
 .plans {
   .container {
-    gap: 7rem;
-    align-items: center;
 
     .header {
       display: flex;
@@ -229,21 +247,32 @@
     }
 
     .squares {
-      display: grid;
-      grid-template-columns: 25% 25% 25% 25%;
-      align-items: center;
+      display: flex;
       justify-content: center;
-      margin-top: 10rem;
-      gap: 3rem;
+      height: 100%;
+      width: 100%;
+      margin-top: 15rem;
 
-      @media (max-width:1280px) {
-        grid-template-columns: 50% 50%;
-        row-gap: 13rem;
+      >* {
+        margin: 1.5rem;
+
+        @media (max-width:1280px) {
+          margin: 6.5rem 1.5rem;
+        }
+
+        @media (max-width:992px) {
+          margin: 5rem 1.5rem;
+        }
       }
 
-      @media (max-width:992px) {
+      @media (max-width:1280px) {
+        // justify-content: start;
+      }
+
+      @media (max-width:1200px) {
         margin-top: 5rem;
-        row-gap: 10rem;
+        display: grid;
+        grid-template-columns: 50% 50%;
       }
 
       @media (max-width:768px) {
@@ -258,25 +287,83 @@
         justify-content: center;
         padding: 4rem;
         height: 100%;
-        width: 100%;
+        min-width: 39rem;
+
+        @media (max-width:1700px) {
+          padding: 3rem;
+          min-width: 35rem;
+        }
 
         @media (max-width:1440px) {
-          padding: 3rem;
+          padding: 2rem;
+          min-width: 30rem;
         }
 
-        @media (max-width:992px) {
+        @media (max-width:1280px) {
+          min-width: 27rem;
+        }
+
+        @media (max-width:1200px) {
+          height: fit-content;
+          min-width: none;
           padding: 2rem;
         }
+
+        &.basic {
+          transform: scale(0.95);
+        }
+
+        &.standard {
+          transform: scale(0.97);
+        }
+
+        &.ultra {
+          transform: scale(0.99);
+        }
+
+        &.premium {
+          transform: scale(1.02);
+
+          &:hover {
+            transform: scale(1.03);
+          }
+        }
+
+
+        &.basic,
+        &.standard,
+        &.ultra,
+        &.premium {
+          @media (max-width:1200px) {
+            transform: none;
+
+            &:hover {
+              transform: scale(1.05);
+            }
+          }
+
+          @media (max-width:768px) {
+            &:hover {
+              margin-bottom: 8rem;
+            }
+          }
+        }
+
+        &:hover {
+          transform: scale(1);
+          box-shadow: 1px 1px 20px 5px rgba(44, 44, 44, 0.63);
+        }
+
 
         /* Tooltip text */
         .tooltiptext {
           position: relative;
           text-align: center;
-          padding: 1rem 3rem;
+          padding: .5em;
           border-radius: $rounded;
           word-wrap: none;
           word-break: none;
-          width: 130%;
+          width: 110%;
 
           background-color: $dark-color-public;
 
@@ -296,6 +383,8 @@
           }
 
           @media (max-width:1480px) {
+            margin-top: -130px;
+            margin-bottom: 40px;
             font-size: 3rem;
           }
 
@@ -353,8 +442,6 @@
           }
         }
 
-
-
         .list {
           display: flex;
           flex-direction: column;
@@ -363,21 +450,23 @@
 
           .item {
             display: grid;
-            grid-template-columns: 3rem auto;
+            grid-template-columns: 4rem auto;
             align-items: center;
-            gap: 1rem;
             color: $dark-color-public;
+            margin: 1rem;
 
             ion-icon[name="checkmark"],
             ion-icon[aria-label="checkmark"],
             ion-icon[ng-reflect-name="checkmark"] {
               color: $primary-color-public;
+              margin-right: 1rem;
             }
 
             ion-icon[name="close"],
             ion-icon[aria-label="close"],
             ion-icon[ng-reflect-name="close"] {
               color: $dark-color-public;
+              margin-right: 1rem;
             }
 
             span {

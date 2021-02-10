@@ -58,13 +58,17 @@
   .title {
     font-size: 2em;
     font-weight: $montserrat-bold;
+    line-height: 1em;
   }
 
   .text-content {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
     font-size: 3rem;
+
+    >* {
+      margin: 1rem 0;
+    }
   }
 
   .images-content {

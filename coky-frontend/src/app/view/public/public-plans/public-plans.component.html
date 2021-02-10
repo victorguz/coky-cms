@@ -52,9 +52,10 @@
                     <div class="title">Plans</div>
                     <div class="slogan">Leave your problems in our hands</div>
                 </div>
+
                 <div class="squares">
                     <ng-container *ngFor="let plan of plans">
-                        <div class="square card">
+                        <div class="square card {{plan}}">
                             <span class="tooltiptext {{plan}}">{{plan}}</span>
                             <div class="list">
                                 <div class="item" *ngFor="let item of microservices">
@@ -62,12 +63,17 @@
                                     <span>{{item.name}}</span>
                                 </div>
                             </div>
-                            <a routerLink="/contact#{{plan}}" mat-button class="btn-primary">Get quote</a>
+                            <a routerLink="/contact/{{plan}}" mat-button class="btn-primary">Get quote</a>
                         </div>
                     </ng-container>
                 </div>
-
             </div>
+            <br>
+            <br>
+            <br>
+            <br><br>
+            <br><br><br><br>
+            <app-public-footer></app-public-footer>
         </div>
     </div>
 </ng-container>

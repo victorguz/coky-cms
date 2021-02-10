@@ -219,14 +219,14 @@
                 </div>
 
                 <div class="button-more">
-                    <button mat-button (click)="openMore=!openMore">
+                    <a mat-button (click)="openMore=!openMore">
                         <ng-container *ngIf="openMore">
                             Hide other services
                         </ng-container>
                         <ng-container *ngIf="!openMore">
                             Other services
                         </ng-container>
-                    </button>
+                    </a>
                 </div>
 
                 <ng-container *ngIf="openMore">
@@ -245,13 +245,14 @@
                 <div class="end">
                     <div class="title">Are you interested?</div>
                     <div class="buttons">
-                        <button mat-flat-button class="btn-primary" [routerLink]="['/contact']">Contact us</button>
-                        <button mat-flat-button class="btn-primary" [routerLink]="['/plans']">See the prices</button>
+                        <a mat-flat-button class="btn-primary" [routerLink]="['/contact']">Contact us</a>
+                        <a mat-flat-button class="btn-primary" [routerLink]="['/plans']">See the prices</a>
                     </div>
                 </div>
 
-                <app-public-footer></app-public-footer>
             </div>
+
+            <app-public-footer></app-public-footer>
 
         </div>
     </div>
