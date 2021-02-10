@@ -5,8 +5,8 @@
             <div class="images-content">
                 <img src="../../../../assets/public/images/prices/prices-building.svg" alt="prices-building">
                 <div class="buttons">
-                    <button mat-flat-button class="btn-primary" [routerLink]="['/prices']">Go to prices</button>
-                    <button mat-flat-button class="btn-primary" [routerLink]="['/contact']">Contact</button>
+                    <a mat-flat-button class="btn-primary" routerLink="/plans">See the plans</a>
+                    <a mat-flat-button class="btn-primary" routerLink="/contact">Contact</a>
                 </div>
             </div>
             <div class="grid">
@@ -15,28 +15,28 @@
                     <p>Basic maintenance services, easy to carry out. Highly competitive in the actual maintenance
                         service
                         market.</p>
-                    <button mat-flat-button class="btn-primary no-padding">See more</button>
+                    <a mat-flat-button class="btn-primary no-padding" routerLink="/plans">See more</a>
                 </div>
                 <div class="item right">
                     <div class="title">Premium</div>
                     <p>Basic maintenance services, easy to carry out. Highly competitive in the actual maintenance
                         service
                         market.</p>
-                    <button mat-flat-button class="btn-primary no-padding">See more</button>
+                    <a mat-flat-button class="btn-primary no-padding" routerLink="/plans">See more</a>
                 </div>
                 <div class="item">
                     <div class="title">Standard</div>
                     <p>Basic maintenance services, easy to carry out. Highly competitive in the actual maintenance
                         service
                         market.</p>
-                    <button mat-flat-button class="btn-primary no-padding">See more</button>
+                    <a mat-flat-button class="btn-primary no-padding" routerLink="/plans">See more</a>
                 </div>
                 <div class="item right">
                     <div class="title">Ultra</div>
                     <p>Basic maintenance services, easy to carry out. Highly competitive in the actual maintenance
                         service
                         market.</p>
-                    <button mat-flat-button class="btn-primary no-padding">See more</button>
+                    <a mat-flat-button class="btn-primary no-padding" routerLink="/plans">See more</a>
                 </div>
             </div>
         </div>
@@ -45,10 +45,28 @@
 
 <ng-container *ngIf="!home">
     <div class="coky-public">
-        <div class="prices">
+        <div class="plans">
             <app-public-navbar></app-public-navbar>
             <div class="container">
-                <div class="title text-white">Prices</div>
+                <div class="header">
+                    <div class="title">Plans</div>
+                    <div class="slogan">Leave your problems in our hands</div>
+                </div>
+                <div class="squares">
+                    <ng-container *ngFor="let plan of plans">
+                        <div class="square card">
+                            <span class="tooltiptext {{plan}}">{{plan}}</span>
+                            <div class="list">
+                                <div class="item" *ngFor="let item of microservices">
+                                    <ion-icon name="{{item[plan]?'checkmark':'close'}}" size="large"></ion-icon>
+                                    <span>{{item.name}}</span>
+                                </div>
+                            </div>
+                            <a routerLink="/contact#{{plan}}" mat-button class="btn-primary">Get quote</a>
+                        </div>
+                    </ng-container>
+                </div>
+
             </div>
         </div>
     </div>

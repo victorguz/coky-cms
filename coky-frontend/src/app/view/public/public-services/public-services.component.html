@@ -4,7 +4,7 @@
         <div class="slogan">What we do for you today?</div>
         <div class="grid">
             <div class="item">
-                <div class="images">
+                <div class="images hover">
                     <img src="assets/public/images/services/categories/trazados/back1.svg" alt="back" class="back">
                     <img src="assets/public/images/services/categories/service1.svg" alt="service-image"
                         class="service">
@@ -13,70 +13,70 @@
             </div>
 
             <div class="item">
-                <div class="images">
+                <div class="images hover">
                     <img src="assets/public/images/services/categories/trazados/back2.svg" alt="back" class="back">
                     <img src="assets/public/images/services/categories/service2.svg" alt="service-image"
                         class="service">
                 </div>
-                <span>General Cleaning</span>
+                <span>Plumbing</span>
             </div>
 
             <div class="item">
-                <div class="images">
+                <div class="images hover">
                     <img src="assets/public/images/services/categories/trazados/back3.svg" alt="back" class="back">
                     <img src="assets/public/images/services/categories/service3.svg" alt="service-image"
                         class="service">
                 </div>
-                <span>General Cleaning</span>
+                <span>Hausehold Laundry</span>
             </div>
 
             <div class="item">
-                <div class="images">
+                <div class="images hover">
                     <img src="assets/public/images/services/categories/trazados/back4.svg" alt="back" class="back">
                     <img src="assets/public/images/services/categories/service4.svg" alt="service-image"
                         class="service">
                 </div>
-                <span>General Cleaning</span>
+                <span>Cleaning Consumables</span>
             </div>
 
             <div class="item">
-                <div class="images">
+                <div class="images hover">
                     <img src="assets/public/images/services/categories/trazados/back5.svg" alt="back" class="back">
                     <img src="assets/public/images/services/categories/service5.svg" alt="service-image"
                         class="service">
                 </div>
-                <span>General Cleaning</span>
+                <span>Painting</span>
             </div>
 
             <div class="item">
-                <div class="images">
+                <div class="images hover">
                     <img src="assets/public/images/services/categories/trazados/back6.svg" alt="back" class="back">
                     <img src="assets/public/images/services/categories/service6.svg" alt="service-image"
                         class="service">
                 </div>
-                <span>General Cleaning</span>
+                <span>Sanitary Consumables</span>
             </div>
 
             <div class="item">
-                <div class="images">
+                <div class="images hover">
                     <img src="assets/public/images/services/categories/trazados/back7.svg" alt="back" class="back">
                     <img src="assets/public/images/services/categories/service7.svg" alt="service-image"
                         class="service">
                 </div>
-                <span>General Cleaning</span>
+                <span>Light Bulbs</span>
             </div>
 
             <div class="item">
-                <div class="images">
+                <div class="images hover">
                     <img src="assets/public/images/services/categories/trazados/back8.svg" alt="back" class="back">
                     <img src="assets/public/images/services/categories/service8.svg" alt="service-image"
                         class="service">
                 </div>
-                <span>General Cleaning</span>
+                <span>Gardening</span>
             </div>
         </div>
 
-        <button mat-flat-button class="btn-primary">See the services</button>
+        <a mat-flat-button class="btn-primary" routerLink="/services">See the services</a>
 
     </div>
 
@@ -230,7 +230,7 @@
                 </div>
 
                 <ng-container *ngIf="openMore">
-                    <div class="list">
+                    <div class="list noselection">
                         <div class="item card hover">Electricity</div>
                         <div class="item card hover">Fire detection and Managment system</div>
                         <div class="item card hover">Civil Works and masonry</div>
@@ -246,7 +246,7 @@
                     <div class="title">Are you interested?</div>
                     <div class="buttons">
                         <button mat-flat-button class="btn-primary" [routerLink]="['/contact']">Contact us</button>
-                        <button mat-flat-button class="btn-primary" [routerLink]="['/prices']">See the prices</button>
+                        <button mat-flat-button class="btn-primary" [routerLink]="['/plans']">See the prices</button>
                     </div>
                 </div>
 

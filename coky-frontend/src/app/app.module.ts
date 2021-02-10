@@ -36,8 +36,8 @@ import { PublicFooterComponent } from './view/public/layout/public-footer/public
 import { PublicCarouselComponent } from './view/public/import/public-carousel/public-carousel.component';
 import { PublicAboutComponent } from './view/public/public-about/public-about.component';
 import { PublicServicesComponent } from './view/public/public-services/public-services.component';
-import { PublicPricesComponent } from './view/public/public-prices/public-prices.component';
 import { PublicContactComponent } from './view/public/public-contact/public-contact.component';
+import { PublicPlansComponent } from './view/public/public-plans/public-plans.component';
 
 
 @NgModule({
@@ -58,8 +58,8 @@ import { PublicContactComponent } from './view/public/public-contact/public-cont
     PublicCarouselComponent,
     PublicAboutComponent,
     PublicServicesComponent,
-    PublicPricesComponent,
     PublicContactComponent,
+    PublicPlansComponent,
   ],
   imports: [
     BrowserModule,

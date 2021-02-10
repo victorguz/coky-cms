@@ -32,7 +32,10 @@
     cursor: pointer;
   }
 
-  button {
+  button,
+  a[mat-button],
+  a[mat-flat-button],
+  a[mat-menu-item] {
     cursor: pointer;
     padding: .5em 1em;
     border-radius: $rounded;

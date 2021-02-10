@@ -8,7 +8,7 @@ import { AdminUsersComponent } from '../view/admin/users/admin-users/admin-users
 import { PublicAboutComponent } from '../view/public/public-about/public-about.component';
 import { PublicContactComponent } from '../view/public/public-contact/public-contact.component';
 import { PublicHomeComponent } from '../view/public/public-home/public-home.component';
-import { PublicPricesComponent } from '../view/public/public-prices/public-prices.component';
+import { PublicPlansComponent } from '../view/public/public-plans/public-plans.component';
 import { PublicServicesComponent } from '../view/public/public-services/public-services.component';
 import { FunctionsService as func } from './functions.config';
 
@@ -91,10 +91,10 @@ const routes: Routes = [
     }
   },
   {
-    path: 'prices', component: PublicPricesComponent,
+    path: 'plans', component: PublicPlansComponent,
     data: {
       roles: ["all"],
-      title: "prices",
+      title: "plans",
       sidebar: {
         icon: "home",
         position: 1,
@@ -105,7 +105,7 @@ const routes: Routes = [
     path: 'about', component: PublicAboutComponent,
     data: {
       roles: ["all"],
-      title: "prices",
+      title: "about",
       sidebar: {
         icon: "home",
         position: 1,
@@ -116,7 +116,7 @@ const routes: Routes = [
     path: 'contact', component: PublicContactComponent,
     data: {
       roles: ["all"],
-      title: "prices",
+      title: "contact",
       sidebar: {
         icon: "home",
         position: 1,
