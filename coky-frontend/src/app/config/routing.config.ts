@@ -123,6 +123,17 @@ const routes: Routes = [
       }
     }
   },
+  {
+    path: 'quote/:type', component: PublicContactComponent,
+    data: {
+      roles: ["all"],
+      title: "quote",
+      sidebar: {
+        icon: "home",
+        position: 1,
+      }
+    }
+  },
 
 
 

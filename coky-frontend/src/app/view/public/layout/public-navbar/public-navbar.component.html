@@ -3,7 +3,7 @@
         <a class="link brand" [routerLink]="['/']">
             <img src="assets/public/images/logo-navbar.svg" alt="logo-mts">
         </a>
-        <a class="link" [routerLink]="['/']" routerLinkActive="active">Home</a>
+        <a class="link" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
         <a class="link" [routerLink]="['/services']" routerLinkActive="active">Services</a>
         <a class="link" [routerLink]="['/plans']" routerLinkActive="active">Plans</a>
         <a class="link" [routerLink]="['/about']" routerLinkActive="active">About</a>
@@ -11,8 +11,7 @@
             <a class="link" [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
         </div>
         <div class="not-dispose">
-            <a mat-flat-button class="link btn-primary" [routerLink]="['/users/login']"
-                routerLinkActive="active">Sign
+            <a mat-flat-button class="link btn-primary" [routerLink]="['/users/login']" routerLinkActive="active">Sign
                 in</a>
         </div>
     </div>
@@ -21,9 +20,6 @@
             <a class="link" [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
             <a mat-flat-button class="link btn-primary" [routerLink]="['/users/login']" routerLinkActive="active">Sign
                 in</a>
-
-            <a class="btn">Hola</a>
-
         </div>
     </div>
 </div>

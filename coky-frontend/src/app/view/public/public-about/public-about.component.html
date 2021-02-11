@@ -25,8 +25,57 @@
         <div class="about">
             <app-public-navbar></app-public-navbar>
             <div class="container">
-                <div class="title text-white">About us</div>
+                <div class="title">About us</div>
+                <div class="images-content">
+                    <img src="../../../../assets/public/images/about/about-page.svg" alt="mts-about-page">
+                </div>
+                <div class="slogan">"We provide exceptional maintenance, minimizing asset deterioration"</div>
+
+                <div class="card text-content">
+                    <p class="presentation">
+                        MTS Corporation is a company specialized in facility management, focused on
+                        providing highly efficient infrastructure
+                        maintenance, based on preventive, predictive and corrective activities in a very PROACTIVE
+                        manner. Our mother Company,
+                        NATURARTE C.A, has more than 25 years of experience in the market, providing world class
+                        companies such as AIG, Procter
+                        & Gamble and INDRA among others, with high performance corporate maintenance services in Latin
+                        America and the
+                        Caribbean. In the US, our goal is to provide a comprehensive highly competitive maintenance
+                        service for residential
+                        vacation properties.
+                    </p>
+
+                    <div class="contact-data">
+                        <div class="content-1">
+                            <a>
+                                <ion-icon name="location" size="small"></ion-icon>
+                                152-11 89th Ave Queens Unit 631 11432
+                            </a>
+                        </div>
+                        <div class="content-2">
+                            <a>
+                                <ion-icon name="call" size="small"></ion-icon>
+                                +1-917-496-0563
+                            </a>
+                            <a>
+                                <ion-icon name="mail" size="small"></ion-icon>
+                                info@mtservicescorp.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <a routerLink="/contact" class="btn-dark fluid">Contact us</a>
+
+                </div>
+
+                <app-public-carousel></app-public-carousel>
+                <app-public-plans [home]="true"></app-public-plans>
+
             </div>
+
+
+            <app-public-footer></app-public-footer>
         </div>
     </div>
 </ng-container>

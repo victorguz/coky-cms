@@ -6,7 +6,7 @@
                 <img src="../../../../assets/public/images/prices/prices-building.svg" alt="prices-building">
                 <div class="buttons">
                     <a mat-flat-button class="btn-primary" routerLink="/plans">See the plans</a>
-                    <a mat-flat-button class="btn-primary" routerLink="/contact">Contact</a>
+                    <a mat-flat-button class="btn-primary" routerLink="/quote">Contact us</a>
                 </div>
             </div>
             <div class="grid">
@@ -48,6 +48,7 @@
         <div class="plans">
             <app-public-navbar></app-public-navbar>
             <div class="container">
+
                 <div class="header">
                     <div class="title">Plans</div>
                     <div class="slogan">Leave your problems in our hands</div>
@@ -63,16 +64,30 @@
                                     <span>{{item.name}}</span>
                                 </div>
                             </div>
-                            <a routerLink="/contact/{{plan}}" mat-button class="btn-primary">Get quote</a>
+                            <a routerLink="/quote/{{plan}}" mat-button class="btn-primary">Get quote</a>
                         </div>
                     </ng-container>
                 </div>
+
+                <div class="aditional">
+                    <div class="images-content">
+                        <img src="../../../../assets/public/images/prices/prices-people.svg" alt="prices-people">
+                    </div>
+                    <div class="text-content">
+                        <div class="title">Aditional<br>Services</div>
+                        <p>We have two extra special services which you <br> can self-quote on our website at any time
+                            you
+                            wish. <br><br><strong>Get a quote now!</strong></p>
+
+                        <div class="buttons nowrap md">
+                            <a mat-flat-button class="btn-white padding" routerLink="/quote/desinfection">Desinfection
+                                services</a>
+                            <a mat-flat-button class="btn-white padding" routerLink="/quote/nonoccupied">Non occupied
+                                unit</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <br>
-            <br>
-            <br>
-            <br><br>
-            <br><br><br><br>
             <app-public-footer></app-public-footer>
         </div>
     </div>

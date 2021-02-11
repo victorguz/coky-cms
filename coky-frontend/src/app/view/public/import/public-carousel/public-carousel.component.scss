@@ -17,6 +17,7 @@
     .title {
       font-weight: $montserrat-bold;
       font-size: 9rem;
+      margin-bottom: 2rem;
 
       @media (max-width:1700px) {
         font-size: 8rem;
@@ -28,6 +29,7 @@
 
       @media (max-width:992px) {
         font-size: 6rem;
+        margin-bottom: 1rem;
       }
 
       @media (max-width:768px) {
@@ -41,6 +43,7 @@
 
     p {
       font-size: 3rem;
+      margin-bottom: 2rem;
 
       @media (max-width:1440px) {
         font-size: 2.2rem;
@@ -48,6 +51,7 @@
 
       @media (max-width:992px) {
         font-size: 2rem;
+        margin-bottom: 1rem;
       }
 
       @media (max-width:768px) {
@@ -62,16 +66,13 @@
 
   .images-content {
     min-width: 86rem;
-    // min-height: 65rem;
 
     @media (max-width:1700px) {
       min-width: 70rem;
-      // min-height: 49rem;
     }
 
     @media (max-width:1480px) {
       min-width: 60rem;
-      // min-height: 49rem;
     }
 
     @media (max-width:1240px) {
