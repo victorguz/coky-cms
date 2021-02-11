@@ -9,19 +9,18 @@
   padding: 8rem 10rem;
 
   @media (max-width:1440px) {
-    padding: 7rem;
+    padding: 4rem;
   }
 
-  @media (max-width:1280px) {}
+  @media (max-width:1280px) {
+    padding: 3rem;
+  }
 
   @media (max-width:800px) {
     flex-direction: column;
-    padding: 6rem;
   }
 
-  @media (max-width:600px) {
-    padding: 3.5rem;
-  }
+  @media (max-width:600px) {}
 
   @media (max-width:480px) {
     padding: 2.5rem;
@@ -31,23 +30,18 @@
     text-align: right;
     align-items: flex-end;
     color: $dark-color-public;
-    gap: 8rem;
-
+    justify-content: space-around;
     width: 50%;
 
-    @media (max-width:1440px) {
-      gap: 6rem;
-    }
+    @media (max-width:1440px) {}
 
     @media (max-width:1280px) {
       // margin-top: -30rem;
       // width: 100%;
-      gap: 5rem;
     }
 
     @media (max-width:992px) {
       // margin-top: -25rem;
-      gap: 4rem;
     }
 
     @media (max-width:800px) {
@@ -59,7 +53,6 @@
       margin-top: 0;
       text-align: center;
       align-items: center;
-      gap: 3rem;
     }
 
     .title {
