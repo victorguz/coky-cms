@@ -4,6 +4,9 @@
   .btn,
   .button,
   [class^='btn'],
+  [class^='btn']:hover,
+  [class^='btn']:active,
+  [class^='btn']:focus,
   a[mat-button],
   a[mat-flat-button],
   a[mat-menu-item] {
@@ -41,6 +44,11 @@
     }
   }
 
+  .btn-white {
+    background-color: white;
+    color: $back-color-public;
+  }
+
   .btn-primary {
     background-color: $primary-color-public;
   }
@@ -66,6 +74,38 @@
   }
 
   .btn-gray {
+    background-color: $gray-color-public;
+  }
+
+  .bg-white {
+    background-color: white;
+  }
+
+  .bg-primary {
+    background-color: $primary-color-public;
+  }
+
+  .bg-secondary {
+    background-color: $secondary-color-public;
+  }
+
+  .bg-alert {
+    background-color: $alert-color-public;
+  }
+
+  .bg-success {
+    background-color: $success-color-public;
+  }
+
+  .bg-danger {
+    background-color: $danger-color-public;
+  }
+
+  .bg-dark {
+    background-color: $dark-color-public;
+  }
+
+  .bg-gray {
     background-color: $gray-color-public;
   }
 
@@ -120,19 +160,19 @@
       margin: 1rem 0;
     }
 
-    @media (max-width:1440px) {
+    @media screen and (max-width:1440px) {
       padding: 5rem;
     }
 
-    @media (max-width:1280px) {
+    @media screen and (max-width:1280px) {
       padding: 4rem;
     }
 
-    @media (max-width:992px) {
+    @media screen and (max-width:992px) {
       padding: 3rem;
     }
 
-    @media (max-width:768px) {
+    @media screen and (max-width:768px) {
       padding: 2.5rem;
     }
 
@@ -141,76 +181,25 @@
       font-size: 3rem;
       margin-bottom: 3rem;
 
-      @media (max-width:1440px) {
+      @media screen and (max-width:1440px) {
         font-size: 2.2rem;
         font-size: 2rem;
       }
 
-      @media (max-width:992px) {
+      @media screen and (max-width:992px) {
         margin-bottom: 2rem;
       }
 
-      @media (max-width:768px) {
+      @media screen and (max-width:768px) {
         font-size: 1.8rem;
         margin-bottom: 1.5rem;
       }
 
-      @media (max-width:480px) {
+      @media screen and (max-width:480px) {
         font-size: 1.6rem;
         margin-bottom: 1rem;
       }
     }
-  }
-
-
-
-  .flex {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-
-    @media (max-width:768px) {
-      flex-flow: wrap;
-    }
-
-    div,
-    input,
-    button {
-      width: 100%;
-    }
-
-  }
-
-  .flex-between {
-    @extend .flex;
-    justify-content: space-between;
-  }
-
-  .flex-one {
-    @extend .flex;
-    flex-flow: wrap;
-
-    div,
-    input,
-    button {
-      width: 100%;
-    }
-
-  }
-
-  .field {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-
-    label {
-      font-weight: 500;
-      text-align: left;
-      font-size: 0.8rem;
-    }
-
   }
 
   .buttons {
@@ -237,19 +226,19 @@
     white-space: nowrap;
 
     &.lg {
-      @media (max-width:992px) {
+      @media screen and (max-width:992px) {
         flex-flow: wrap;
       }
     }
 
     &.md {
-      @media (max-width:768px) {
+      @media screen and (max-width:768px) {
         flex-flow: wrap;
       }
     }
 
     &.sm {
-      @media (max-width:480px) {
+      @media screen and (max-width:480px) {
         flex-flow: wrap;
       }
     }
@@ -356,7 +345,7 @@
   .dispose-lg {
     visibility: visible;
 
-    @media (max-width:992px) {
+    @media screen and (max-width:992px) {
       visibility: hidden;
     }
   }
@@ -364,7 +353,7 @@
   .dispose-md {
     visibility: visible;
 
-    @media (max-width:768px) {
+    @media screen and (max-width:768px) {
       visibility: hidden;
     }
   }
@@ -372,7 +361,7 @@
   .dispose-sm {
     visibility: visible;
 
-    @media (max-width:480px) {
+    @media screen and (max-width:480px) {
       visibility: hidden;
     }
   }
@@ -380,7 +369,7 @@
   .not-dispose-lg {
     visibility: hidden;
 
-    @media (max-width:992px) {
+    @media screen and (max-width:992px) {
       visibility: visible;
     }
   }
@@ -388,7 +377,7 @@
   .not-dispose-md {
     visibility: hidden;
 
-    @media (max-width:768px) {
+    @media screen and (max-width:768px) {
       visibility: visible;
     }
   }
@@ -396,7 +385,7 @@
   .not-dispose-sm {
     visibility: hidden;
 
-    @media (max-width:480px) {
+    @media screen and (max-width:480px) {
       visibility: visible;
     }
   }

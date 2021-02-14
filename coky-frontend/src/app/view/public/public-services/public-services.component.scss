@@ -16,23 +16,23 @@
   .title {
     font-size: 13rem;
 
-    @media (max-width:1700px) {
+    @media screen and  (max-width:1700px) {
       font-size: 11rem;
     }
 
-    @media (max-width:1480px) {
+    @media screen and  (max-width:1480px) {
       font-size: 10rem;
     }
 
-    @media (max-width:992px) {
+    @media screen and  (max-width:992px) {
       font-size: 9rem;
     }
 
-    @media (max-width:768px) {
+    @media screen and  (max-width:768px) {
       font-size: 7rem;
     }
 
-    @media (max-width:480px) {
+    @media screen and  (max-width:480px) {
       font-size: 4rem;
     }
   }
@@ -40,23 +40,23 @@
   .slogan {
     font-size: 4.2rem;
 
-    @media (max-width:1700px) {
+    @media screen and  (max-width:1700px) {
       font-size: 4rem;
     }
 
-    @media (max-width:1480px) {
+    @media screen and  (max-width:1480px) {
       font-size: 3.8rem;
     }
 
-    @media (max-width:992px) {
+    @media screen and  (max-width:992px) {
       font-size: 3.5rem;
     }
 
-    @media (max-width:768px) {
+    @media screen and  (max-width:768px) {
       font-size: 3.3rem;
     }
 
-    @media (max-width:480px) {
+    @media screen and  (max-width:480px) {
       font-size: 2.5rem;
     }
   }
@@ -71,24 +71,24 @@
 
     width: 100%;
 
-    @media (max-width:1700px) {}
+    @media screen and  (max-width:1700px) {}
 
-    @media (max-width:1400px) {}
+    @media screen and  (max-width:1400px) {}
 
-    @media (max-width:992px) {}
+    @media screen and  (max-width:992px) {}
 
-    @media (max-width:768px) {
+    @media screen and  (max-width:768px) {
       grid-template-columns: 33.33% 33.33% 33.33%;
     }
 
-    @media (max-width:480px) {
+    @media screen and  (max-width:480px) {
       grid-template-columns: 50% 50%;
     }
 
     >* {
       margin: 4rem 0;
 
-      @media (max-width:768px) {
+      @media screen and  (max-width:768px) {
         margin: 1rem 0;
       }
 
@@ -108,33 +108,33 @@
         height: 24rem;
         margin-bottom: 3rem;
 
-        @media (max-width:1700px) {
+        @media screen and  (max-width:1700px) {
           width: 22rem;
           height: 21rem;
         }
 
-        @media (max-width:1440px) {
+        @media screen and  (max-width:1440px) {
           width: 19rem;
           height: 18rem;
         }
 
-        @media (max-width:1200px) {
+        @media screen and  (max-width:1200px) {
           width: 17rem;
           height: 16rem;
         }
 
-        @media (max-width:992px) {
+        @media screen and  (max-width:992px) {
           width: 15rem;
           height: 14rem;
         }
 
-        @media (max-width:768px) {
+        @media screen and  (max-width:768px) {
           width: 13rem;
           height: 12rem;
           margin-bottom: 1rem;
         }
 
-        @media (max-width:480px) {
+        @media screen and  (max-width:480px) {
           width: 12rem;
           height: 10rem;
         }
@@ -162,11 +162,11 @@
       span {
         font-size: 2.5rem;
 
-        @media (max-width:1440px) {
+        @media screen and  (max-width:1440px) {
           font-size: 2rem;
         }
 
-        @media (max-width:768px) {
+        @media screen and  (max-width:768px) {
           font-size: 1.6rem;
         }
       }
@@ -189,23 +189,23 @@
       .title {
         font-size: 10rem;
 
-        @media (max-width:1700px) {
+        @media screen and  (max-width:1700px) {
           font-size: 9rem;
         }
 
-        @media (max-width:1480px) {
+        @media screen and  (max-width:1480px) {
           font-size: 8rem;
         }
 
-        @media (max-width:992px) {
+        @media screen and  (max-width:992px) {
           font-size: 7rem;
         }
 
-        @media (max-width:768px) {
+        @media screen and  (max-width:768px) {
           font-size: 6.5rem;
         }
 
-        @media (max-width:480px) {
+        @media screen and  (max-width:480px) {
           font-size: 5rem;
         }
       }
@@ -213,19 +213,19 @@
       .slogan {
         font-size: 3rem;
 
-        @media (max-width:1480px) {
+        @media screen and  (max-width:1480px) {
           font-size: 2.5rem;
         }
 
-        @media (max-width:992px) {
+        @media screen and  (max-width:992px) {
           font-size: 2rem;
         }
 
-        @media (max-width:768px) {
+        @media screen and  (max-width:768px) {
           font-size: 1.8rem;
         }
 
-        @media (max-width:480px) {
+        @media screen and  (max-width:480px) {
           font-size: 1.6rem;
         }
       }
@@ -236,7 +236,7 @@
         margin-top: 5rem;
         width: 100%;
 
-        @media (max-width:992px) {
+        @media screen and  (max-width:992px) {
           // width: fit-content;
         }
 
@@ -250,20 +250,20 @@
             margin-bottom: 5rem;
             font-size: 3rem;
 
-            @media (max-width:1480px) {
+            @media screen and  (max-width:1480px) {
               font-size: 2.5rem;
             }
 
-            @media (max-width:992px) {
+            @media screen and  (max-width:992px) {
               margin-bottom: 2.5rem;
               font-size: 2rem;
             }
 
-            @media (max-width:768px) {
+            @media screen and  (max-width:768px) {
               font-size: 1.8rem;
             }
 
-            @media (max-width:480px) {
+            @media screen and  (max-width:480px) {
               font-size: 1.6rem;
             }
           }
@@ -271,19 +271,19 @@
           img {
             height: 25rem;
 
-            @media (max-width:1480px) {
+            @media screen and  (max-width:1480px) {
               height: 20rem;
             }
 
-            @media (max-width:1200px) {
+            @media screen and  (max-width:1200px) {
               height: 18rem;
             }
 
-            @media (max-width:768px) {
+            @media screen and  (max-width:768px) {
               height: 16rem;
             }
 
-            @media (max-width:480px) {
+            @media screen and  (max-width:480px) {
               height: 10rem;
             }
           }
@@ -299,11 +299,11 @@
       >* {
         margin: 3rem 0;
 
-        @media (max-width:1480px) {
+        @media screen and  (max-width:1480px) {
           margin: 2rem 0;
         }
 
-        @media (max-width:992px) {
+        @media screen and  (max-width:992px) {
           margin: 1rem 0;
         }
       }
@@ -311,23 +311,23 @@
       .title {
         font-size: 7rem;
 
-        @media (max-width:1700px) {
+        @media screen and  (max-width:1700px) {
           font-size: 6rem;
         }
 
-        @media (max-width:1480px) {
+        @media screen and  (max-width:1480px) {
           font-size: 5rem;
         }
 
-        @media (max-width:992px) {
+        @media screen and  (max-width:992px) {
           font-size: 4rem;
         }
 
-        @media (max-width:768px) {
+        @media screen and  (max-width:768px) {
           font-size: 3.5rem;
         }
 
-        @media (max-width:480px) {
+        @media screen and  (max-width:480px) {
           font-size: 3rem;
         }
       }
@@ -342,12 +342,12 @@
         >* {
           margin: 2.5rem;
 
-          @media (max-width:1440px) {
+          @media screen and  (max-width:1440px) {
             margin: 1.5rem;
           }
         }
 
-        @media (max-width:768px) {
+        @media screen and  (max-width:768px) {
           display: flex;
           flex-direction: column;
 
@@ -364,11 +364,11 @@
           width: fit-content;
           height: fit-content;
 
-          @media (max-width:1440px) {
+          @media screen and  (max-width:1440px) {
             padding: 3rem;
           }
 
-          @media (max-width:768px) {
+          @media screen and  (max-width:768px) {
             margin: 5rem;
             align-items: center;
 
@@ -378,18 +378,18 @@
               .images-content {
                 align-items: flex-end;
 
-                @media (max-width:400px) {
+                @media screen and  (max-width:400px) {
                   align-items: center;
                 }
               }
             }
           }
 
-          @media (max-width:480px) {
+          @media screen and  (max-width:480px) {
             margin: 2.5rem;
           }
 
-          @media (max-width:400px) {
+          @media screen and  (max-width:400px) {
             margin: 0.5rem;
             flex-flow: wrap;
           }
@@ -402,27 +402,27 @@
             margin: 1.5rem;
             width: 15rem;
 
-            @media (max-width:1700px) {
+            @media screen and  (max-width:1700px) {
               width: 15rem;
             }
 
-            @media (max-width:1480px) {
+            @media screen and  (max-width:1480px) {
               width: 11rem;
             }
 
-            @media (max-width:992px) {
+            @media screen and  (max-width:992px) {
               width: 8rem;
             }
 
-            @media (max-width:768px) {
+            @media screen and  (max-width:768px) {
               width: 8rem;
             }
 
-            @media (max-width:480px) {
+            @media screen and  (max-width:480px) {
               width: 7rem;
             }
 
-            @media (max-width:400px) {
+            @media screen and  (max-width:400px) {
               width: 100%;
               align-items: center;
             }
@@ -432,23 +432,23 @@
               height: 1em;
               width: 1em;
 
-              @media (max-width:1700px) {
+              @media screen and  (max-width:1700px) {
                 font-size: 15rem;
               }
 
-              @media (max-width:1480px) {
+              @media screen and  (max-width:1480px) {
                 font-size: 11rem;
               }
 
-              @media (max-width:992px) {
+              @media screen and  (max-width:992px) {
                 font-size: 8rem;
               }
 
-              @media (max-width:768px) {
+              @media screen and  (max-width:768px) {
                 font-size: 12rem;
               }
 
-              @media (max-width:480px) {
+              @media screen and  (max-width:480px) {
                 font-size: 11rem;
               }
             }
@@ -460,15 +460,15 @@
               white-space: nowrap;
               font-size: 3rem;
 
-              @media (max-width:1700px) {
+              @media screen and  (max-width:1700px) {
                 font-size: 2.5rem;
               }
 
-              @media (max-width:1480px) {
+              @media screen and  (max-width:1480px) {
                 font-size: 2rem;
               }
 
-              @media (max-width:992px) {
+              @media screen and  (max-width:992px) {
                 font-size: 1.8rem;
                 white-space: nowrap;
               }
@@ -482,15 +482,15 @@
             font-weight: $montserrat-medium;
             text-align: right;
 
-            @media (max-width:1480px) {
+            @media screen and  (max-width:1480px) {
               font-size: 1.8rem;
             }
 
-            @media (max-width:992px) {
+            @media screen and  (max-width:992px) {
               font-size: 1.6rem;
             }
 
-            @media (max-width:480px) {
+            @media screen and  (max-width:480px) {
               text-align: center;
             }
           }
@@ -510,16 +510,16 @@
       >* {
         margin: 2.5rem;
 
-        @media (max-width:1440px) {
+        @media screen and  (max-width:1440px) {
           margin: 1.5rem;
         }
 
-        @media (max-width:768px) {
+        @media screen and  (max-width:768px) {
           margin: 1.5rem;
         }
       }
 
-      @media (max-width:768px) {
+      @media screen and  (max-width:768px) {
         grid-template-columns: 100%;
       }
 
@@ -536,16 +536,16 @@
         font-size: 3rem;
 
 
-        @media (max-width:1700px) {
+        @media screen and  (max-width:1700px) {
           font-size: 2.5rem;
         }
 
-        @media (max-width:1480px) {
+        @media screen and  (max-width:1480px) {
           padding: 2rem;
           font-size: 2rem;
         }
 
-        @media (max-width:992px) {
+        @media screen and  (max-width:992px) {
           font-size: 1.8rem;
         }
       }
@@ -573,23 +573,23 @@
       color: white;
       margin-bottom: 3rem;
 
-      @media (max-width:1700px) {
+      @media screen and  (max-width:1700px) {
         font-size: 9rem;
       }
 
-      @media (max-width:1480px) {
+      @media screen and  (max-width:1480px) {
         font-size: 8rem;
       }
 
-      @media (max-width:992px) {
+      @media screen and  (max-width:992px) {
         font-size: 7rem;
       }
 
-      @media (max-width:768px) {
+      @media screen and  (max-width:768px) {
         font-size: 6.5rem;
       }
 
-      @media (max-width:480px) {
+      @media screen and  (max-width:480px) {
         font-size: 5rem;
       }
     }

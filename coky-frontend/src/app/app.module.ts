@@ -6,6 +6,8 @@ import { ConfigRoutingModule } from './config/routing.config';
 
 
 //material
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -80,6 +82,8 @@ import { PublicPlansComponent } from './view/public/public-plans/public-plans.co
     MatTabsModule,
     MatDialogModule,
     MatPaginatorModule,
+    MatFormFieldModule,
+    MatSelectModule,
     //Others
   ],
   exports: [],

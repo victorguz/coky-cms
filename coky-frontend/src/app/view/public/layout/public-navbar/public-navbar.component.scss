@@ -9,19 +9,24 @@
   width: 100vw;
   height: fit-content;
   padding: 5rem 9rem;
+  max-width: 1920px;
+
+  @media (max-width:1650px) {
+    padding: 3rem 5rem;
+  }
 
   @media (max-width:1440px) {
     padding: 3rem 7rem;
   }
 
   @media (max-width:992px) {
-    padding: 3rem 5rem;
+    max-width: 90vw;
+    padding: 3rem 0;
   }
 
   @media (max-width:768px) {
-    padding: 2rem;
+    padding: 2rem 0;
   }
-
 
   .content,
   .dispose,
@@ -76,6 +81,10 @@
           width: 14rem;
         }
 
+        @media (max-width:992px) {
+          margin-left: 0;
+        }
+
         @media (max-width:768px) {
           width: 12rem;
         }
@@ -87,7 +96,6 @@
 
   .content-1 {
 
-    // flex-flow: nowrap;
     @media (max-width:768px) {
       justify-content: space-between;
       width: 100%;
@@ -101,15 +109,12 @@
       width: 100%;
     }
 
-    // justify-content: flex-end;
   }
 
   .dispose {
     @media (max-width:992px) {
       display: none;
     }
-
-
   }
 
   .not-dispose {
