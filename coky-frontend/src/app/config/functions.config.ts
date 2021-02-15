@@ -1,10 +1,7 @@
-import { TitleCasePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { FieldMapper } from '../core/model';
 import { ConfigService as conf } from './config.config';
-import { Constantes } from './constants.config';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +18,7 @@ export class FunctionsService {
    * @param type {string} client or admin
    * @param route end of the route
    */
-  public static generateRoute(type: string, route: string) {
+  public static generateRoute(type: string, route: string = "") {
     let pre = "";
     switch (type) {
       case "admin": pre = conf.adminRoute; break;
@@ -30,7 +27,6 @@ export class FunctionsService {
     if (route && route.substring(0, 1) != "/" && pre != "") {
       route = "/" + route;
     }
-    // console.log(pre + route)
     return pre + route;
   }
 

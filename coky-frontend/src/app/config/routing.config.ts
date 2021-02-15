@@ -10,7 +10,7 @@ import { PublicContactComponent } from '../view/public/public-contact/public-con
 import { PublicHomeComponent } from '../view/public/public-home/public-home.component';
 import { PublicPlansComponent } from '../view/public/public-plans/public-plans.component';
 import { PublicServicesComponent } from '../view/public/public-services/public-services.component';
-import { FunctionsService as func } from './functions.config';
+import { ConfigService } from './config.config';
 
 const routes: Routes = [
   /**
@@ -18,7 +18,7 @@ const routes: Routes = [
    */
   //Home
   {
-    path: func.generateRoute("admin", ""), component: AdminHomeComponent,
+    path: ConfigService.adminRoute + "", component: AdminHomeComponent,
     data: {
       roles: ["all"],
       title: "home",
@@ -30,7 +30,7 @@ const routes: Routes = [
   },
   //Users
   {
-    path: func.generateRoute("admin", '/users'), component: AdminUsersComponent,
+    path: ConfigService.adminRoute + '/users', component: AdminUsersComponent,
     data: {
       roles: ["all"],
       title: "Users",
@@ -41,7 +41,7 @@ const routes: Routes = [
     },
   },
   {
-    path: func.generateRoute("admin", '/users/details/:id'), component: AdminUsersComponent,
+    path: ConfigService.adminRoute + '/users/details/:id', component: AdminUsersComponent,
     data: {
       roles: ["admin"],
       title: "User details"
