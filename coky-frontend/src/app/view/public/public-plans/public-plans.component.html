@@ -1,12 +1,14 @@
 <ng-container *ngIf="home">
     <div class="home">
-        <div class="title">Prepaid assett <br> preservation coverage.</div>
+        <div class="header">
+            <div class="title">Prepaid assett <br> preservation coverage</div>
+        </div>
         <div class="content">
             <div class="images-content">
                 <img src="../../../../assets/public/images/prices/prices-building.svg" alt="prices-building">
                 <div class="buttons">
-                    <a mat-flat-button class="btn-white fluid" routerLink="/plans">Our plans</a>
-                    <a mat-flat-button class="btn-secondary fluid" routerLink="/contact">Contact us</a>
+                    <a mat-flat-button class="white fluid" routerLink="/plans">Our plans</a>
+                    <a mat-flat-button class="secondary fluid" routerLink="/contact">Contact us</a>
                 </div>
             </div>
             <div class="grid">
@@ -14,29 +16,27 @@
                     <div class="title">Basic</div>
                     <p>Basic maintenance services, easy to carry out. Highly competitive in the actual maintenance
                         service
-                        market.</p>
-                    <a mat-flat-button class="btn-primary" routerLink="/plans">Read more</a>
+                        market</p>
+                    <a mat-flat-button class="primary" routerLink="/plans">Read more</a>
                 </div>
                 <div class="item right">
                     <div class="title">Premium</div>
-                    <p>Basic maintenance services, easy to carry out. Highly competitive in the actual maintenance
-                        service
-                        market.</p>
-                    <a mat-flat-button class="btn-primary" routerLink="/plans">Read more</a>
+                    <p>Highly effective maintenance services that upgrade BASIC Coverage scope by including additional
+                        assets of the Unit</p>
+                    <a mat-flat-button class="primary" routerLink="/plans">Read more</a>
                 </div>
                 <div class="item">
                     <div class="title">Standard</div>
-                    <p>Basic maintenance services, easy to carry out. Highly competitive in the actual maintenance
-                        service
-                        market.</p>
-                    <a mat-flat-button class="btn-primary" routerLink="/plans">Read more</a>
+                    <p>High profile maintenance services covering all the household appliances and equipment of the Unit
+                    </p>
+                    <a mat-flat-button class="primary" routerLink="/plans">Read more</a>
                 </div>
                 <div class="item right">
                     <div class="title">Ultra</div>
-                    <p>Basic maintenance services, easy to carry out. Highly competitive in the actual maintenance
-                        service
-                        market.</p>
-                    <a mat-flat-button class="btn-primary" routerLink="/plans">Read more</a>
+                    <p>Broad and sustained service supported by semi-resident or resident personnel. This option
+                        includes additional services
+                        provided by the assigned domestic personnel</p>
+                    <a mat-flat-button class="primary" routerLink="/plans">Read more</a>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
                                     <span>{{item.name}}</span>
                                 </div>
                             </div>
-                            <a routerLink="/quote/{{plan}}" mat-button class="btn-primary">Get quote</a>
+                            <a routerLink="/quote/{{plan}}" mat-button class="primary">Get quote</a>
                         </div>
                     </ng-container>
                 </div>
@@ -80,9 +80,9 @@
                             wish. <br><br><strong>Get a quote now!</strong></p>
 
                         <div class="buttons nowrap md">
-                            <a mat-flat-button class="btn-white padding" routerLink="/quote/desinfection">Desinfection
+                            <a mat-flat-button class="white padding" routerLink="/quote/desinfection">Desinfection
                                 services</a>
-                            <a mat-flat-button class="btn-white padding" routerLink="/quote/nonoccupied">Non occupied
+                            <a mat-flat-button class="white padding" routerLink="/quote/nonoccupied">Non occupied
                                 unit</a>
                         </div>
                     </div>

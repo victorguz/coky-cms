@@ -57,4 +57,11 @@ export class FunctionsService {
     }
     return lista;
   }
+
+  public static pushItemsToArray(array, items): any[] {
+    items.forEach(item => {
+      array.push(item)
+    });
+    return array;
+  }
 }

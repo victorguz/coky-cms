@@ -66,6 +66,11 @@
         font-weight: $montserrat-semibold;
       }
 
+      &.disable {
+        background-color: $gray-color-public !important;
+        color: $back-color-public !important;
+      }
+
       &:last-child {
         margin-right: 0;
       }

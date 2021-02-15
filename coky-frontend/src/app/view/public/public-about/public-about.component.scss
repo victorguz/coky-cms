@@ -139,41 +139,6 @@
   .container {
     justify-content: center;
 
-    .title {
-      font-weight: $montserrat-bold;
-      font-size: 12rem;
-      margin-bottom: 3rem;
-      text-align: center;
-      color: white;
-
-      @media screen and (max-width:1700px) {
-        font-size: 10rem;
-      }
-
-      @media screen and (max-width:1480px) {
-        font-size: 8rem;
-        margin-bottom: 2rem;
-      }
-
-      @media screen and (max-width:992px) {
-        font-size: 7rem;
-      }
-
-      @media screen and (max-width:768px) {
-        font-size: 6.5rem;
-        margin-bottom: 1.5rem;
-      }
-
-      @media screen and (max-width:480px) {
-        font-size: 5rem;
-        margin-bottom: 1rem;
-      }
-
-      @media screen and (max-width:400px) {
-        font-size: 4rem;
-      }
-    }
-
     .images-content {
       min-width: 100rem;
       width: min-content;

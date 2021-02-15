@@ -11,22 +11,18 @@
   color: white;
   width: 100vw;
 
+  @media screen and (max-width:1440px) {
+    padding: 2rem;
+  }
+
   .content {
     display: flex;
     flex-flow: wrap;
     align-items: center;
     justify-content: space-between;
+    max-width: 1920px;
     width: 100%;
 
-    max-width: 1920px;
-
-    @media screen and (max-width:1440px) {
-      max-width: 90vw;
-    }
-
-    @media screen and (max-width:992px) {
-      max-width: 90vw;
-    }
 
     @media screen and (max-width:768px) {
       flex-direction: column;

@@ -2,7 +2,7 @@
     <ng-container *ngFor="let route of routes">
         <a class="item" routerLink="/{{route.route}}" routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: true}">
-            <ion-icon name="{{route.icon}}-{{tipeOfIcons}}"></ion-icon>
+            <ion-icon name="{{route.icon}}-{{tipeOfIcons}}" size="small"></ion-icon>
             {{route.title|titlecase}}
         </a>
     </ng-container>

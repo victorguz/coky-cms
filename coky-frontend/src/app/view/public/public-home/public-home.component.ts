@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Routes } from '@angular/router';
 import { FunctionsService } from 'src/app/config/functions.config';
 
 @Component({
@@ -7,13 +7,11 @@ import { FunctionsService } from 'src/app/config/functions.config';
   templateUrl: './public-home.component.html',
   styleUrls: ['./public-home.component.scss']
 })
-export class PublicHomeComponent implements OnInit {
+export class PublicHomeComponent {
 
   constructor(private func: FunctionsService, activatedRoute: ActivatedRoute) {
     func.setTitle(activatedRoute.snapshot.data.title)
     // console.log(activatedRoute.snapshot.data.roles)
-  }
-  ngOnInit() {
   }
 
 }

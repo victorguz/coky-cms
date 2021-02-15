@@ -1,4 +1,14 @@
-//Primary colors
+//Built-in colors
+$primary-color:#2D78FA;
+$secondary-color:#865fb8;
+$danger-color:#FA6F6F;
+$dark-color:#343a40;
+$gray-color:#83A1FB;
+$alert-color:#FDC93F;
+$success-color:#4cca79;
+$back-color:#EBEBEB;
+
+//Public colors
 $back-color-public:#3C5F5B;
 $primary-color-public:#A6C634;
 $gray-color-public:#DBE0DC;
@@ -30,7 +40,7 @@ $shadow-sm-nocolor:3px 3px 4px 0px;
 $shadow-md-nocolor:3px 3px 8px 1px;
 
 
-/* Fonts */
+//Fonts
 $montserrat-thin:100;
 $montserrat-extra-light:200;
 $montserrat-light:300;

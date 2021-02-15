@@ -1,21 +1,22 @@
-.coky {
-  .sidebar-container {
-    width: 100vw;
-    height: calc(100vh - 56px);
-    margin: 0;
-    margin-top: 56px;
+.sidebar-container {
+  width: 100vw;
+  height: calc(100vh - 66px);
+  margin: 0;
+  margin-top: 66px;
+  border: none;
+
+  mat-drawer {
+    width: 240px;
+    box-shadow: $shadow-sm;
     border: none;
+    overflow-x: hidden;
 
-    mat-drawer {
-      width: 240px;
-      box-shadow: $shadow-sm;
-      border: none;
-      overflow-x: hidden;
-    }
-
-    mat-drawer-content {
-      overflow: auto;
+    .mat-drawer-inner-container {
+      background-color: $back-color;
     }
   }
 
+  mat-drawer-content {
+    overflow: auto;
+  }
 }

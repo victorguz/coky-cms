@@ -3,28 +3,28 @@
 div {
   display: flex;
   flex-direction: column;
-  // gap: 10px;
   width: 100%;
 
   .item {
     display: flex;
     align-items: center;
     padding: 15px;
-    gap: 10px;
+    margin-right: 10px;
     color: black;
 
     &:hover {
-      background-color: rgb(240, 240, 240);
-      color: #2f73e7;
+      background-color: rgba(240, 240, 240, 0.1);
+      color: white;
     }
 
     &:active,
     &.active {
-      color: #2f73e7;
-      background-color: rgb(250, 250, 250);
+      color: white;
+      font-weight: $montserrat-semibold;
+      background-color: rgba(250, 250, 250, 0.1);
 
       &:hover {
-        background-color: rgb(240, 240, 240);
+        background-color: rgba(240, 240, 240, 0.1);
       }
     }
   }

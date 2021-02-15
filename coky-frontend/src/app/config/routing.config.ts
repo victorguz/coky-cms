@@ -73,10 +73,6 @@ const routes: Routes = [
     data: {
       roles: ["all"],
       title: "home",
-      sidebar: {
-        icon: "home",
-        position: 1,
-      }
     }
   },
   {
@@ -84,10 +80,6 @@ const routes: Routes = [
     data: {
       roles: ["all"],
       title: "services",
-      sidebar: {
-        icon: "home",
-        position: 1,
-      }
     }
   },
   {
@@ -95,10 +87,6 @@ const routes: Routes = [
     data: {
       roles: ["all"],
       title: "plans",
-      sidebar: {
-        icon: "home",
-        position: 1,
-      }
     }
   },
   {
@@ -106,10 +94,6 @@ const routes: Routes = [
     data: {
       roles: ["all"],
       title: "about",
-      sidebar: {
-        icon: "home",
-        position: 1,
-      }
     }
   },
   {
@@ -117,10 +101,6 @@ const routes: Routes = [
     data: {
       roles: ["all"],
       title: "contact",
-      sidebar: {
-        icon: "home",
-        position: 1,
-      }
     }
   },
   {
@@ -128,10 +108,6 @@ const routes: Routes = [
     data: {
       roles: ["all"],
       title: "quote",
-      sidebar: {
-        icon: "home",
-        position: 1,
-      }
     }
   },
 

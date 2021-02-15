@@ -10,103 +10,43 @@
   a[mat-button],
   a[mat-flat-button],
   a[mat-menu-item] {
-    &.btn-primary {
-      background-color: $primary-color-public;
-    }
 
-    &.btn-secondary {
-      background-color: $secondary-color-public;
-    }
-
-    &.btn-alert {
-      background-color: $alert-color-public;
-    }
-
-    &.btn-success {
-      background-color: $success-color-public;
-    }
-
-    &.btn-danger {
-      background-color: $danger-color-public;
-    }
-
-    &.btn-dark {
-      background-color: $dark-color-public;
-    }
-
-    &.btn-gray {
-      background-color: $gray-color-public;
-    }
-
-    &.btn-white {
-      background-color: white;
-      color: $back-color-public;
+    &.white {
+      background-color: white !important;
+      color: $back-color-public !important;
     }
   }
 
-  .btn-white {
-    background-color: white;
-    color: $back-color-public;
+  .white {
+    background-color: white !important;
   }
 
-  .btn-primary {
-    background-color: $primary-color-public;
+  .primary {
+    background-color: $primary-color-public !important;
   }
 
-  .btn-secondary {
-    background-color: $secondary-color-public;
+  .secondary {
+    background-color: $secondary-color-public !important;
   }
 
-  .btn-alert {
-    background-color: $alert-color-public;
+  .alert {
+    background-color: $alert-color-public !important;
   }
 
-  .btn-success {
-    background-color: $success-color-public;
+  .success {
+    background-color: $success-color-public !important;
   }
 
-  .btn-danger {
-    background-color: $danger-color-public;
+  .danger {
+    background-color: $danger-color-public !important;
   }
 
-  .btn-dark {
-    background-color: $dark-color-public;
+  .dark {
+    background-color: $dark-color-public !important;
   }
 
-  .btn-gray {
-    background-color: $gray-color-public;
-  }
-
-  .bg-white {
-    background-color: white;
-  }
-
-  .bg-primary {
-    background-color: $primary-color-public;
-  }
-
-  .bg-secondary {
-    background-color: $secondary-color-public;
-  }
-
-  .bg-alert {
-    background-color: $alert-color-public;
-  }
-
-  .bg-success {
-    background-color: $success-color-public;
-  }
-
-  .bg-danger {
-    background-color: $danger-color-public;
-  }
-
-  .bg-dark {
-    background-color: $dark-color-public;
-  }
-
-  .bg-gray {
-    background-color: $gray-color-public;
+  .gray {
+    background-color: $gray-color-public !important;
   }
 
   .text-white {
@@ -114,31 +54,31 @@
   }
 
   .text-primary {
-    color: $primary-color-public;
+    color: $primary-color-public !important;
   }
 
   .text-secondary {
-    color: $secondary-color-public;
+    color: $secondary-color-public !important;
   }
 
   .text-alert {
-    color: $alert-color-public;
+    color: $alert-color-public !important;
   }
 
   .text-success {
-    color: $success-color-public;
+    color: $success-color-public !important;
   }
 
   .text-danger {
-    color: $danger-color-public;
+    color: $danger-color-public !important;
   }
 
   .text-dark {
-    color: $dark-color-public;
+    color: $dark-color-public !important;
   }
 
   .text-gray {
-    color: $gray-color-public;
+    color: $gray-color-public !important;
   }
 
 
@@ -332,6 +272,7 @@
     display: flex;
     flex-direction: column;
     font-size: 3rem;
+    width: 50%;
 
     >* {
       margin: 1rem 0;
@@ -339,7 +280,7 @@
   }
 
   .images-content {
-    width: 400px;
+    width: 50%;
   }
 
   .dispose-lg {
@@ -390,4 +331,9 @@
     }
   }
 
+  .form-control,
+  .form-select {
+    box-shadow: $shadow-xs;
+    border: 1px solid transparent;
+  }
 }

@@ -1,28 +1,45 @@
-//Primary colors
-$primary-color:#2D78FA;
-$secondary-color:#865fb8;
+//Colors
+$back-color:#3C5F5B;
+$primary-color:#A6C634;
+$gray-color:#DBE0DC;
+$dark-color:#15214B;
+$secondary-color:#343a40;
+
 $danger-color:#FA6F6F;
-$dark-color:#343a40;
-$gray-color:#83A1FB;
 $alert-color:#FDC93F;
 $success-color:#4cca79;
-$back-color:#EBEBEB;
+
 //Other colors
 $border-color:#e9e9e9;
-$shadow-color:rgba(174, 190, 205, .3);
+$shadow-color:#0000003B;
 
 
 //sizes
-$rounded-sm:4px;
-$rounded:8px;
+$rounded-sm:10px;
+$rounded:15px;
 $border:1px solid $border-color;
 
 
 //effects
 $shadow-xs:1px 1px 2px 0px $shadow-color;
 $shadow-sm:3px 3px 4px 0px $shadow-color;
-$shadow-md:3px 3px 8px 1px $shadow-color;
+$shadow-md:0px 11px 54px $shadow-color;
 
 $shadow-xs-nocolor:0px 0px 0px 2px;
 $shadow-sm-nocolor:3px 3px 4px 0px;
 $shadow-md-nocolor:3px 3px 8px 1px;
+
+
+//Fonts
+$montserrat-thin:100;
+$montserrat-extra-light:200;
+$montserrat-light:300;
+$montserrat-regular:400;
+$montserrat-medium:500;
+$montserrat-semibold:600;
+$montserrat-bold:700;
+$montserrat-extra-bold:800;
+$montserrat-black:900;
+
+//transitions
+$transition-basic:all ease 0.3s;

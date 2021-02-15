@@ -1,3 +1,17 @@
-<div class="coky">
-    <p>admin-home works!</p>
-</div>
+<app-admin-navbar [toOpen]="sidebar"></app-admin-navbar>
+<mat-drawer-container class="sidebar-container" [hasBackdrop]="false">
+    <mat-drawer mode="push" #sidebar>
+        <app-admin-sidebar></app-admin-sidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="coky-built-in">
+            <div class="home">
+                <div class="header">
+                    <div class="title">
+                        Bienvenido
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
