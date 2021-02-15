@@ -18,7 +18,7 @@ const routes: Routes = [
    */
   //Home
   {
-    path: "admin", component: AdminHomeComponent,
+    path: func.generateRoute("admin", ""), component: AdminHomeComponent,
     data: {
       roles: ["all"],
       title: "home",
@@ -30,7 +30,7 @@ const routes: Routes = [
   },
   //Users
   {
-    path: 'admin/users', component: AdminUsersComponent,
+    path: func.generateRoute("admin", '/users'), component: AdminUsersComponent,
     data: {
       roles: ["all"],
       title: "Users",
@@ -41,7 +41,7 @@ const routes: Routes = [
     },
   },
   {
-    path: 'admin/users/details/:id', component: AdminUsersComponent,
+    path: func.generateRoute("admin", '/users/details/:id'), component: AdminUsersComponent,
     data: {
       roles: ["admin"],
       title: "User details"
