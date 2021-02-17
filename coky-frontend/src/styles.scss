@@ -66,22 +66,20 @@ body {
     }
   }
 
-  a,
-  p,
-  span,
-  i,
-  strong,
-  b {
-    font-size: 2.2rem;
+  p {
+    font-size: 2.5rem;
 
     @media screen and (max-width:1440px) {
+      font-size: 2rem;
+    }
+
+    @media screen and (max-width:1280px) {
       font-size: 1.8rem;
     }
 
-    @media screen and (max-width:1200px) {
+    @media screen and (max-width:768px) {
       font-size: 1.6rem;
     }
-
   }
 
 }

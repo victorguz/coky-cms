@@ -77,37 +77,32 @@
   a[mat-menu-item] {
     cursor: pointer;
     text-decoration: none;
-    padding: .5em 1em;
     border-radius: $rounded;
     font-weight: $montserrat-medium;
     white-space: nowrap;
-    font-size: 2rem;
 
     width: fit-content;
 
     display: flex;
     align-items: center;
-    justify-content: center;
 
     background-color: transparent;
     color: white;
-    font-size: 3rem;
+
+    padding: .7em 1em;
+    font-size: 2.5rem;
 
     @media screen and (max-width:1440px) {
       font-size: 2.2rem;
     }
 
     @media screen and (max-width:992px) {
-      font-size: 2rem;
-      padding: .7em 1em;
-    }
-
-    @media screen and (max-width:768px) {
       font-size: 1.8rem;
     }
 
-    @media screen and (max-width:480px) {
-      font-size: 1.6rem;
+    &.middle {
+      min-width: 50%;
+      justify-content: center;
     }
 
     &.fluid {
@@ -180,6 +175,10 @@
         text-align: center;
         color: white;
 
+        >* {
+          margin-bottom: 1rem;
+        }
+
         .title {
           font-size: 10rem;
 
@@ -202,6 +201,10 @@
           @media screen and (max-width:480px) {
             font-size: 5rem;
           }
+
+          @media screen and (max-width:400px) {
+            font-size: 4rem;
+          }
         }
 
         .slogan {
@@ -215,12 +218,23 @@
             font-size: 2rem;
           }
 
-          @media screen and (max-width:768px) {
-            font-size: 1.8rem;
-          }
+        }
 
-          @media screen and (max-width:480px) {
-            font-size: 1.6rem;
+        &.left {
+          align-items: flex-start;
+
+          .title,
+          p {
+            text-align: left;
+          }
+        }
+
+        &.right {
+          align-items: flex-end;
+
+          .title,
+          p {
+            text-align: right;
           }
         }
       }

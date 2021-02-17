@@ -40,16 +40,13 @@
     .link {
       font-weight: $montserrat-medium;
       color: white;
-      font-size: 3.5rem;
       margin: 1rem;
       margin-right: 4rem;
+      font-size: 2.5rem;
+      line-height: 1em;
 
       @media (max-width:1440px) {
         margin-right: 3rem;
-        font-size: 1.8rem;
-      }
-
-      @media (max-width:1200px) {
         font-size: 1.8rem;
       }
 
@@ -67,8 +64,8 @@
       }
 
       &.disable {
-        background-color: $gray-color-public !important;
-        color: $back-color-public !important;
+        background-color: rgba($color: white, $alpha: .1) !important;
+        color: white !important;
       }
 
       &:last-child {

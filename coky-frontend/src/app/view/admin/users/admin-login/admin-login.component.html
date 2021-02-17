@@ -1,4 +1,4 @@
-<div class="coky-built-in-public">
+<div class="coky-public">
     <div class="section login">
         <app-public-navbar></app-public-navbar>
         <div class="container">
@@ -15,8 +15,11 @@
                     <label>Password</label>
                     <input type="password" placeholder="Password">
                 </div>
-                <button mat-flat-button class="primary fluid">Sign in</button>
-                <a class="forgot text-dark" [routerLink]="['/admin/users/forgot']">Forgot your password?</a>
+                <div class="field">
+                    <button mat-flat-button class="primary fluid">Sign in</button>
+                    <br>
+                    <a class="forgot text-dark" [routerLink]="['/admin/users/forgot']">Forgot your password?</a>
+                </div>
             </div>
         </div>
         <app-public-footer></app-public-footer>

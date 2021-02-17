@@ -5,11 +5,15 @@
   flex-direction: column;
   align-items: center;
 
-  padding: 3rem;
+  padding: 1rem 3rem;
 
   background-color: black;
   color: white;
   width: 100vw;
+
+  @media screen and (max-width:1440px) {
+    padding: 1rem 2rem;
+  }
 
   @media screen and (max-width:1440px) {
     padding: 2rem;
@@ -24,7 +28,7 @@
     width: 100%;
 
 
-    @media screen and (max-width:768px) {
+    @media screen and (max-width:480px) {
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -38,10 +42,34 @@
 
     p {
       font-size: 2.5rem;
+
+      @media screen and (max-width:1280px) {
+        font-size: 2rem;
+      }
+
+      @media screen and (max-width:992px) {
+        font-size: 1.8rem;
+      }
+
+      @media screen and (max-width:768px) {
+        font-size: 1.6rem;
+      }
     }
 
     span {
       font-size: 1.5rem;
+
+      @media screen and (max-width:1280px) {
+        font-size: 1.3rem;
+      }
+
+      @media screen and (max-width:992px) {
+        font-size: 1.1rem;
+      }
+
+      @media screen and (max-width:768px) {
+        font-size: .9rem;
+      }
     }
 
     .link {
@@ -49,15 +77,34 @@
       color: white;
       font-size: 2rem;
 
+      @media screen and (max-width:1280px) {
+        font-size: 1.8rem;
+      }
+
+      @media screen and (max-width:992px) {
+        font-size: 1.6rem;
+      }
+
+      @media screen and (max-width:768px) {
+        font-size: 1.4rem;
+      }
+
       &.underlined {
-        text-decoration: underline;
+        text-decoration: underline !important;
       }
 
       &.brand {
-        font-size: 4rem;
-        font-weight: $montserrat-black;
-        margin-right: 2rem;
+        height: fit-content;
+        width: fit-content;
 
+        img {
+          height: 5rem;
+          width: 13rem;
+
+          @media screen and (max-width:992px) {
+            width: 10rem;
+          }
+        }
       }
     }
 
@@ -65,13 +112,27 @@
       display: flex;
       align-items: center;
 
-      @media screen and (max-width:768px) {
+      @media screen and (max-width:480px) {
         width: 100%;
         justify-content: center;
       }
 
       a {
         margin: 0.5rem;
+        font-size: 1.8rem;
+        text-decoration: underline !important;
+
+        @media screen and (max-width:1280px) {
+          font-size: 1.6rem;
+        }
+
+        @media screen and (max-width:992px) {
+          font-size: 1.5rem;
+        }
+
+        @media screen and (max-width:768px) {
+          font-size: 1.4rem;
+        }
       }
 
     }
@@ -93,16 +154,13 @@
     }
 
     @media screen and (max-width:768px) {
-      // flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       width: 100%;
-
-      >*div {
-        width: 100%;
-      }
     }
 
+    @media screen and (max-width:768px) {
+      justify-content: center;
+    }
   }
 
 }
