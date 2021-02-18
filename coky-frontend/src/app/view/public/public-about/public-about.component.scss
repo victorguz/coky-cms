@@ -185,17 +185,6 @@
           text-align: center;
         }
 
-        .content-1 {
-          a {
-            justify-content: flex-start;
-          }
-        }
-
-        .content-2 {
-          a {
-            justify-content: flex-end;
-          }
-        }
 
         .content-1,
         .content-2 {
@@ -223,13 +212,16 @@
 
 
           a {
+            font-size: 1em;
+            line-height: 1em;
             display: flex;
             align-items: center;
             color: $secondary-color-public;
+            margin-right: 0;
 
             @media screen and (max-width:992px) {
-              align-items: center;
-              justify-content: center;
+              font-weight: $montserrat-semibold;
+              justify-content: center !important;
               text-align: center;
             }
 
@@ -238,11 +230,29 @@
             }
 
             ion-icon {
+              font-size: 1.3em;
               margin-right: 1rem;
+
+              @media screen and (max-width:992px) {
+                display: none;
+              }
             }
 
           }
         }
+
+        .content-1 {
+          a {
+            justify-content: flex-start;
+          }
+        }
+
+        .content-2 {
+          a {
+            justify-content: flex-end;
+          }
+        }
+
 
 
 
