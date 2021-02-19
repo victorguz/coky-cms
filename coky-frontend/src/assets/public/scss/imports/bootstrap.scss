@@ -138,10 +138,15 @@
 
   .buttons {
     display: flex;
-    flex-flow: wrap;
     justify-content: center;
     align-items: center;
+    flex-flow: wrap;
     gap: 3rem;
+
+    &.row,
+    &.flex-row {
+      flex-flow: row;
+    }
 
     .buttons {
       flex-direction: column;

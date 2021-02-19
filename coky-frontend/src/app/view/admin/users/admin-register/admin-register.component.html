@@ -10,55 +10,47 @@
                 <div class="flex">
                     <div class="field">
                         <label>Primer nombre</label>
-                        <input type="text" placeholder="Primer nombre" [(ngModel)]="user.first_name"
-                            (keyup.enter)="register()">
+                        <input type="text" placeholder="Primer nombre">
                     </div>
                     <div class="field">
                         <label>Segundo nombre</label>
-                        <input type="text" placeholder="Segundo nombre" [(ngModel)]="user.second_name"
-                            (keyup.enter)="register()">
+                        <input type="text" placeholder="Segundo nombre">
                     </div>
                 </div>
 
                 <div class="flex">
                     <div class="field">
                         <label>Primer apellido</label>
-                        <input type="text" placeholder="Primer apellido" [(ngModel)]="user.first_lastname"
-                            (keyup.enter)="register()">
+                        <input type="text" placeholder="Primer apellido">
                     </div>
                     <div class="field">
                         <label>Segundo apellido</label>
-                        <input type="text" placeholder="Segundo apellido" [(ngModel)]="user.second_lastname"
-                            (keyup.enter)="register()">
+                        <input type="text" placeholder="Segundo apellido">
                     </div>
                 </div>
 
                 <div class="flex-one">
                     <div class="field">
                         <label>Correo electrónico</label>
-                        <input type="email" placeholder="Correo electrónico" [(ngModel)]="user.email"
-                            (keyup.enter)="register()">
+                        <input type="email" placeholder="Correo electrónico">
                     </div>
                     <div class="field">
                         <label>Nombre de usuario</label>
-                        <input type="text" placeholder="Nombre de usuario" [(ngModel)]="user.username"
-                            (keyup.enter)="register()">
+                        <input type="text" placeholder="Nombre de usuario">
                     </div>
                     <div class="field">
                         <label>Contraseña</label>
-                        <input type="password" placeholder="Contraseña" [(ngModel)]="user.password"
-                            (keyup.enter)="register()">
+                        <input type="password" placeholder="Contraseña">
                     </div>
                     <div class="field">
                         <label>Repetir la contraseña</label>
-                        <input type="password" placeholder="Repetir la contraseña" [(ngModel)]="rePassword"
-                            (keyup.enter)="register()">
+                        <input type="password" placeholder="Repetir la contraseña">
                     </div>
                 </div>
 
                 <br>
 
-                <button class="btn btn-primary btn-center" (click)="register()">Registrarse</button>
+                <button class="btn btn-primary btn-center">Registrarse</button>
 
                 <a [routerLink]="['/admin/users/login']">¿Ya tienes una cuenta? — Ingresa</a>
 

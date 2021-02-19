@@ -7,27 +7,24 @@
   color: white;
   width: 100%;
 
-  >* {
-    margin: 2.5rem 0;
-  }
-
   .content {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin: 2.5rem 0;
 
-    >* {
-      margin: 2.5rem 0;
+    // >* {
+    //   margin: 2.5rem 0;
 
-      @media screen and (max-width:1440px) {
-        margin: 2rem 0;
-      }
+    //   @media screen and (max-width:1440px) {
+    //     margin: 2rem 0;
+    //   }
 
-      @media screen and (max-width:992px) {
-        margin: 2rem 0;
-      }
-    }
+    //   @media screen and (max-width:992px) {
+    //     margin: 2rem 0;
+    //   }
+    // }
 
     @media screen and (max-width:992px) {
       flex-direction: column-reverse;
@@ -68,27 +65,19 @@
     }
 
     .grid {
-      display: flex;
-      flex-direction: row;
-      flex-flow: wrap;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-rows: max-content max-content;
+      // flex-direction: row;
+      // flex-flow: wrap;
       align-items: center;
       justify-content: center;
+      margin-left: 3rem;
       width: 100%;
-
-      >* {
-        margin: 0 1.5rem;
-
-        @media screen and (max-width:1440px) {
-          margin: 0 1rem;
-        }
-
-        @media screen and (max-width:768px) {
-          margin: 0;
-        }
-
-      }
+      height: 100%;
 
       @media screen and (max-width:768px) {
+        display: flex;
         flex-direction: column;
       }
 
@@ -96,32 +85,36 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        width: 45%;
         justify-content: space-between;
         text-align: left;
+        margin-right: 2rem;
+
+        width: 100%;
+        height: 100%;
 
         >* {
-          margin: 1.5rem 0;
-
-          @media screen and (max-width:1440px) {
-            margin: 1rem 0;
-          }
-
-          @media screen and (max-width:480px) {
-            margin: .5rem 0;
-          }
+          width: 90%;
+          margin-bottom: 2rem;
         }
 
         @media screen and (max-width:768px) {
           width: 100%;
         }
 
+
         &.right {
+          >* {
+            width: 100%;
+          }
 
           @media screen and (max-width:768px) {
             align-items: flex-end;
             text-align: right;
           }
+        }
+
+        a {
+          width: fit-content !important;
         }
 
         .title {
@@ -144,12 +137,12 @@
           }
         }
 
-        p {
-          @media screen and (max-width:480px) {
-            max-width: none;
-            text-align: justify;
-          }
-        }
+        // p {
+        //   @media screen and (max-width:480px) {
+        //     max-width: none;
+        //     text-align: justify;
+        //   }
+        // }
       }
     }
   }

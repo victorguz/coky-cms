@@ -23,15 +23,15 @@ export class PublicPlansComponent implements OnInit {
     { name: "Cleaning consumables", basic: true, standard: true, premium: true, ultra: true },
     { name: "Sanitary Consumables", basic: true, standard: true, premium: true, ultra: true },
     { name: "Laundry service for sheets and towels", basic: true, standard: true, premium: true, ultra: true },
-    { name: "Civil works and masonry", basic: false, standard: true, premium: true, ultra: true },
+    { name: "Civil works and bricklaying", basic: false, standard: true, premium: true, ultra: true },
     { name: "Locksmith", basic: false, standard: true, premium: true, ultra: true },
     { name: "Access control", basic: false, standard: true, premium: true, ultra: true },
-    { name: "Fire Detection and Management System", basic: false, standard: true, premium: true, ultra: true },
+    { name: "Fire Detection System", basic: false, standard: true, premium: true, ultra: true },
     { name: "Automation in general", basic: false, standard: true, premium: true, ultra: true },
     { name: "Gardening", basic: false, standard: true, premium: true, ultra: true },
     { name: "Fumigation", basic: false, standard: false, premium: true, ultra: true },
     { name: "Resident personnel for VIP attention", basic: false, standard: false, premium: true, ultra: true },
-    { name: "Total loss policy", basic: false, standard: false, premium: false, ultra: true },
+    { name: "AA Units, pumps, electrical generators and frequently used equipament are covered up to total loss", basic: false, standard: false, premium: true, ultra: true },
   ]
 
 
