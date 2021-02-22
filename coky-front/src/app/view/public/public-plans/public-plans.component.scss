@@ -333,20 +333,28 @@
             grid-template-columns: 4rem auto;
             align-items: center;
             color: $dark-color-public;
-            margin: 1rem;
+            margin: 1rem 0;
+            width: 100%;
 
-            ion-icon[name="checkmark"],
-            ion-icon[aria-label="checkmark"],
-            ion-icon[ng-reflect-name="checkmark"] {
-              color: $primary-color-public;
-              margin-right: 1rem;
+            @media screen and (max-width:1480px) {
+              font-size: 1.6rem;
             }
 
-            ion-icon[name="close"],
-            ion-icon[aria-label="close"],
-            ion-icon[ng-reflect-name="close"] {
-              color: $dark-color-public;
+            img {
+              width: 3rem;
               margin-right: 1rem;
+
+              &.close {
+                width: 2.5rem;
+
+                @media screen and (max-width:1480px) {
+                  width: 1.5rem;
+                }
+              }
+
+              @media screen and (max-width:1480px) {
+                width: 2rem;
+              }
             }
 
             span {

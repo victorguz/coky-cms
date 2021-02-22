@@ -142,7 +142,10 @@
     justify-content: center;
     align-items: center;
     flex-flow: wrap;
-    gap: 3rem;
+
+    >* {
+      margin: .75rem;
+    }
 
     &.row,
     &.flex-row {

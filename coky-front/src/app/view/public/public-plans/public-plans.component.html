@@ -62,7 +62,9 @@
                             <span class="tooltiptext {{plan}}">{{plan}}</span>
                             <div class="list">
                                 <div class="item" *ngFor="let item of microservices">
-                                    <ion-icon name="{{item[plan]?'checkmark':'close'}}" size="large"></ion-icon>
+                                    <img src="../../../../assets/public/images/icons/{{item[plan]?'check':'close'}}.svg"
+                                        alt="{{item[plan]?'check':'close'}}" class="{{item[plan]?'check':'close'}}">
+                                    <!-- <ion-icon name="{{item[plan]?'checkmark':'close'}}" size="large"></ion-icon> -->
                                     <span>{{item.name}}</span>
                                 </div>
                             </div>
