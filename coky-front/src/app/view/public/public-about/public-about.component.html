@@ -1,0 +1,97 @@
+<ng-container *ngIf="home">
+    <div class="card home">
+        <div class="images-content">
+            <img src="../../../../assets/public/images/about/cleaning.svg" alt="mts-cleaning" class="cleaning">
+            <img src="../../../../assets/public/images/about/painting.svg" alt="mts-painting" class="painting">
+        </div>
+
+        <div class="text-content">
+            <div class="header right text-dark">
+                <div class="title">About us</div>
+                <p>
+                    <strong>MTS Corporation</strong> is a company specialized in facility management, focused on
+                    providing
+                    highly efficient infrastructure maintenance, based on preventive, predictive and corrective
+                    activities
+                    in a very PROACTIVE way. Our mother Company, <strong>NATURARTE C.A</strong>, with more than
+                    25 years of experience in the market, provides world class companies such as AIG, Procter &
+                    Gamble and INDRA among others, high performance corporate maintenance services in Latin America and
+                    the Caribbean.
+                </p>
+                <a mat-flat-button class="primary padding" routerLink="/about">Read more</a>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="!home">
+    <div class="coky-public">
+        <div class="section about">
+            <app-public-navbar></app-public-navbar>
+            <div class="container">
+                <div class="header">
+                    <div class="title">About us</div>
+                </div>
+                <div class="images-content">
+                    <img src="../../../../assets/public/images/about/about-page.svg" alt="mts-about-page">
+                </div>
+
+                <div class="header">
+                    <div class="slogan bold">WE PROVIDE EXCEPTIONAL MAINTENANCE SERVICES, MINIMIZING ASSET DETERIORATION
+                    </div>
+
+                </div>
+
+                <div class="card text-content">
+                    <img src="../../../../assets/public/images/logo-navbar-dark.svg" alt="logo-mts-corp">
+                    <p class=" presentation">
+                        <strong>MTS Corporation</strong> is a company specialized in facility management, focused on
+                        providing
+                        highly efficient infrastructure maintenance, based on preventive, predictive and corrective
+                        activities
+                        in a very PROACTIVE way. Our mother Company, <strong>NATURARTE C.A</strong>, with more than
+                        25 years of experience in the market, provides world class companies such as AIG, Procter &
+                        Gamble and INDRA among others, high performance corporate maintenance services in Latin America
+                        and
+                        the Caribbean. In the US, our goal is to provide a comprehensive highly competitive maintenance
+                        service for residential vacation properties.
+                    </p>
+
+                    <div class="contact-data">
+                        <div class="content-1">
+                            <a>
+                                <!-- <ion-icon name="location"></ion-icon> -->
+                                152-11 89th Ave Queens Unit 631 11432
+                            </a>
+                        </div>
+                        <div class="content-2">
+                            <a href="tel:+1-917-496-0563">
+                                <!-- <ion-icon name="call"></ion-icon> -->
+                                +1-917-496-0563
+                            </a>
+                            <a href="mailto:info@mtservicescorp.com">
+                                <!-- <ion-icon name="mail"></ion-icon> -->
+                                info@mtservicescorp.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="buttons flex-row">
+
+                        <a routerLink="/contact" mat-flat-button class="primary fluid">Contact us</a>
+                        <a href="http://naturarte.com/" mat-flat-button class="secondary fluid">Naturarte</a>
+
+                    </div>
+
+                </div>
+
+                <app-public-carousel></app-public-carousel>
+                <app-public-plans [home]="true"></app-public-plans>
+
+            </div>
+
+
+            <app-public-footer></app-public-footer>
+        </div>
+    </div>
+</ng-container>

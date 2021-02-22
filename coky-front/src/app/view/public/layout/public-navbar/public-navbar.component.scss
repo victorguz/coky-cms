@@ -1,0 +1,134 @@
+@import "../../../../../assets/public/scss/imports/variables.scss";
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: wrap;
+
+  width: 100vw;
+  height: fit-content;
+  padding: 5rem 9rem;
+  max-width: 1920px;
+
+  @media (max-width:1650px) {
+    padding: 3rem 5rem;
+  }
+
+  @media (max-width:1440px) {
+    padding: 3rem 7rem;
+  }
+
+  @media (max-width:992px) {
+    max-width: 90vw;
+    padding: 3rem 0;
+  }
+
+  @media (max-width:768px) {
+    padding: 2rem 0;
+  }
+
+  .content,
+  .dispose,
+  .not-dispose {
+    display: flex;
+    align-items: center;
+    flex-flow: wrap;
+
+
+
+    .link {
+      font-weight: $montserrat-medium;
+      color: white;
+      margin: 1rem;
+      margin-right: 4rem;
+      font-size: 2.5rem;
+      line-height: 1em;
+
+      @media (max-width:1440px) {
+        margin-right: 3rem;
+        font-size: 1.8rem;
+      }
+
+      @media (max-width:992px) {
+        margin-right: 2rem;
+      }
+
+      @media (max-width:768px) {
+        margin-right: 1.5rem;
+        font-size: 1.6rem;
+      }
+
+      &.active {
+        font-weight: $montserrat-semibold;
+      }
+
+      &.disable {
+        background-color: rgba($color: white, $alpha: .1) !important;
+        color: white !important;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &.brand {
+        width: 20rem;
+
+        @media (max-width:1440px) {
+          width: 17rem;
+        }
+
+        @media (max-width:1200px) {
+          width: 14rem;
+        }
+
+        @media (max-width:992px) {
+          margin-left: 0;
+        }
+
+        @media (max-width:768px) {
+          width: 12rem;
+        }
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+
+  }
+
+  .content-1 {
+
+    @media (max-width:768px) {
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+
+  .content-2 {
+
+    @media (max-width:480px) {
+      justify-content: space-between;
+      width: 100%;
+    }
+
+  }
+
+  .dispose {
+    @media (max-width:992px) {
+      display: none;
+    }
+  }
+
+  .not-dispose {
+    display: none;
+
+    @media (max-width:992px) {
+      display: flex;
+    }
+  }
+
+}
