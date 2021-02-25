@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import pool from "../config/database"
-import { Checks as check } from "./checks";
+import { Checks as check } from "../config/checks";
 import { CokyErrors } from "./errors";
 import { ModelEntity } from "./model";
 
@@ -17,7 +17,7 @@ export abstract class Controller<T> {
      * @param res response
      */
     index(req: Request, res: Response) {
-        res.render("index")
+        res.render("Wellcome to this api. This is a view, but doesn't have configured.")
     }
 
     /**

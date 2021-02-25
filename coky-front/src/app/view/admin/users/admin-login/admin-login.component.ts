@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChildren } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -15,9 +16,9 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class AdminLoginComponent implements OnInit {
 
-  username: string = "";
-  password: string = "";
-  alert: string = "";
+  username = new FormControl;
+  password = new FormControl;
+  alert = "";
 
   images = [
     'assets/built-in/images/pensioners.jpg',
@@ -30,34 +31,34 @@ export class AdminLoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  async login() {
-    if (this.check()) {
-      try {
-        let result: any = await this.usersService.login(this.username, this.password);
-        if (result.success) {
-          alert("logueado")
-          this.router.navigate([FunctionsService.generateRoute("admin", "")]);
-        } else {
-          this.alert = result.message;
-        }
-      } catch (error) {
-        console.log(error)
-      }
-    }
-  }
+  // async login() {
+  //   if (this.check()) {
+  //     try {
+  //       let result: any = await this.usersService.login(this.username, this.password);
+  //       if (result.success) {
+  //         alert("logueado")
+  //         this.router.navigate([FunctionsService.generateRoute("admin", "")]);
+  //       } else {
+  //         this.alert = result.message;
+  //       }
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
+  // }
 
-  check() {
-    if (this.username == "") {
-      this.alert = "Digite un nombre de usuario";
-      return false;
-    }
-    if (this.password == "") {
-      this.alert = "Digite una contraseña";
-      return false;
-    }
-    this.alert = "";
-    return true;
-  }
+  // check() {
+  //   if (this.username == "") {
+  //     this.alert = "Digite un nombre de usuario";
+  //     return false;
+  //   }
+  //   if (this.password == "") {
+  //     this.alert = "Digite una contraseña";
+  //     return false;
+  //   }
+  //   this.alert = "";
+  //   return true;
+  // }
 
   go(type: string, url: string) {
     this.router.navigate([FunctionsService.generateRoute(type, url)]);

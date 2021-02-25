@@ -10,14 +10,14 @@ class UsersController extends Controller<User> {
     public entity: ModelEntity = User.ENTITY;
 
 
-    /**
-    * Devuelve la página inicial, puede ser usada para renderizar html..
-    * @param req request 
-    * @param res response
-    */
-    index(req: Request, res: Response) {
-        res.send("Index");
-    }
+    // /**
+    // * Devuelve la página inicial, puede ser usada para renderizar html..
+    // * @param req request 
+    // * @param res response
+    // */
+    // index(req: Request, res: Response) {
+    //     // res.send("Index");
+    // }
 
 
     /**

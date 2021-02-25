@@ -3,6 +3,7 @@ import { usersService } from "./app/classes/built-in/users/users.service";
 import morgan from "morgan";
 import cors from "cors";
 import dotenv from "dotenv";
+import { Routes } from "app/config/routes";
 
 class Main {
 
@@ -25,7 +26,11 @@ class Main {
     }
 
     routes(): void {
-        this.app.use(usersService.startRoute, usersService.router)
+
+        // Checks.isByRegex("", "")
+        Routes.getRoutes().forEach(service => {
+            this.app.use(service.startRoute, service.router)
+        });
     }
 
     start(): void {
