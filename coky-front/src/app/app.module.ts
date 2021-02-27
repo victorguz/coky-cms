@@ -18,7 +18,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppComponent } from './view/app.component';
 import { AdminCarouselBrandComponent } from './view/admin/imports/admin-carousel-brand/admin-carousel-brand.component';
@@ -79,6 +79,7 @@ import { PublicPlansComponent } from './view/public/public-plans/public-plans.co
     MatDialogModule,
     MatSelectModule,
     MatIconModule,
+    MatSnackBarModule,
     // On server
     MatTableModule,
     MatPaginatorModule,

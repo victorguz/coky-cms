@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
-import { User, UserI } from '../models/users.model';
+import { UserI } from '../models/users.model';
+import { User } from "../models/users.model";
 import { Service } from '../core/service';
 import { Checks } from '../core/checks';
 

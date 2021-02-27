@@ -1,10 +1,8 @@
+
 import { FieldMapper, Model } from "../core/model";
 
+export class User extends Model<UserI> {
 
-export class User extends Model {
-
-
-    entity: UserI;
 
     public MAPPER: FieldMapper[] = [
         {
@@ -176,6 +174,7 @@ export class User extends Model {
 }
 
 
+
 export interface UserI {
     id?: number;
     first_name?: string;
@@ -191,4 +190,3 @@ export interface UserI {
     created?: Date;
     modified?: Date;
 }
-

@@ -1,5 +1,6 @@
 import { Router, Request, Response } from "express";
 import { Controller } from "./controller";
+import { Secure } from "./secure";
 
 /**
  * Clase que se hereda en todos los servicios. Realiza las peticiones a la base de datos a travez del controlador a travez de las rutas.
@@ -8,6 +9,7 @@ export abstract class Service<T> {
 
     public startRoute?: string;
     public ignoreDefaultRoutes: boolean = false;
+    public useHeaderKey: boolean = true;
 
     public router: Router = Router();
 
@@ -34,6 +36,7 @@ export abstract class Service<T> {
      * Métodos iniciales, que probablemente se usarían para renderizar html
      */
     views() {
+        // this.router.get("/", Secure.getReqHeader(req, res), async (req, res) => { this.controller.index(req, res,); });
         this.router.get("/", async (req, res) => { this.controller.index(req, res,); });
     }
 

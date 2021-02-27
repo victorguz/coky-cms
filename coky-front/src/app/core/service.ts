@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class Service<T> {
 
   public ENTITY_NAME: string = "";
-  public ENTITY: Model;
+  public ENTITY: Model<T>;
   public API_URL: string = "http://localhost:8080"
 
   constructor(private http: HttpClient) { }

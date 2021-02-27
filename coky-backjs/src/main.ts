@@ -3,7 +3,7 @@ import { usersService } from "./app/classes/built-in/users/users.service";
 import morgan from "morgan";
 import cors from "cors";
 import dotenv from "dotenv";
-import { Routes } from "app/config/routes";
+import { routes } from "./app/config/routes";
 
 class Main {
 
@@ -11,12 +11,12 @@ class Main {
 
     constructor() {
         this.app = express()
-        this.config()
-        this.routes()
+        this.setConfig()
+        this.setRoutes()
         this.start()
     }
 
-    config(): void {
+    setConfig(): void {
         dotenv.config();
         this.app.set("port", process.env.PORT || 8888)
         this.app.use(cors())
@@ -25,10 +25,8 @@ class Main {
         this.app.use(express.urlencoded({ extended: false }))
     }
 
-    routes(): void {
-
-        // Checks.isByRegex("", "")
-        Routes.getRoutes().forEach(service => {
+    setRoutes(): void {
+        routes.forEach(service => {
             this.app.use(service.startRoute, service.router)
         });
     }

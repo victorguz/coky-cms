@@ -4,9 +4,10 @@ import { Checks as check } from "./checks";
 /**
  * Clase que se hereda a todos los modelos.
  */
-export abstract class Model {
+export abstract class Model<T> {
 
     public MAPPER!: FieldMapper[];
+    public entity: T;
 
     constructor(json?: any) {
         if (json) {
@@ -18,10 +19,13 @@ export abstract class Model {
      * @param json elemento que contiene los datos para el objeto de la clase
      */
     abstract set(json: any): void;
+
     /**
      * retorna un json con todos los datos obtenidos de la clase
      */
-    abstract get(): any;
+    get(): T {
+        return this.entity
+    }
     /**
      * Evalúa si un valor cumple con los parámetros del campo dados en el mapper.
      * @param field_name nombre del campo a evaluar

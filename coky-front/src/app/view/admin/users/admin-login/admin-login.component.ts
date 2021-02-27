@@ -6,7 +6,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FunctionsService as func, FunctionsService } from 'src/app/config/functions.config';
 import { UsersConfigModule } from 'src/app/config/users.config';
-import { User, UserI } from 'src/app/models/users.model';
+import { UserI } from 'src/app/models/users.model';
+import { User } from "src/app/models/users.model";
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
