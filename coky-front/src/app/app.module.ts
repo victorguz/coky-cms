@@ -38,6 +38,7 @@ import { PublicAboutComponent } from './view/public/public-about/public-about.co
 import { PublicServicesComponent } from './view/public/public-services/public-services.component';
 import { PublicContactComponent } from './view/public/public-contact/public-contact.component';
 import { PublicPlansComponent } from './view/public/public-plans/public-plans.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,7 @@ import { PublicPlansComponent } from './view/public/public-plans/public-plans.co
     MatPaginatorModule,
     MatFormFieldModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

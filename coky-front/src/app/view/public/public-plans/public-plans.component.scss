@@ -246,7 +246,7 @@
           background-color: $dark-color-public;
 
           font-size: 4rem;
-          font-weight: $montserrat-bold;
+          font-weight: $font-bold;
           text-transform: capitalize;
 
           box-shadow: $shadow-md;
@@ -439,13 +439,14 @@
       .text-content {
         color: white;
         text-align: right;
+        width: 100%;
 
         @media screen and (max-width:768px) {
           text-align: center;
         }
 
         .title {
-          font-weight: $montserrat-bold;
+          font-weight: $font-bold;
           font-size: 12rem;
           margin-bottom: 3rem;
 

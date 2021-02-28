@@ -19,6 +19,7 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mariadb": "^2.5.1",
+    "nodemailer": "^6.5.0",
     "reflect-metadata": "^0.1.13",
     "tsc": "^1.20150623.0"
   },
@@ -31,6 +32,7 @@
     "@types/jsonwebtoken": "^8.5.0",
     "@types/morgan": "^1.9.2",
     "@types/node": "^14.14.6",
+    "@types/nodemailer": "^6.4.0",
     "@types/validator": "^13.1.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.6"

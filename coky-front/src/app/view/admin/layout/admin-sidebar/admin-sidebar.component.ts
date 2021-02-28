@@ -44,7 +44,7 @@ export class AdminSidebarComponent implements OnInit {
       }
     });
     // this.addRoutes()
-    this.routes = FunctionsService.orderJsonList(this.routes, "position")
+    this.routes = FunctionsService.orderList(this.routes, "position")
   }
 
 

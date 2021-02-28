@@ -1,9 +1,9 @@
 import express, { Application } from "express";
-import { usersService } from "./app/classes/built-in/users/users.service";
 import morgan from "morgan";
 import cors from "cors";
 import dotenv from "dotenv";
 import { routes } from "./app/config/routes";
+import { CokyMail } from "./app/core/mails";
 
 class Main {
 
@@ -35,6 +35,8 @@ class Main {
         this.app.listen(this.app.get("port"), async () => {
             console.log("On port: " + this.app.get("port"))
         })
+        const mail = new CokyMail()
+        mail.send()
     }
 }
 

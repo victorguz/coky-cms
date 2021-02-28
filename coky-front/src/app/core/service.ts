@@ -18,8 +18,8 @@ export class Service<T> {
   /**
    * Obtiene todos los campos en un rango
    */
-  all(limit: number = 100, offset: number = 0) {
-    return this.http.get<any>(`${this.API_URL}/${this.ENTITY_NAME}/all/${limit}/${offset}`).toPromise();
+  all(limit: number = 100, offset: number = 0, column = "id", order = "desc") {
+    return this.http.get<any>(`${this.API_URL}/${this.ENTITY_NAME}/all/${limit}/${offset}/${column}/${order}`).toPromise();
   }
 
   /**
@@ -42,31 +42,24 @@ export class Service<T> {
   }
 
   /**
-   * El método "orderby" devuelve todos los registros, ordenados por columna y dirección (asc, desc). También se puede definir un limit y un offset
-   */
-  orderby(column: string = "id", order: string = "desc", limit: number = 100, offset: number = 0) {
-    return this.http.get<any>(`${this.API_URL}/${this.ENTITY_NAME}/orderby/${column}/${order}/${limit}/${offset}`).toPromise();
-  }
-
-  /**
    * El método "create" añade una instancia de la entidad a la base de datos
    */
-  create(entity: T) {
-    return this.http.post(`${this.API_URL}/${this.ENTITY_NAME}/create/`, entity).toPromise();
+  create(entity: T): Promise<ServiceResult> {
+    return this.http.post<ServiceResult>(`${this.API_URL}/${this.ENTITY_NAME}/create/`, entity).toPromise();
   }
 
   /**
    * El método "update" modifica una instancia de la entidad en la base de datos
    */
-  update(id: number, entity: T) {
-    return this.http.put(`${this.API_URL}/${this.ENTITY_NAME}/update/${id}`, entity).toPromise();
+  update(id: number, entity: T): Promise<ServiceResult> {
+    return this.http.put<ServiceResult>(`${this.API_URL}/${this.ENTITY_NAME}/update/${id}`, entity).toPromise();
   }
 
   /**
    * El método "delete" elimina una instancia de la entidad de base de datos
    */
-  delete(id: number) {
-    return this.http.delete(`${this.API_URL}/${this.ENTITY_NAME}/delete/${id}`).toPromise();
+  delete(id: number): Promise<ServiceResult> {
+    return this.http.delete<ServiceResult>(`${this.API_URL}/${this.ENTITY_NAME}/delete/${id}`).toPromise();
   }
 
   /**
@@ -79,4 +72,10 @@ export class Service<T> {
   withUrl(url: string, data) {
     return this.http.post(`${this.API_URL}/${this.ENTITY_NAME}/${url}`, data).toPromise();
   }
+}
+
+export interface ServiceResult {
+  message: string,
+  result: { affectedRows: number, insertId: number, warningStatus: number },
+  success: boolean,
 }

@@ -1,4 +1,6 @@
+import { Overlay } from '@angular/cdk/overlay';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ConfigService as conf } from './config.config';
@@ -8,11 +10,16 @@ import { ConfigService as conf } from './config.config';
 })
 export class FunctionsService {
 
-  constructor(private appTitle: Title, private router: Router) { }
+
+  constructor(private appTitle: Title,
+    private router: Router,
+    private _snackBar: MatSnackBar) { }
 
   public setTitle(c_title: string) {
     this.appTitle.setTitle(FunctionsService.capitalize(c_title) + ' - ' + conf.app_name);
   }
+
+
   /**
    * Generate the type route
    * @param type {string} client or admin
@@ -29,17 +36,39 @@ export class FunctionsService {
     }
     return pre + route;
   }
-
+  /**
+   * Pone en mayusculas la inicial de cada palabra y en minusculas el resto de las letras en una cadena.
+   * @param cad 
+   * @param split 
+   */
   public static capitalize(cad: string, split: string = " ") {
-    let arr = cad.split(split);
+    let arr = cad.toLocaleLowerCase().split(split);
     cad = "";
     arr.forEach(e => {
-      cad += e[0].toUpperCase() + e.substring(1);
+      cad += e[0].toUpperCase() + e.substring(1) + " ";
     });
     return cad;
   }
 
-  public static orderJsonList(lista: any[], by: string) {
+  /**
+   * 
+   * @param lista 
+   * @param by 
+   */
+  public static orderList(lista: any[], by: string) {
+    return lista.sort(function (a, b) {
+      if (typeof a[by] == "string" && typeof b[by] == "string") {
+        a[by] = a[by].toLocaleLowerCase()
+      }
+      if (a[by] > b[by]) {
+        return 1;
+      }
+      if (a[by] < b[by]) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    })
     let aux;
     // Algoritmo de burbuja
     for (let k = 1; k < lista.length; k++) {
@@ -59,5 +88,49 @@ export class FunctionsService {
       array.push(item)
     });
     return array;
+  }
+
+  public showMessage(message: string, action: string, type = "danger", time = 2000, func = null) {
+    let classs = ""
+    switch (type) {
+
+      case "primary":
+        classs = "primarySnackbar"
+        break;
+      case "secondary":
+        classs = "secondarySnackbar"
+        break;
+      case "gray":
+        classs = "graySnackbar"
+        break;
+      case "dark":
+        classs = "darkSnackbar"
+        break;
+      case "success":
+        classs = "successSnackbar"
+        break;
+      case "alert":
+        classs = "alertSnackbar"
+        break;
+      case "white":
+        classs = "whiteSnackbar"
+        break;
+      case "danger":
+        classs = "dangerSnackbar"
+        break;
+      case "info":
+        classs = "infoSnackbar"
+        break;
+    }
+    const snackBarRef = this._snackBar.open(message, action, {
+      duration: time,
+      horizontalPosition: "end",
+      verticalPosition: "bottom",
+      panelClass: classs
+    });
+
+    if (func != null) {
+      snackBarRef.onAction().subscribe(func)
+    }
   }
 }

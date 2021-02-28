@@ -2,7 +2,7 @@
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
-  font-weight: $montserrat-thin;
+  font-weight: $font-thin;
   src: url("../../fonts/Montserrat/Montserrat-Thin.ttf");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -10,7 +10,7 @@
 @font-face {
   font-family: 'Montserrat';
   font-style: italic;
-  font-weight: $montserrat-thin;
+  font-weight: $font-thin;
   src: url("../../fonts/Montserrat/Montserrat-ThinItalic.ttf");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -19,7 +19,7 @@
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
-  font-weight: $montserrat-extra-light;
+  font-weight: $font-extra-light;
   src: url("../../fonts/Montserrat/Montserrat-ExtraLight.ttf");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -27,7 +27,7 @@
 @font-face {
   font-family: 'Montserrat';
   font-style: italic;
-  font-weight: $montserrat-thin;
+  font-weight: $font-thin;
   src: url("../../fonts/Montserrat/Montserrat-ExtraLightItalic.ttf");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -36,7 +36,7 @@
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
-  font-weight: $montserrat-light;
+  font-weight: $font-light;
   src: url("../../fonts/Montserrat/Montserrat-Light.ttf");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -44,7 +44,7 @@
 @font-face {
   font-family: 'Montserrat';
   font-style: italic;
-  font-weight: $montserrat-light;
+  font-weight: $font-light;
   src: url("../../fonts/Montserrat/Montserrat-LightItalic.ttf");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -53,7 +53,7 @@
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
-  font-weight: $montserrat-regular;
+  font-weight: $font-regular;
   src: url("../../fonts/Montserrat/Montserrat-Regular.ttf");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -61,7 +61,7 @@
 @font-face {
   font-family: 'Montserrat';
   font-style: italic;
-  font-weight: $montserrat-regular;
+  font-weight: $font-regular;
   src: url("../../fonts/Montserrat/Montserrat-Italic.ttf");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -71,7 +71,7 @@
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
-  font-weight: $montserrat-semibold;
+  font-weight: $font-semibold;
   src: url("../../fonts/Montserrat/Montserrat-SemiBold.ttf");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -79,7 +79,7 @@
 @font-face {
   font-family: 'Montserrat';
   font-style: italic;
-  font-weight: $montserrat-semibold;
+  font-weight: $font-semibold;
   src: url("../../fonts/Montserrat/Montserrat-SemiBoldItalic.ttf");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -88,7 +88,7 @@
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
-  font-weight: $montserrat-bold;
+  font-weight: $font-bold;
   src: url("../../fonts/Montserrat/Montserrat-Bold.ttf");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -96,7 +96,7 @@
 @font-face {
   font-family: 'Montserrat';
   font-style: italic;
-  font-weight: $montserrat-bold;
+  font-weight: $font-bold;
   src: url("../../fonts/Montserrat/Montserrat-BoldItalic.ttf");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -105,7 +105,7 @@
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
-  font-weight: $montserrat-extra-bold;
+  font-weight: $font-extra-bold;
   src: url("../../fonts/Montserrat/Montserrat-ExtraBold.ttf");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -113,7 +113,7 @@
 @font-face {
   font-family: 'Montserrat';
   font-style: italic;
-  font-weight: $montserrat-extra-bold;
+  font-weight: $font-extra-bold;
   src: url("../../fonts/Montserrat/Montserrat-ExtraBoldItalic.ttf");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -122,7 +122,7 @@
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
-  font-weight: $montserrat-black;
+  font-weight: $font-black;
   src: url("../../fonts/Montserrat/Montserrat-Black.ttf");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -130,7 +130,7 @@
 @font-face {
   font-family: 'Montserrat';
   font-style: italic;
-  font-weight: $montserrat-black;
+  font-weight: $font-black;
   src: url("../../fonts/Montserrat/Montserrat-BlackItalic.ttf");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }

@@ -74,12 +74,13 @@ export class AdminUsersComponent implements OnInit {
 
   async loadAll() {
     try {
-      let result = await this.usersService.orderby("id", "desc", 50, 0);
+      let result = await this.usersService.all(100, 0, "id", "desc");
       this.users = result.result;
     } catch (error) {
       console.log(error)
     }
   }
+
   async setUser() {
     try {
       this.detailsUser = await this.usersService.getOne(this.id);

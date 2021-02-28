@@ -140,7 +140,7 @@
     }
 
     label {
-      font-weight: $montserrat-semibold;
+      font-weight: $font-semibold;
       font-size: 1em;
       margin-bottom: 0.5rem;
     }
@@ -236,7 +236,7 @@
     text-decoration: none;
     padding: .5em 1em;
     border-radius: $rounded;
-    font-weight: $montserrat-medium;
+    font-weight: $font-medium;
     white-space: nowrap;
     font-size: 2rem;
 
@@ -280,7 +280,7 @@
       box-shadow: none !important;
 
       .mat-button-wrapper {
-        font-weight: $montserrat-medium;
+        font-weight: $font-medium;
         font-size: 1em !important;
         line-height: 1em !important;
       }
@@ -352,7 +352,7 @@
 
     label {
       margin-left: 1rem;
-      font-weight: $montserrat-medium;
+      font-weight: $font-medium;
     }
 
   }

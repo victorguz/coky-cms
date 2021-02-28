@@ -91,8 +91,10 @@ export abstract class Controller<T> {
             for (const field in req.body) {
                 if (Object.prototype.hasOwnProperty.call(req.body, field)) {
                     const value = req.body[field];
-                    fields.push(field);
-                    values.push(value);
+                    if (field != "id" && field != "created" && field != "modified") {
+                        fields.push(field);
+                        values.push(value);
+                    }
                 }
             }
 

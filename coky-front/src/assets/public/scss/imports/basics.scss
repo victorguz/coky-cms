@@ -79,7 +79,7 @@
     cursor: pointer;
     text-decoration: none;
     border-radius: $rounded;
-    font-weight: $montserrat-medium;
+    font-weight: $font-medium;
     white-space: nowrap;
 
     width: fit-content;
@@ -131,7 +131,7 @@
       box-shadow: none !important;
 
       .mat-button-wrapper {
-        font-weight: $montserrat-medium;
+        font-weight: $font-medium;
         font-size: 1em !important;
         line-height: 1em !important;
       }
@@ -267,7 +267,7 @@
     }
 
     label {
-      font-weight: $montserrat-semibold;
+      font-weight: $font-semibold;
       font-size: 1em;
       margin-bottom: 0.5rem;
     }
@@ -373,7 +373,7 @@
 
     label {
       margin-left: 1rem;
-      font-weight: $montserrat-medium;
+      font-weight: $font-medium;
     }
 
     // .white,

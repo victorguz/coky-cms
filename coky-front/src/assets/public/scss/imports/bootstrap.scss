@@ -49,6 +49,10 @@
     background-color: $gray-color-public !important;
   }
 
+  .info {
+    background-color: $info-color-public !important;
+  }
+
   .text-white {
     color: white;
   }
@@ -267,7 +271,7 @@
 
   .title {
     font-size: 2em;
-    font-weight: $montserrat-bold !important;
+    font-weight: $font-bold !important;
     line-height: 1em;
   }
 
@@ -341,22 +345,22 @@
   }
 
   .regular {
-    font-weight: $montserrat-regular;
+    font-weight: $font-regular;
   }
 
   .medium {
-    font-weight: $montserrat-medium;
+    font-weight: $font-medium;
   }
 
   .semibold {
-    font-weight: $montserrat-semibold;
+    font-weight: $font-semibold;
   }
 
   .bold {
-    font-weight: $montserrat-bold;
+    font-weight: $font-bold;
   }
 
   .black {
-    font-weight: $montserrat-black;
+    font-weight: $font-black;
   }
 }

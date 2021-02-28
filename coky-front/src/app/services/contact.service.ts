@@ -1,17 +1,16 @@
 import { Injectable, OnInit } from '@angular/core';
-import { UserI } from '../models/users.model';
-import { User } from "../models/users.model";
-import { Service } from '../core/service';
+import { Service, ServiceResult } from '../core/service';
 import { Checks } from '../core/checks';
+import { Contact, ContactI } from '../models/contacts.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
+export class ContactsService {
 
-  constructor(private service: Service<UserI>) {
-    this.service.ENTITY = new User;
-    this.service.ENTITY_NAME = "users";
+  constructor(private service: Service<ContactI>) {
+    this.service.ENTITY = new Contact;
+    this.service.ENTITY_NAME = "contacts";
   }
 
 
@@ -41,14 +40,14 @@ export class UsersService {
   /**
    * El método "create" añade una instancia de la entidad a la base de datos
    */
-  async create(entity: UserI) {
+  async create(entity: ContactI) {
     return await this.service.create(entity);
   }
 
   /**
    * El método "update" modifica una instancia de la entidad en la base de datos
    */
-  async update(id: number, entity: UserI) {
+  async update(id: number, entity: ContactI) {
   }
 
   /**

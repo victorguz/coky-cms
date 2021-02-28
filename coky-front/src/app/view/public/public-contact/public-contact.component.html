@@ -12,7 +12,7 @@
 
                 <form class="text-content" [formGroup]="form" (ngSubmit)="save($event)">
                     <div class="field mini">
-                        <label for="plans">Plans</label>
+                        <label for="plans">Plans *</label>
                         <select class="form-select" formControlName="plan">
                             <option value="basic">Basic</option>
                             <option value="standard">Standard</option>
@@ -23,50 +23,50 @@
                         </select>
                     </div>
                     <div class="field mini">
-                        <label for="Description of Residence">Description of Residence</label>
+                        <label for="Description of Residence">Description of Residence *</label>
                         <select class="form-select" formControlName="residence">
                             <option value="apartment">Apartment</option>
                             <option value="house">House</option>
                         </select>
                     </div>
                     <div class="field">
-                        <label for="Full name">Full name</label>
+                        <label for="Full name">Full name *</label>
                         <input type="text" class="form-control" placeholder="Full name" formControlName="full_name">
                     </div>
 
                     <div class="field middle">
-                        <label for="Phone">Phone</label>
+                        <label for="Phone">Phone *</label>
                         <input type="text" class="form-control" placeholder="Phone" formControlName="phone">
                     </div>
 
                     <div class="field middle">
-                        <label for="E-mail">E-mail</label>
+                        <label for="E-mail">E-mail *</label>
                         <input type="email" class="form-control" placeholder="E-mail" formControlName="email">
                     </div>
 
                     <div class="field middle">
-                        <label for="Address">Address</label>
+                        <label for="Address">Address *</label>
                         <input type="text" class="form-control" placeholder="Address" formControlName="address">
                     </div>
 
                     <div class="field full">
-                        <label for="message">Tell us, how can we help you?</label>
+                        <label for="message">Tell us, how can we help you? *</label>
                         <textarea rows="4" class="form-control" placeholder="Tell us, how can we help you?"
                             formControlName="message"></textarea>
                     </div>
 
                     <div class="field check full">
-                        <input class="form-check-input primary" type="checkbox" value="" id="policy-check"
+                        <input class="form-check-input primary" type="checkbox" id="policy-check" name="policy-check"
                             formControlName="privacy_policy">
                         <label class="form-check-label" for="policy-check">
                             By using this form you agree with the storage and handling of your data by this website in
-                            accordance with our <a class="text-primary">Privacy
-                                policy</a>
+                            accordance with our <a class="text-primary" routerLink="/policies">data treatment policy</a>
+                            *
                         </label>
                     </div>
                     <div class="field check full">
-                        <input class="form-check-input primary" type="checkbox" value="" id="promotional-check" checked
-                            formControlName="send_promo">
+                        <input class="form-check-input primary" type="checkbox" id="promotional-check"
+                            name="promotional-check" formControlName="send_promo">
                         <label class="form-check-label" for="promotional-check">
                             Yes, I would like to receive updates and special offers from MTS CORPORATION
                         </label>

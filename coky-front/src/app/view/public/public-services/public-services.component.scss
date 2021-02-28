@@ -443,7 +443,7 @@
           p {
             color: $dark-color-public;
             font-size: 2.5rem;
-            font-weight: $montserrat-medium;
+            font-weight: $font-medium;
             text-align: right;
 
             @media screen and (max-width:1480px) {
@@ -487,7 +487,7 @@
 
         text-align: center;
         color: $dark-color-public;
-        font-weight: $montserrat-semibold;
+        font-weight: $font-semibold;
         font-size: 3rem;
         padding: 2rem;
         white-space: nowrap;
