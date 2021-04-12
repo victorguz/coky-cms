@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { routes } from "./app/config/routes";
 import { CokyMail } from "./app/core/mails";
+import { ActiveRecord } from "./app/core/classes/active-record";
 
 class Main {
 
@@ -34,8 +35,9 @@ class Main {
     start(): void {
         this.app.listen(this.app.get("port"), async () => {
             console.log("On port: " + this.app.get("port"))
+
         })
-        const mail = new CokyMail()
+        // const mail = new CokyMail()
         // mail.send()
     }
 }

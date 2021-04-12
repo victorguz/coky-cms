@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import pool from "../config/database"
+import { Database } from "./database"
 import { Checks as check } from "../config/checks";
 import { CokyErrors } from "./errors";
 import { ModelEntity } from "./model";
@@ -10,7 +10,7 @@ import { ModelEntity } from "./model";
 export abstract class Controller<T> {
 
     public entity!: ModelEntity;
-    public pool = pool;
+    public pool = Database.pool;
     /**
      * Devuelve la página inicial, puede ser usada para renderizar html..
      * @param req request 

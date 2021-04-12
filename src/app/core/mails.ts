@@ -1,4 +1,4 @@
-import { mails } from "../config/keys";
+import { mails } from "../config/config";
 import nodemailer from "nodemailer";
 
 export class CokyMail {

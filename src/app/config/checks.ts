@@ -55,14 +55,16 @@ export module Checks {
      * @param value valor
      */
     export function isType(type: string, value: any): boolean {
+        type = type.toLocaleLowerCase()
+
         if (type == "date" || type == "datetime") {
             return new Date(value) ? true : false;
         }
-        if (type.includes("int")) {
-            return typeof value == "number" && Number.isInteger(value);
+        if (type == "int" || type == "integer") {
+            return typeof value == "number" || Number.isInteger(value);
         }
         if (type.includes("number") || type.includes("double")) {
-            return typeof value == "number" && Number(value) ? true : false;
+            return typeof value == "number" || Number(value) ? true : false;
         }
         return typeof value == type;
     }

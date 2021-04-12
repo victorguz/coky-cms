@@ -1,11 +1,13 @@
+import { DatabaseConfig } from "app/core/database";
+
 export let prodMode = true;
 
-export const db = {
+export const db: DatabaseConfig = {
     host: prodMode ? "localhost" : "localhost",
     port: prodMode ? 3306 : 3306,
-    user: prodMode ? "mtservicescorp_coky" : "admin_general",
-    password: prodMode ? "sa!IFjhmhq3+" : "123456",
-    database: prodMode ? "mtservicescorp_platform" : "mtservicescorp_platform"
+    user: prodMode ? "admin_general" : "admin_general",
+    password: prodMode ? "123456" : "123456",
+    database: prodMode ? "coky-cms" : "coky-cms"
 }
 
 export const mails = {
@@ -17,3 +19,4 @@ export const mails = {
         }
     },
 }
+
