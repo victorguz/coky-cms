@@ -1,5 +1,5 @@
 
-export class CokyErrors {
+export class Exceptions {
 
     //TYPE ERRORS
     private static MAPPER = [
