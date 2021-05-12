@@ -1,0 +1,10 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "spec": {
+    "class": false,
+    "component": false,
+    "module": false,
+    "service": false
+  }
+}
