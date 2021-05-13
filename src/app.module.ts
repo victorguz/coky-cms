@@ -1,18 +1,22 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app/classes/built-in/app.controller';
-import { AppService } from './app/classes/built-in/app.service';
-import { UsersController } from './app/classes/built-in/users/users.controller';
-import { UsersService } from './app/classes/built-in/users/users.service';
-import { BlogService } from './app/classes/built-in/blog/blog.service';
-import { BlogController } from './app/classes/built-in/blog/blog.controller';
-import { BlogCategoriesService } from './app/classes/built-in/blog/blog-categories/blog-categories.service';
-import { BlogCategoriesController } from './app/classes/built-in/blog/blog-categories/blog-categories.controller';
-import { Keys } from './app/config/keys';
+import { Database } from './app/config/database.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UsersModule } from './app/modules/built-in/users/users.module';
+import { DatabaseModule } from './database/database.module';
+import { AppConfigsModule } from './app/modules/built-in/app-configs/app-configs.module';
+import { envConf, Config } from './app/config/config.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [ TypeOrmModule.forRoot(Keys.db_conf),],
-  controllers: [AppController, UsersController, BlogController, BlogCategoriesController],
-  providers: [AppService, UsersService, BlogService,  BlogCategoriesService],
+  imports: [
+    // TypeOrmModule.forRoot(Database.orm_conf),
+    ConfigModule.forRoot(envConf),
+    UsersModule,
+    DatabaseModule,
+    AppConfigsModule,
+
+  ],
+  controllers: [],
+  providers: [],
 })
-export class AppModule {}
+export class AppModule { }
