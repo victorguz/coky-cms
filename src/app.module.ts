@@ -7,9 +7,11 @@ import { BlogService } from './app/classes/built-in/blog/blog.service';
 import { BlogController } from './app/classes/built-in/blog/blog.controller';
 import { BlogCategoriesService } from './app/classes/built-in/blog/blog-categories/blog-categories.service';
 import { BlogCategoriesController } from './app/classes/built-in/blog/blog-categories/blog-categories.controller';
+import { Keys } from './app/config/keys';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [],
+  imports: [ TypeOrmModule.forRoot(Keys.db_conf),],
   controllers: [AppController, UsersController, BlogController, BlogCategoriesController],
   providers: [AppService, UsersService, BlogService,  BlogCategoriesService],
 })

@@ -1,5 +1,4 @@
-class CreateUserDto implements UserI{
-  id:number;
+class CreateUserDto{
   first_name:string;
   second_name:string;
   first_lastname:string;
@@ -9,5 +8,4 @@ class CreateUserDto implements UserI{
   password:string;
   data:any;
   created:Date;
-  modified:Date;
 }
