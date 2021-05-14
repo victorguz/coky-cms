@@ -35,7 +35,7 @@ export const env = registerAs("config", () => {
       database: process.env.DB_NAME,
     },
     appKey: process.env.APP_KEY,
-    appPort: process.env.APP_PORT,
+    appPort: process.env.PORT,
   }
 })
 
@@ -49,12 +49,12 @@ export const envConf: ConfigModuleOptions = {
   load: [env],
   isGlobal: true,
   validationSchema: Joi.object({
+    PORT: Joi.number().default(3000),
+    APP_KEY: Joi.string().required(),
     DB_NAME: Joi.string().required(),
     DB_PORT: Joi.number().required(),
     DB_HOST: Joi.string().required(),
     DB_USERNAME: Joi.string().required(),
     DB_PASSWORD: Joi.string().required(),
-    APP_PORT: Joi.number().default(3000),
-    APP_KEY: Joi.string().required(),
   })
 }
