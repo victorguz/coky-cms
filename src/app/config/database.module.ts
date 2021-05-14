@@ -1,3 +1,43 @@
-export class Database {
+import { ConfigType } from "@nestjs/config";
+import { TypeOrmModuleAsyncOptions, TypeOrmModuleOptions } from "@nestjs/typeorm";
+import { NestMysql2AsyncOptions, NestMysql2Module, NestMysql2Options, NestMysql2OptionsFactory } from "mysql2-nestjs";
+import { env } from "./environments";
 
+export module Database {
+
+
+  export const mysqlConfig: NestMysql2AsyncOptions = {
+    inject: [env.KEY],
+    useFactory: (configService: ConfigType<typeof env>) => {
+      const { username, password, host, database, port } = configService.database;
+      const opt: NestMysql2Options = {
+        host: host,
+        port: parseInt(port),
+        user: username,
+        password: password,
+        database: database,
+        charset: "utf8_bin"
+      }
+      return opt;
+    },
+  }
+
+  export const typeORMConfig: TypeOrmModuleAsyncOptions = {
+    inject: [env.KEY],
+    useFactory: (configService: ConfigType<typeof env>) => {
+      const { username, password, host, database, port } = configService.database;
+      const opt: TypeOrmModuleOptions = {
+        type: 'mysql',
+        host: host,
+        port: parseInt(port),
+        username: username,
+        password: password,
+        database: database,
+        synchronize: true,
+        autoLoadEntities: true,
+        charset: "utf8_bin"
+      };
+      return opt;
+    },
+  }
 }

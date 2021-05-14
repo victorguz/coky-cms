@@ -1,15 +1,21 @@
 import { Injectable } from '@nestjs/common';
+import { InjectMysql, Mysql } from 'mysql2-nestjs';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()
 export class UsersService {
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+
+  constructor(@InjectMysql() private readonly mysql: Mysql) { }
+
+  async create(createUserDto: CreateUserDto) {
+    const result = "Consulta de creación..."
+    return result;
   }
 
-  findAll() {
-    return `This action returns all users`;
+  async findAll() {
+    const [result, buffer] = await this.mysql.query("SELECT * FROM coky_users")
+    return result;
   }
 
   findOne(id: number) {
