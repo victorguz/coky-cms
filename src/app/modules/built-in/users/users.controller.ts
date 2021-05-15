@@ -9,11 +9,6 @@ import { ApiProperty, ApiTags } from '@nestjs/swagger';
 export class UsersController {
   constructor(private readonly usersService: UsersService) { }
 
-  @Post()
-  @ApiProperty({ description: "Creates a new user" })
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.usersService.create(createUserDto);
-  }
 
   @Get()
   @ApiProperty({ description: "Find all the users" })
@@ -25,6 +20,12 @@ export class UsersController {
   @ApiProperty({ description: "Find one user by ID" })
   findOne(@Param('id') id: number) {
     return this.usersService.findOne(+id);
+  }
+
+  @Post()
+  @ApiProperty({ description: "Creates a new user" })
+  create(@Body() createUserDto: CreateUserDto) {
+    return this.usersService.create(createUserDto);
   }
 
   @Patch(':id')
