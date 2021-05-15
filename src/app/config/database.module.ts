@@ -5,7 +5,6 @@ import { env, isProdMode } from "./environments";
 
 export module Database {
 
-
   export const mysqlConfig: NestMysql2AsyncOptions = {
     inject: [env.KEY],
     useFactory: (configService: ConfigType<typeof env>) => {
