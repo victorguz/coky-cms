@@ -1,5 +1,5 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { InjectMysql, Mysql } from 'mysql2-nestjs';
+import { Injectable } from '@nestjs/common';
+import { FilterDto } from 'src/app/core/dtos/filters.dto';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User, UserStatus } from './entities/user.entity';
@@ -7,13 +7,22 @@ import { User, UserStatus } from './entities/user.entity';
 @Injectable()
 export class UsersService {
 
-  async findAll() {
+  async findAll(filter?: FilterDto<User>) {
     try {
-      return await User.find({
-        order: {
-          id: "DESC"
-        }
-      });
+      if (filter) {
+        const { limit, offset, column, order } = filter
+        return await User.findAndCount({
+          order: { [column]: order },
+          take: limit,
+          skip: offset,
+        });
+      } else {
+        return await User.findAndCount({
+          order: { id: "DESC" },
+          take: 100,
+          skip: 0,
+        });
+      }
     } catch (error) {
       console.error(error)
       return error
@@ -22,7 +31,7 @@ export class UsersService {
 
   async findOne(id: number) {
     try {
-      return await User.findOneOrFail(id);
+      return await User.findOneOrFail();
     } catch (error) {
       console.error(error)
       return error

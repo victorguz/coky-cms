@@ -1,41 +1,43 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { FilterDto } from 'src/app/core/dtos/filters.dto';
 import { AppConfigService } from './appconfig.service';
 import { CreateAppConfigDto } from './dto/create-appconfig.dto';
 import { UpdateAppConfigDto } from './dto/update-appconfig.dto';
+import { AppConfig } from './entities/appconfig.entity';
 
+@ApiTags("appconfig")
 @Controller('appconfig')
 export class AppConfigController {
+
   constructor(private readonly appConfigService: AppConfigService) { }
 
-
-
   @Get()
-  @ApiProperty({ description: "Find all the appconfig" })
-  findAll() {
-    return this.appConfigService.findAll();
+  @ApiOperation({ summary: "Find all the appconfig" })
+  findAll(filter?: FilterDto<AppConfig>) {
+    return this.appConfigService.findAll(filter);
   }
 
   @Get(':id')
-  @ApiProperty({ description: "Find one appconfig by ID" })
+  @ApiOperation({ summary: "Find one appconfig by ID" })
   findOne(@Param('id') id: number) {
-    return this.appConfigService.findOne(+id);
+    return this.appConfigService.findOne(id);
   }
 
   @Post()
-  @ApiProperty({ description: "Creates a new appconfig" })
+  @ApiOperation({ summary: "Creates a new appconfig" })
   create(@Body() createAppconfigDto: CreateAppConfigDto) {
     return this.appConfigService.create(createAppconfigDto);
   }
 
   @Patch(':id')
-  @ApiProperty({ description: "Update one appconfig by ID" })
+  @ApiOperation({ summary: "Update one appconfig by ID" })
   update(@Param('id') id: number, @Body() updateAppconfigDto: UpdateAppConfigDto) {
     return this.appConfigService.update(+id, updateAppconfigDto);
   }
 
   @Delete(':id')
-  @ApiProperty({ description: "Remove one appconfig by ID" })
+  @ApiOperation({ summary: "Remove one appconfig by ID" })
   remove(@Param('id') id: number) {
     return this.appConfigService.remove(+id);
   }

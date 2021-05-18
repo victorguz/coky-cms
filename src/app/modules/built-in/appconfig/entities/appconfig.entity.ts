@@ -1,4 +1,4 @@
-import { BaseEntity, BeforeInsert, BeforeUpdate, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity({ name: "coky_config" })
 export class AppConfig extends BaseEntity {
@@ -14,21 +14,26 @@ export class AppConfig extends BaseEntity {
   @Column({ type: "int", nullable: false })
   status: number;
 
-  @Column({ type: "datetime", nullable: false })
+  @CreateDateColumn({
+    type: 'datetime',
+    default: () => 'CURRENT_TIMESTAMP',
+  })
   created: Date;
 
-  @Column({ type: "datetime", nullable: true })
+
+  @UpdateDateColumn({
+    type: 'datetime',
+    default: () => 'CURRENT_TIMESTAMP',
+  })
   modified: Date;
 
   @BeforeInsert()
   beforeInsert() {
-    this.created = new Date();
     this.name = this.name.toLowerCase()
   }
 
   @BeforeUpdate()
   beforeUpdate() {
-    this.modified = new Date();
     this.name = this.name.toLowerCase()
   }
 

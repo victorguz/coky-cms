@@ -1,4 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { FilterDto } from 'src/app/core/dtos/filters.dto';
 import { CreateAppConfigDto } from './dto/create-appconfig.dto';
 import { UpdateAppConfigDto } from './dto/update-appconfig.dto';
 import { AppConfig, AppConfigStatus } from './entities/appconfig.entity';
@@ -6,13 +7,22 @@ import { AppConfig, AppConfigStatus } from './entities/appconfig.entity';
 @Injectable()
 export class AppConfigService {
 
-  async findAll() {
+  async findAll(filter?: FilterDto<AppConfig>) {
     try {
-      return await AppConfig.find({
-        order: {
-          id: "DESC"
-        }
-      });
+      if (filter) {
+        const { limit, offset, column, order } = filter
+        return await AppConfig.findAndCount({
+          order: { [column]: order },
+          take: limit,
+          skip: offset,
+        });
+      } else {
+        return await AppConfig.findAndCount({
+          order: { id: "DESC" },
+          take: 100,
+          skip: 0,
+        });
+      }
     } catch (error) {
       console.error(error)
       return error

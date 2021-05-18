@@ -1,5 +1,5 @@
 import { Exclude } from "class-transformer";
-import { BaseEntity, BeforeInsert, BeforeUpdate, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity({ name: "coky_users" })
 export class User extends BaseEntity {
@@ -22,7 +22,7 @@ export class User extends BaseEntity {
   username: string;
 
   @Column({ type: "varchar", length: 50, nullable: false, select: false })
-  password: string;
+  password: string; // Password debe estar encriptado
 
   @Column({ type: "varchar", length: 50, nullable: false, unique: true })
   email: string;
@@ -36,15 +36,21 @@ export class User extends BaseEntity {
   @Column({ type: "int", nullable: false })
   status: number;
 
-  @Column({ type: "datetime", nullable: false })
+  @CreateDateColumn({
+    type: 'datetime',
+    default: () => 'CURRENT_TIMESTAMP',
+  })
   created: Date;
 
-  @Column({ type: "datetime", nullable: true })
+
+  @UpdateDateColumn({
+    type: 'datetime',
+    default: () => 'CURRENT_TIMESTAMP',
+  })
   modified: Date;
 
   @BeforeInsert()
   beforeInsert() {
-    this.created = new Date();
     this.first_name = this.first_name.toLowerCase()
     this.first_lastname = this.first_lastname.toLowerCase()
     this.second_name = this.second_name.toLowerCase()
@@ -55,7 +61,6 @@ export class User extends BaseEntity {
 
   @BeforeUpdate()
   beforeUpdate() {
-    this.modified = new Date();
     this.first_name = this.first_name.toLowerCase()
     this.first_lastname = this.first_lastname.toLowerCase()
     this.second_name = this.second_name.toLowerCase()
