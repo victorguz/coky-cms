@@ -1,8 +1,9 @@
-import { Injectable } from '@nestjs/common';
-import { FilterDto } from 'src/app/core/dtos/filters.dto';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { EmailFilterDto, FilterDto } from 'src/app/core/dtos/filters.dto';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User, UserStatus } from './entities/user.entity';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsersService {
@@ -29,9 +30,36 @@ export class UsersService {
     }
   }
 
+
+
   async findOne(id: number) {
     try {
-      return await User.findOneOrFail();
+      return await User.findOneOrFail(id);
+    } catch (error) {
+      console.error(error)
+      if (error.name == "EntityNotFound") {
+        throw new NotFoundException("Entity not found")
+      }
+      return error
+    }
+  }
+
+  async findOneByEmail(email): Promise<User> {
+    try {
+      return await User.findOne({
+        where: { email }
+      });
+    } catch (error) {
+      console.error(error)
+      return error
+    }
+  }
+
+  async findOneByUsername(_username: string): Promise<User> {
+    try {
+      return await User.findOne({
+        where: { username: _username }
+      });
     } catch (error) {
       console.error(error)
       return error
@@ -41,6 +69,8 @@ export class UsersService {
   async create(createUserDto: CreateUserDto) {
     try {
       const entity = User.create(createUserDto);
+      const encriptedPassword = await bcrypt.hash(entity.password, 15);
+      entity.password = encriptedPassword;
       const saved = await entity.save();
       return await User.findOne(saved.id)
     } catch (error) {
@@ -51,22 +81,30 @@ export class UsersService {
 
   async update(id: number, updateUserDto: UpdateUserDto) {
     try {
-      const entity = await User.findOne(id);
+      const entity = await User.findOneOrFail(id);
       User.merge(entity, updateUserDto);
+      const encriptedPassword = await bcrypt.hash(entity.password, 15);
+      entity.password = encriptedPassword;
       return await entity.save();
     } catch (error) {
       console.error(error)
+      if (error.name == "EntityNotFound") {
+        throw new NotFoundException("Entity not found")
+      }
       return error
     }
   }
 
   async remove(id: number) {
     try {
-      const entity = await User.findOne(id);
+      const entity = await User.findOneOrFail(id);
       entity.status = UserStatus.DESACTIVE;
       return await entity.save();
     } catch (error) {
       console.error(error)
+      if (error.name == "EntityNotFound") {
+        throw new NotFoundException("Entity not found")
+      }
       return error
     }
   }

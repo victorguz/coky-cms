@@ -1,11 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards, SetMetadata, NotFoundException } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { FilterDto } from 'src/app/core/dtos/filters.dto';
+import { EmailFilterDto, FilterDto } from 'src/app/core/dtos/filters.dto';
 import { User } from './entities/user.entity';
+import { ApiKeyGuard } from 'src/app/core/auth/api-key.guard';
+import { Public } from 'src/app/core/auth/decorators/public.decorator';
 
+@UseGuards(ApiKeyGuard)
 @ApiTags("users")
 @Controller('users')
 export class UsersController {
@@ -14,6 +17,7 @@ export class UsersController {
 
   @Get()
   @ApiOperation({ summary: "Find all the users" })
+  @Public()
   findAll(@Query() filter: FilterDto<User>) {
     return this.usersService.findAll(filter);
   }
@@ -24,6 +28,11 @@ export class UsersController {
     return this.usersService.findOne(id);
   }
 
+  @Get()
+  @ApiOperation({ summary: "Find one user by ID" })
+  findOneByEmail(@Query('email') data: EmailFilterDto) {
+    return this.usersService.findOneByEmail(data);
+  }
   @Post()
   @ApiOperation({ summary: "Creates a new user" })
   create(@Body() createUserDto: CreateUserDto) {
@@ -33,7 +42,11 @@ export class UsersController {
   @Patch(':id')
   @ApiOperation({ summary: "Update one user by ID" })
   update(@Param('id') id: number, @Body() updateUserDto: UpdateUserDto) {
-    return this.usersService.update(+id, updateUserDto);
+    const result = this.usersService.update(+id, updateUserDto);
+    if (!result) {
+      throw new NotFoundException("Entity not found")
+    }
+    return result;
   }
 
   @Delete(':id')

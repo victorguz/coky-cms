@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsOptional, IsPositive, Min } from "class-validator";
+import { IsEmail, IsNotEmpty, IsOptional, IsPositive, Min } from "class-validator";
 import { FindManyOptions, FindOneOptions } from "typeorm";
 import { EntityFieldsNames } from "typeorm/common/EntityFieldsNames";
 
@@ -25,4 +25,11 @@ export class FilterDto<T> {
   @IsOptional()
   readonly groupBy: EntityFieldsNames<T>;
 
+}
+
+export class EmailFilterDto {
+
+  @IsEmail()
+  @IsNotEmpty()
+  readonly email: string;
 }
