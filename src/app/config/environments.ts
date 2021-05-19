@@ -36,6 +36,7 @@ export const env = registerAs("config", () => {
     },
     appKey: process.env.APP_KEY,
     appPort: process.env.PORT,
+    jwtSecret: process.env.JWT_SECRET,
   }
 })
 
@@ -56,5 +57,6 @@ export const envConf: ConfigModuleOptions = {
     DB_HOST: Joi.string().required(),
     DB_USERNAME: Joi.string().required(),
     DB_PASSWORD: Joi.string().required(),
+    JWT_SECRET: Joi.string().required(),
   })
 }

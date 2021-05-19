@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsOptional, IsPositive, Min } from "class-validator";
+import { IsEmail, IsInt, IsNotEmpty, IsOptional, IsPositive, Min } from "class-validator";
 import { FindManyOptions, FindOneOptions } from "typeorm";
 import { EntityFieldsNames } from "typeorm/common/EntityFieldsNames";
 
@@ -20,4 +20,14 @@ export class AuthByUsernameDto {
   @IsEmail()
   @IsNotEmpty()
   readonly password: string;
+}
+
+
+export class TokenDto {
+
+  @IsInt()
+  readonly role: number;
+
+  @IsPositive()
+  readonly sub: number;
 }

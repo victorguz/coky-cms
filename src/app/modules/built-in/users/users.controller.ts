@@ -4,25 +4,26 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { EmailFilterDto, FilterDto } from 'src/app/core/dtos/filters.dto';
-import { User } from './entities/user.entity';
-import { ApiKeyGuard } from 'src/app/core/auth/api-key.guard';
-import { Public } from 'src/app/core/auth/decorators/public.decorator';
+import { User, UserRoles } from './entities/user.entity';
+import { ApiKeyGuard } from 'src/app/core/auth/guardians/api-key.guard';
+import { AllowedRoles } from 'src/app/core/auth/decorators/auth.decorator';
+import { AuthenticationGuardian } from 'src/app/core/auth/guardians/auth.guard';
 
-@UseGuards(ApiKeyGuard)
+@UseGuards(AuthenticationGuardian)
 @ApiTags("users")
 @Controller('users')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) { }
 
+  constructor(private readonly usersService: UsersService) { }
 
   @Get()
   @ApiOperation({ summary: "Find all the users" })
-  @Public()
   findAll(@Query() filter: FilterDto<User>) {
     return this.usersService.findAll(filter);
   }
 
   @Get(':id')
+  @AllowedRoles()
   @ApiOperation({ summary: "Find one user by ID" })
   findOne(@Param('id') id: number) {
     return this.usersService.findOne(id);
@@ -54,4 +55,5 @@ export class UsersController {
   remove(@Param('id') id: number) {
     return this.usersService.remove(id);
   }
+
 }

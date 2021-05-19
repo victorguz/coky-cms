@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Transform } from "class-transformer";
-import { IsEmail, IsInt, IsJSON, IsOptional, IsString, Length } from "class-validator";
+import { IsEmail, IsInt, IsJSON, IsOptional, IsString, Length, Max, Min } from "class-validator";
+import { UserLongRole } from "../entities/user.entity";
 
 export class CreateUserDto {
 
@@ -45,6 +45,8 @@ export class CreateUserDto {
   readonly data: any;
 
   @IsInt()
+  @Min(UserLongRole.MIN_ROLE)
+  @Max(UserLongRole.MAX_ROLE)
   @ApiProperty()
   readonly role: number;
 

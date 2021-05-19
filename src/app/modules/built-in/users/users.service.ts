@@ -4,6 +4,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User, UserStatus } from './entities/user.entity';
 import * as bcrypt from 'bcrypt';
+import { Helpers } from 'src/app/core/Helpers';
 
 @Injectable()
 export class UsersService {
@@ -25,7 +26,6 @@ export class UsersService {
         });
       }
     } catch (error) {
-      console.error(error)
       return error
     }
   }
@@ -36,7 +36,6 @@ export class UsersService {
     try {
       return await User.findOneOrFail(id);
     } catch (error) {
-      console.error(error)
       if (error.name == "EntityNotFound") {
         throw new NotFoundException("Entity not found")
       }
@@ -50,7 +49,6 @@ export class UsersService {
         where: { email }
       });
     } catch (error) {
-      console.error(error)
       return error
     }
   }
@@ -61,7 +59,6 @@ export class UsersService {
         where: { username: _username }
       });
     } catch (error) {
-      console.error(error)
       return error
     }
   }
@@ -69,12 +66,11 @@ export class UsersService {
   async create(createUserDto: CreateUserDto) {
     try {
       const entity = User.create(createUserDto);
-      const encriptedPassword = await bcrypt.hash(entity.password, 15);
+      const encriptedPassword = await Helpers.encode(entity.password);
       entity.password = encriptedPassword;
       const saved = await entity.save();
       return await User.findOne(saved.id)
     } catch (error) {
-      console.error(error)
       return error
     }
   }
@@ -83,11 +79,10 @@ export class UsersService {
     try {
       const entity = await User.findOneOrFail(id);
       User.merge(entity, updateUserDto);
-      const encriptedPassword = await bcrypt.hash(entity.password, 15);
+      const encriptedPassword = await Helpers.encode(entity.password);
       entity.password = encriptedPassword;
       return await entity.save();
     } catch (error) {
-      console.error(error)
       if (error.name == "EntityNotFound") {
         throw new NotFoundException("Entity not found")
       }
@@ -101,7 +96,6 @@ export class UsersService {
       entity.status = UserStatus.DESACTIVE;
       return await entity.save();
     } catch (error) {
-      console.error(error)
       if (error.name == "EntityNotFound") {
         throw new NotFoundException("Entity not found")
       }

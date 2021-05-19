@@ -24,7 +24,6 @@ export class AppConfigService {
         });
       }
     } catch (error) {
-      console.error(error)
       return error
     }
   }
@@ -33,7 +32,6 @@ export class AppConfigService {
     try {
       return await AppConfig.findOneOrFail(id);
     } catch (error) {
-      console.error(error)
       if (error.name == "EntityNotFound") {
         throw new NotFoundException("Entity not found")
       }
@@ -46,7 +44,6 @@ export class AppConfigService {
       const entity = AppConfig.create(createAppConfigDto);
       return await entity.save();
     } catch (error) {
-      console.error(error)
       return error
     }
   }
@@ -57,7 +54,6 @@ export class AppConfigService {
       AppConfig.merge(entity, updateAppConfigDto);
       return await entity.save();
     } catch (error) {
-      console.error(error)
       if (error.name == "EntityNotFound") {
         throw new NotFoundException("Entity not found")
       }
@@ -71,7 +67,6 @@ export class AppConfigService {
       entity.status = AppConfigStatus.DESACTIVE;
       return await entity.save();
     } catch (error) {
-      console.error(error)
       if (error.name == "EntityNotFound") {
         throw new NotFoundException("Entity not found")
       }

@@ -2,7 +2,7 @@ import { CanActivate, ExecutionContext, Inject, Injectable, UnauthorizedExceptio
 import { Observable } from 'rxjs';
 import { Request } from 'express';
 import { Reflector } from '@nestjs/core';
-import { IS_PUBLIC_KEY } from './decorators/public.decorator';
+import { IS_PUBLIC_KEY } from '../decorators/auth.decorator';
 import { env } from 'src/app/config/environments';
 import { ConfigType } from '@nestjs/config';
 

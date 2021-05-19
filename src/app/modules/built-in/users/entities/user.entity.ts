@@ -1,5 +1,29 @@
 import { Exclude } from "class-transformer";
+import { Max, Min } from "class-validator";
 import { BaseEntity, BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+
+
+export enum UserLongRole {
+  MIN_ROLE = 0,
+  MAX_ROLE = 2,
+}
+
+export enum UserStatus {
+  DESACTIVE = 0,
+  ACTIVE = 1,
+}
+
+export enum UserRoles {
+  ROOT = UserLongRole.MIN_ROLE,
+  ADMIN = 1,
+  GENERAL = UserLongRole.MAX_ROLE,
+}
+
+export enum UserRoleNames {
+  ROOT = "Main user",
+  ADMIN = "Admin user",
+  GENERAL = "General user",
+}
 
 @Entity({ name: "coky_users" })
 export class User extends BaseEntity {
@@ -21,7 +45,8 @@ export class User extends BaseEntity {
   @Column({ type: "varchar", length: 50, nullable: false, unique: true })
   username: string;
 
-  @Column({ type: "text", nullable: false, select: false })
+  @Exclude()
+  @Column({ type: "text", nullable: false, })
   password: string;
 
   @Column({ type: "varchar", length: 50, nullable: false, unique: true })
@@ -30,6 +55,8 @@ export class User extends BaseEntity {
   @Column({ type: "json", nullable: true })
   data: any;
 
+  @Min(UserLongRole.MIN_ROLE)
+  @Max(UserLongRole.MAX_ROLE)
   @Column({ type: "int", nullable: false })
   role: number;
 
@@ -72,13 +99,3 @@ export class User extends BaseEntity {
 
 }
 
-export enum UserStatus {
-  DESACTIVE = 0,
-  ACTIVE = 1,
-}
-
-export enum UserRole {
-  ROOT = 0,
-  ADMIN = 1,
-  GENERAL = 2,
-}
