@@ -6,6 +6,10 @@ import { User } from 'src/app/modules/built-in/users/entities/user.entity';
 import { AuthService } from './auth.service';
 import { LOCAL_STRATEGY_NAME } from './strategies/local.strategy';
 
+/**
+ * AuthController Controller for the user verification
+ * @author Victorguz <victorguzber@gmail.com> May-2021
+ */
 @ApiTags("auth")
 @Controller('auth')
 export class AuthController {
@@ -17,7 +21,7 @@ export class AuthController {
   @ApiOperation({ summary: "Login with username. Password is required." })
   login(@Req() request: Request) {
     const user = User.create(request.user);
-    user.password = "[PROTECTED]";
+    user.password = "[PROTECTED]"; //hide password if it is returned
     return this.authService.generateJWT(user);
   }
 

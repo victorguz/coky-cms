@@ -1,12 +1,14 @@
 import { ExecutionContext, Inject, Injectable, UnauthorizedException } from "@nestjs/common";
 import { Reflector } from "@nestjs/core";
 import { AuthGuard } from "@nestjs/passport";
-import { Observable } from "rxjs";
 import { UserRoles } from "src/app/modules/built-in/users/entities/user.entity";
-import { IS_PUBLIC_KEY, HAS_USER_ROLE } from "../decorators/auth.decorator";
+import { HAS_USER_ROLE } from "../decorators/auth.decorator";
 import { TokenDto } from "../dtos/auth.dto";
 import { JWT_STRATEGY_NAME } from "../strategies/jwt.strategy";
-
+/**
+ * AuthenticationGuardian
+ * @author Victorguz <victorguzber@gmail.com> May-2021
+ */
 @Injectable()
 export class AuthenticationGuardian extends AuthGuard(JWT_STRATEGY_NAME) {
 

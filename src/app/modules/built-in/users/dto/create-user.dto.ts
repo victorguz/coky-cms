@@ -1,7 +1,10 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsEmail, IsInt, IsJSON, IsOptional, IsString, Length, Max, Min } from "class-validator";
 import { UserLongRole } from "../entities/user.entity";
-
+/**
+ * CreateUserDto
+ * @author Victorguz <victorguzber@gmail.com> May-2021
+ */
 export class CreateUserDto {
 
   @IsString()

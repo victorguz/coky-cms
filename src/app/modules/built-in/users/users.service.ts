@@ -3,9 +3,12 @@ import { EmailFilterDto, FilterDto } from 'src/app/core/dtos/filters.dto';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User, UserStatus } from './entities/user.entity';
-import * as bcrypt from 'bcrypt';
 import { Helpers } from 'src/app/core/Helpers';
 
+/**
+ * UsersService
+ * @author Victorguz <victorguzber@gmail.com> May-2021
+ */
 @Injectable()
 export class UsersService {
 

@@ -4,11 +4,14 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { EmailFilterDto, FilterDto } from 'src/app/core/dtos/filters.dto';
-import { User, UserRoles } from './entities/user.entity';
-import { ApiKeyGuard } from 'src/app/core/auth/guardians/api-key.guard';
+import { User } from './entities/user.entity';
 import { AllowedRoles } from 'src/app/core/auth/decorators/auth.decorator';
 import { AuthenticationGuardian } from 'src/app/core/auth/guardians/auth.guard';
 
+/**
+ * UsersController
+ * @author Victorguz <victorguzber@gmail.com> May-2021
+ */
 @UseGuards(AuthenticationGuardian)
 @ApiTags("users")
 @Controller('users')

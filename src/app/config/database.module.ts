@@ -2,7 +2,10 @@ import { ConfigType } from "@nestjs/config";
 import { TypeOrmModuleAsyncOptions, TypeOrmModuleOptions } from "@nestjs/typeorm";
 import { NestMysql2AsyncOptions, NestMysql2Module, NestMysql2Options, NestMysql2OptionsFactory } from "mysql2-nestjs";
 import { env, isProdMode } from "./environments";
-
+/**
+ * Initial framework database config
+ * @author Victorguz <victorguzber@gmail.com> May-2021
+ */
 export module Database {
 
   export const mysqlConfig: NestMysql2AsyncOptions = {

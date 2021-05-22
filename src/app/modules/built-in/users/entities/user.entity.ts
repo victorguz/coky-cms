@@ -3,28 +3,49 @@ import { Max, Min } from "class-validator";
 import { BaseEntity, BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 
-export enum UserLongRole {
-  MIN_ROLE = 0,
-  MAX_ROLE = 2,
-}
 
+/**
+ * User status
+ * @author Victorguz <victorguzber@gmail.com> May-2021
+ */
 export enum UserStatus {
   DESACTIVE = 0,
   ACTIVE = 1,
 }
 
+/**
+ * User roles - Update UserLongRole and UserRoleNames on new role
+ * @author Victorguz <victorguzber@gmail.com> May-2021
+ */
 export enum UserRoles {
-  ROOT = UserLongRole.MIN_ROLE,
+  ROOT = 0,
   ADMIN = 1,
-  GENERAL = UserLongRole.MAX_ROLE,
+  GENERAL = 2,
 }
 
+/**
+ * Max and min role - Update on new role
+ * @author Victorguz <victorguzber@gmail.com> May-2021
+ */
+export enum UserLongRole {
+  MIN_ROLE = UserRoles.ROOT,
+  MAX_ROLE = UserRoles.GENERAL,
+}
+
+/**
+ * User role names
+ * @author Victorguz <victorguzber@gmail.com> May-2021
+ */
 export enum UserRoleNames {
   ROOT = "Main user",
   ADMIN = "Admin user",
   GENERAL = "General user",
 }
 
+/**
+ * User entity
+ * @author Victorguz <victorguzber@gmail.com> May-2021
+ */
 @Entity({ name: "coky_users" })
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn()

@@ -2,20 +2,26 @@ import { ConfigModuleOptions, registerAs } from "@nestjs/config"
 import * as Joi from "joi"
 
 /**
- * Para inyectar el modulo de las variables de entorno
+ * Environment vars config
+ * @author Victorguz <victorguzber@gmail.com> May-2021
  */
-// import { ConfigType } from '@nestjs/config'; // 👈 Import ConfigType
-// import {env} from './config'; // 👈 config file
-// @Inject(env.KEY) private configService: ConfigType < typeof env >,
 
 
 /**
- * Define el estado de producción
+ * Para inyectar el modulo de las variables de entorno (env)
+ * constructor(@Inject(env.KEY) private configService: ConfigType <typeof env>){}
+ */
+
+
+/**
+ * Environment mode
+ * @author Victorguz <victorguzber@gmail.com> May-2021
  */
 export const isProdMode = process.env.NODE_ENV == "production" ? true : false;
 
 /**
- * Variable con todos los nombres de archivos de los ambientes de desarrollo
+ * Available environments
+ * @author Victorguz <victorguzber@gmail.com> May-2021
  */
 export const environments = {
   dev: ".e-dev.env",
@@ -23,7 +29,8 @@ export const environments = {
 }
 
 /**
- * Manejar tipado en el ambiente de desarrollo
+ * Typing the environment vars
+ * @author Victorguz <victorguzber@gmail.com> May-2021
  */
 export const env = registerAs("config", () => {
   return {
@@ -43,7 +50,8 @@ export const env = registerAs("config", () => {
 
 
 /**
- * Definir el ambiente de desarrollo
+ * Typing and requiring the environment vars
+ * @author Victorguz <victorguzber@gmail.com> May-2021
  */
 export const envConf: ConfigModuleOptions = {
   envFilePath: isProdMode ? environments.prod : environments.dev,

@@ -1,5 +1,6 @@
 /**
- * Clase con las configuraciones iniciales del framework
+ * Initial framework config
+ * @author Victorguz <victorguzber@gmail.com> May-2021
  */
 export class Config {
 
