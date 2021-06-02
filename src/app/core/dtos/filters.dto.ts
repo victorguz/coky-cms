@@ -23,8 +23,7 @@ export class FilterDto<T> {
 
   @IsNotEmpty()
   @IsOptional()
-  readonly groupBy: EntityFieldsNames<T>;
-
+  readonly value: string;
 }
 
 export class EmailFilterDto {

@@ -23,7 +23,7 @@ export class AuthenticationGuardian extends AuthGuard(JWT_STRATEGY_NAME) {
 
     //La ruta solicita un rol específico
     if (roles && roles.length > 0 && request.user) {
-      const user = request.user as TokenDto;
+      const user: TokenDto = request.user;
       const isValidRole = roles.some((role) => { role === user.role });
       const isValidToken = await super.canActivate(context).valueOf();
 

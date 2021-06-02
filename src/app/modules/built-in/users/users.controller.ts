@@ -25,6 +25,12 @@ export class UsersController {
     return this.usersService.findAll(filter);
   }
 
+  @Get("by")
+  @ApiOperation({ summary: "Find all the users" })
+  findBy(@Query() filter: FilterDto<User>) {
+    return this.usersService.findAll(filter);
+  }
+
   @Get(':id')
   @AllowedRoles()
   @ApiOperation({ summary: "Find one user by ID" })

@@ -15,11 +15,12 @@ export class UsersService {
   async findAll(filter?: FilterDto<User>) {
     try {
       if (filter) {
-        const { limit, offset, column, order } = filter
+        const { limit, offset, column, order, value } = filter
         return await User.findAndCount({
           order: { [column]: order },
           take: limit,
           skip: offset,
+          where: column && value ? { [column]: value } : null
         });
       } else {
         return await User.findAndCount({

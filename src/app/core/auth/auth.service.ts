@@ -45,7 +45,7 @@ export class AuthService {
     if (!isMatch) {
       throw new BadRequestException(`Incorrect password`)
     }
-    return null
+    return user
   }
 
   /**

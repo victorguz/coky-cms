@@ -116,7 +116,5 @@ export class User extends BaseEntity {
     this.username = this.username.toLowerCase()
     this.email = this.email.toLowerCase()
   }
-
-
 }
 
