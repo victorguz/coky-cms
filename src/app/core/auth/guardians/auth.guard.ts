@@ -1,3 +1,4 @@
+import { ForbiddenException } from "@nestjs/common";
 import { ExecutionContext, Inject, Injectable, UnauthorizedException } from "@nestjs/common";
 import { Reflector } from "@nestjs/core";
 import { AuthGuard } from "@nestjs/passport";
@@ -32,7 +33,7 @@ export class AuthenticationGuardian extends AuthGuard(JWT_STRATEGY_NAME) {
         throw new UnauthorizedException("This session expired, please login again")
       }
       if (!isValidRole) {
-        throw new UnauthorizedException("Unexpected role for this request")
+        throw new ForbiddenException("Unexpected role for this request")
       }
       //El rol es válido
       return isValidRole

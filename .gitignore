@@ -36,7 +36,7 @@ lerna-debug.log*
 # Node
 package-lock.json
 
-# Env
+# Ignore Env
 
-*.env
+# *.env
 

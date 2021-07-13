@@ -5,7 +5,7 @@ export class AppConfig extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: "varchar", length: 50, nullable: false })
+  @Column({ type: "varchar", length: 50, nullable: false, unique: true })
   name: string;
 
   @Column({ type: "json", nullable: true })
